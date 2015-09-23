@@ -13,7 +13,7 @@
 
 O Cashier é um plugin para o Vagrant que permite a utilização de cache de provisionamente, permitindo maior rapidez ao efetuar futuros provisionamentos.
 
-1. No terminal, vá para o diretório onde se encontra o projeto (`$ cd caminho\para\projeto`)
+1. No terminal, vá para o diretório onde se encontra o projeto (`$ cd caminho_do_projeto`)
 2. Na raíz do projeto (ou na pasta onde se encontra o arquivo Vagrantfile) execute o seguinte comando:
 `vagrant plugin install vagrant-cachier`
 
