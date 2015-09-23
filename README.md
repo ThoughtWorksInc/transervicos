@@ -29,7 +29,7 @@ Para efetuar o provisionamento, execute os seguintes comandos:
 
 Para utilizar o Vagrant, execute os seguintes comandos:
 
-1. `cd caminho\para\projeto`
+1. `cd caminho_do_projeto`
 2. `vagrant up`
 3. `vagrant ssh` (entra na máquina e abre o terminal do Linux)
 4. `cd /vagrant/transervicos` 
