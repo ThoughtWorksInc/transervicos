@@ -1,28 +1,36 @@
-== README
+# Transerviços
+--------------------
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Primeiros passos
 
-Things you may want to cover:
+#### Instalando o Vagrant e o Ansible
 
-* Ruby version
+1. Instale o [Ansible](http://www.ansible.com "ansible")
+2. Instale o [Vagrant](http://www.vagrantup.com/ "vagrant")
+3. Instale o [VirtualBox](https://www.virtualbox.org/wiki/Downloads "virtualbox")
 
-* System dependencies
+#### Instalando o Vagrant Cashier
 
-* Configuration
+O Cashier é um plugin para o Vagrant que permite a utilização de cache de provisionamente, permitindo maior rapidez ao efetuar futuros provisionamentos.
 
-* Database creation
+1. No terminal, vá para o diretório onde se encontra o projeto (`$ cd caminho\para\projeto`)
+2. Na raíz do projeto (ou na pasta onde se encontra o arquivo Vagrantfile) execute o seguinte comando:
+`vagrant plugin install vagrant-cachier`
 
-* Database initialization
+#### Provisionando o vagrant
 
-* How to run the test suite
+Para efetuar o provisionamento, execute os seguintes comandos: 
 
-* Services (job queues, cache servers, search engines, etc.)
+1. `cd caminho_do_projeto`
+2. `cd vagrant up`
+3. `vagrant provision` (A primeira execução será um pouco lenta)
 
-* Deployment instructions
+#### Utilizando o Vagrant
 
-* ...
+Para utilizar o Vagrant, execute os seguintes comandos:
 
+1. `cd caminho\para\projeto`
+2. `vagrant up`
+3. `vagrant ssh` (entra na máquina e abre o terminal do Linux)
+4. `cd /vagrant/transervicos` 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
