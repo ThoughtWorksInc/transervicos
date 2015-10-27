@@ -1,0 +1,8 @@
+- name: Add postgresql apt repository
+  apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' state=present
+
+- name: Install postgresql
+  apt: "pkg={{ item }} force=yes state=installed"
+  with_items:
+   - postgresql-9.4
+   - postgresql-server-dev-9.4
