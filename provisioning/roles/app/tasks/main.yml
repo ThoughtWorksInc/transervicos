@@ -1,3 +1,6 @@
+- name: Install patch library to build nokogiri gem
+  apt: "pkg=patch state=installed"
+
 - name: install ruby dependencies
   command: bash -lc 'bundle install' chdir={{ base_path }}
   sudo_user: vagrant

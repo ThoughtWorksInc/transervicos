@@ -4,6 +4,7 @@
 - name: Install packages required to build ruby (Debian).
   apt: "pkg={{ item }} state=installed"
   with_items:
+   - make
    - zlib1g-dev
    - libssl-dev
    - libyaml-dev
