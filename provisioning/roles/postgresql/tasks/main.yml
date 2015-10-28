@@ -1,8 +1,38 @@
 - name: Add postgresql apt repository
   apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' state=present
 
+- name: Ensure correct locale is set
+  command: /usr/sbin/update-locale LANG={{ locale }} LC_ALL={{ locale }}
+
 - name: Install postgresql
   apt: "pkg={{ item }} force=yes state=installed"
   with_items:
    - postgresql-9.4
    - postgresql-server-dev-9.4
+   - python-psycopg2
+   - libpq-dev
+
+- name: Create user vagrant
+  postgresql_user: name=vagrant
+                   role_attr_flags=CREATEDB
+                   state=present
+  become_user: postgres
+
+
+- name: Create development database
+  postgresql_db: name=transervicos_development
+                 encoding='UTF-8'
+                 lc_collate='en_US.UTF-8'
+                 lc_ctype='en_US.UTF-8'
+                 template='template0'
+                 owner='vagrant'
+  become_user: postgres
+
+- name: Create test database
+  postgresql_db: name=transervicos_test
+                 encoding='UTF-8'
+                 lc_collate='en_US.UTF-8'
+                 lc_ctype='en_US.UTF-8'
+                 template='template0'
+                 owner='vagrant'
+  become_user: postgres
