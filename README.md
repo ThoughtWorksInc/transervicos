@@ -33,4 +33,5 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 2. `vagrant up`
 3. `vagrant ssh` (entra na máquina e abre o terminal do Linux)
 4. `cd /vagrant/transervicos` 
-
+5. `rake start:server` (inicia o servidor)
+6. Abra seu browser e acesse `http:localhost:8080`
