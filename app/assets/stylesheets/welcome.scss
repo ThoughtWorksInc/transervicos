@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .top {
-	background-image: url("header.jpg");
+	background-image: image-url("header.jpg");
 	
 	header {
 		padding: 40px;
@@ -97,15 +97,15 @@
 		}
 		
 		&.brazil h1:before {
-			background: url("brazil_flag.svg") no-repeat 0 0;
+			background: image-url("brazil_flag.svg") no-repeat 0 0;
 		}
 		
 		&.rights h1:before {
-			background: url("scale.svg") no-repeat 0 0;
+			background: image-url("scale.svg") no-repeat 0 0;
 		}
 		
 		&.change h1:before {
-			background: url("people_in_love.svg") no-repeat 0 0;
+			background: image-url("people_in_love.svg") no-repeat 0 0;
 		}
 	}
 }
