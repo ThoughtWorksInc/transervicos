@@ -1,3 +1,111 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top {
+	background-image: url("header.jpg");
+	
+	header {
+		padding: 40px;
+	
+		ul {
+			list-style: none;
+			display: flex;
+			justify-content: flex-end;
+		
+			li {
+				padding-right: 35px;
+			
+				a {
+					text-transform: uppercase;
+					font-family: Passion One;
+					font-size: 24px;
+					font-weight: 400;
+					text-decoration: none;
+					color: white;
+				}
+			}
+		}
+	}
+
+	.title {
+		padding: 60px 0;
+		color: white;
+		text-align: center;
+
+		h1 {
+			font-family: Passion One;
+			font-weight: 900;
+			font-size: 100px;
+			text-transform: uppercase;
+			margin: 0;
+		}
+	
+		p {
+			font-family: Bitter;
+			font-weight: 400;
+			font-style: italic;
+			font-size: 30px;
+			line-height: 120%;
+			margin: auto;
+			margin-top: 35px;
+			width: 800px;
+		}
+	}
+}
+
+.topics {
+	display: flex;
+	align-content: space-between;
+
+	section {
+		flex: 1;
+		padding: 20px;
+		text-align: center;
+		
+		h1 {
+			font-family: Passion One;
+			font-weight: 700;
+			font-size: 24px;
+			color: #2d3033;
+			text-transform: uppercase;
+			padding: 0 60px;
+		}
+	
+		p {
+			font-family: Nunito;
+			font-weight: 300;
+			font-size: 16px;
+			color: #6c7279;
+			line-height: 120%;
+		}
+		
+		a {
+			font-family: Passion One;
+			font-weight: 300;
+			font-size: 18px;
+			color: #cc2c71;
+		}
+		
+		h1:before {
+			display: block;
+			margin: 15px auto;
+			content: "";
+			width: 60px;
+			height: 60px;
+			background-size: 100%;			
+		}
+		
+		&.brazil h1:before {
+			background: url("brazil_flag.svg") no-repeat 0 0;
+		}
+		
+		&.rights h1:before {
+			background: url("scale.svg") no-repeat 0 0;
+		}
+		
+		&.change h1:before {
+			background: url("people_in_love.svg") no-repeat 0 0;
+		}
+	}
+}
