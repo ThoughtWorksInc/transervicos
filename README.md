@@ -22,7 +22,7 @@ O Cashier é um plugin para o Vagrant que permite a utilização de cache de pro
 Para efetuar o provisionamento, execute os seguintes comandos: 
 
 1. `cd caminho_do_projeto`
-2. `cd vagrant up`
+2. `vagrant up`
 3. `vagrant provision` (A primeira execução será um pouco lenta)
 
 #### Utilizando o Vagrant
