@@ -10,7 +10,7 @@ RSpec.describe ApplicationController, type: :controller do
 
   describe "After sign-up" do
     it "redirects to the dashboard page" do
-      expect(controller.after_sign_in_path_for(User.new)).to eq(dashboard_index_path)
+      expect(controller.after_sign_in_path_for(User.new)).to eq(dashboard_path)
     end
   end
 
