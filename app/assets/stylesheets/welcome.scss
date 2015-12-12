@@ -115,14 +115,62 @@ html body{
 }
 
 .bottom {
-	background: #ca3071;
+
+	.bottom-site-nav {
+		background: #3a3f63;
+		
+		.container {
+		   height: auto;
+		   overflow: hidden;
+		}
+
+		.bottom-title {
+			float: left;
+			width: 30%;
+			padding: 10px 10px;
+			text-align: center;
+			font-family: Passion One;
+			font-size: 40px;
+			color: #ffffff;
+		}
+
+		.bottom-sitemap {
+			float: right;
+			width: 40%;
+			padding: 10px 10px;
+			text-align: left;
+			font-family: Passion One;
+			font-size: 20px;
+			color: #ffffff;
+			
+			ul {
+				list-style: none;
+				display: block;
+
+				li {
+					padding-right: 10px;
+
+					a {
+						text-transform: uppercase;
+						font-family: Passion One;
+						font-size: 20px;
+						text-decoration: none;
+						color: white;
+					}
+				}
+			}
+			
+		}
+
+	}
+
 	.footer {
+		background: #ca3071;
 		padding: 10px 10px;
 		text-align: center;
 		font-family: Open Sans;
 		font-size: 14px;
 		color: #ffffff;
-
 	}
 
 }
