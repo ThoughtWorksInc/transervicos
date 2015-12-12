@@ -1,6 +1,10 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html body{
+	margin: 0 0;
+}
+
 
 .top {
 	background-image: image-url("header.jpg");
@@ -108,4 +112,17 @@
 			background: image-url("people_in_love.svg") no-repeat 0 0;
 		}
 	}
+}
+
+.bottom {
+	background: #ca3071;
+	.footer {
+		padding: 10px 10px;
+		text-align: center;
+		font-family: Open Sans;
+		font-size: 14px;
+		color: #ffffff;
+
+	}
+
 }
