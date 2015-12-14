@@ -1,5 +1,6 @@
 # Transerviços
 --------------------
+[![Build Status](https://snap-ci.com/ThoughtWorksInc/transervicos/branch/master/build_image)](https://snap-ci.com/ThoughtWorksInc/transervicos/branch/master)
 
 ## Primeiros passos
 
