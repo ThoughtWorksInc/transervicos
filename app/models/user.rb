@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   validate :name_presence
 
+  validates :terms_of_service, acceptance: true
+
   def name_presence
     if social_name.blank? and civil_name.blank?
         errors.add(:_, "É preciso informar ao menos um nome.")

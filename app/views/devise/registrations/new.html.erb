@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :social_name %><br />
-    <%= f.text_field :social_name %>
+    <%= f.text_field :social_name, autofocus: true %>
   </div>
 
   <div class="field">
@@ -43,7 +43,12 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :terms_of_service %><br />
+    <%= f.check_box :terms_of_service %>
   </div>
 
   <div class="actions">
