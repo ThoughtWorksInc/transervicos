@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validate :age
 
   validates :terms_of_service, acceptance: true
+  validates :username, uniqueness: true
 
   def name_presence
     if social_name.blank? and civil_name.blank?
@@ -18,15 +19,12 @@ class User < ActiveRecord::Base
   def age
     today = Date.current()
 
-    puts birth_date
-    puts birth_date.class
-
     if birth_date.blank?
         errors.add(:__, "É preciso informar uma data de nascimento.")
         return
     end
 
-    if (birth_date + 18.years) < today
+    if (birth_date + 18.years) > today
         errors.add(:_, "É preciso ser maior de idade.")
         return
     end
