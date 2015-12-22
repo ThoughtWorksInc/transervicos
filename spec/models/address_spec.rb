@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	it "belongs to a service" do 
+  	address = FactoryGirl.create(:address)
+  	expect(address).to belong_to(:service)
+  end
 end

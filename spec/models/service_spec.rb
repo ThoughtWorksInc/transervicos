@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Service, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has one address" do 
+  	service = FactoryGirl.create(:service)
+  	expect(service).to have_one(:address)
+  end
 end

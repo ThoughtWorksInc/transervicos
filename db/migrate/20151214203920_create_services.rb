@@ -4,7 +4,7 @@ class CreateServices < ActiveRecord::Migration
       t.string :area
       t.string :subarea
       t.string :name
-      t.text :description
+      t.text   :description
       t.string :phone
 
       t.timestamps null: false
