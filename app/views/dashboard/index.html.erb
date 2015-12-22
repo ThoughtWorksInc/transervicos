@@ -1,2 +1,3 @@
 <h1>Seja bem vindo <%= current_user.email %></h1>
+<p><%= link_to 'Cadastrar novo serviço', new_service_path %></p>
 <p><%= link_to 'Sair', destroy_user_session_path, :method => :delete %></p>
