@@ -16,6 +16,7 @@ class ServicesController < ApplicationController
   # GET /services/new
   def new
     @service = Service.new
+    @address = @service.build_address
   end
 
   # GET /services/1/edit
@@ -70,6 +71,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:area, :subarea, :name, :description, :phone)
+      params.require(:service).permit(:area, :subarea, :name, :description, :phone, address_attributes: [:id, :street, :number, :complement, :neighborhood, :city, :state])
     end
 end

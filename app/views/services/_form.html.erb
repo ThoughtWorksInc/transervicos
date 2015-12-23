@@ -31,6 +31,34 @@
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
+
+  <%= f.fields_for :address do |a| %>
+    <div class="field">
+      <%= a.label :street %><br>
+      <%= a.text_field :street %>
+    </div>
+    <div class="field">
+      <%= a.label :number %><br>
+      <%= a.text_field :number %>
+    </div>
+    <div class="field">
+      <%= a.label :complement %><br>
+      <%= a.text_field :complement %>
+    </div>
+    <div class="field">
+      <%= a.label :neighborhood %><br>
+      <%= a.text_field :neighborhood %>
+    </div>
+    <div class="field">
+      <%= a.label :city %><br>
+      <%= a.text_field :city %>
+    </div>
+    <div class="field">
+      <%= a.label :state %><br>
+      <%= a.text_field :state %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
