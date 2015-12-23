@@ -23,10 +23,36 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe "POST #create" do
-    context "with valid params" do
+    
+    context "when logged in" do
+
+      before :each do 
+        sign_in
+      end
+
+      it "creates a new service in database" do  
+        expect { post :create, service: attributes_with_foreign_keys(:service) }.to change{Service.count}.by(1)
+      end
+
+      it "creates a new address in database" do 
+        expect { post :create, service: attributes_with_foreign_keys(:service) }.to change{Address.count}.by(1)
+      end
     end
 
-    context "with invalid params" do
+    context "when not logged in" do
+
+      before :each do 
+        sign_in nil
+      end
+
+      it "does not change service database" do  
+        expect { post :create, service: { area: "ares" }}.not_to change{Service.count}
+      end
+
+      it "does not change address database" do 
+        expect { post :create, service: { area: "ares", address_attributes: { street: "street" }}}.not_to change{Address.count}
+      end
+
     end
   end
 
