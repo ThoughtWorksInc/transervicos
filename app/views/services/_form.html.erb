@@ -1,4 +1,4 @@
-<%= form_for(@service) do |f| %>
+<%= simple_form_for @service do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
@@ -10,54 +10,27 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.input :name, label: 'Nome', required: true %>  
+  <%= f.input :description, label: 'Descrição', required: true %>  
+  <%= f.input :phone, label: 'Telefone', required: true %>  
+  
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, required: true %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, required: true %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone, required: true %>
-  </div>
+  <%= f.simple_fields_for :address do |a| %>
 
-  <%= f.fields_for :address do |a| %>
-    <div class="field">
-      <%= a.label :street %><br>
-      <%= a.text_field :street, required: true %>
-    </div>
-    <div class="field">
-      <%= a.label :number %><br>
-      <%= a.text_field :number, required: true %>
-    </div>
-    <div class="field">
-      <%= a.label :complement %><br>
-      <%= a.text_field :complement %>
-    </div>
-    <div class="field">
-      <%= a.label :neighborhood %><br>
-      <%= a.text_field :neighborhood, required: true %>
-    </div>
-    <div class="field">
-      <%= a.label :city %><br>
-      <%= a.text_field :city, required: true %>
-    </div>
-    <div class="field">
-      <%= a.label :state %><br>
-      <%= a.text_field :state, required: true %>
-    </div>
+    <%= a.input :street, label: 'Rua', required: true %>  
+    <%= a.input :number, label: 'Número', required: true %>  
+    <%= a.input :complement, label: 'Complemento' %>  
+    <%= a.input :neighborhood, label: 'Bairro', required: true %>  
+    <%= a.input :city, label: 'Cidade', required: true %>  
+    <%= a.input :state, label: 'Estado', required: true %>
   <% end %>
 
-  <%= f.fields_for :subarea do |s| %>
-    <%= s.collection_select "area", Area.all, :id, :area, {:prompt => 'Choose an area'}, {:required => true} %><br>
+  <%= f.simple_fields_for :subarea do |s| %>
+    <%= s.input :area_id, collection: Area.all, label_method: :area, required: true %>  
   <% end %>
 
-  <%= f.collection_select :subarea_id, Subarea.all, :id, :subarea, {:prompt => 'Choose a subarea'}, {:required => true}%>
+  <%= f.input :subarea_id, collection: Subarea.all, label_method: :subarea, required: true %>  
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Cadastrar Serviço" %>
 <% end %>
