@@ -12,14 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :area %><br>
-    <%= f.text_field :area %>
-  </div>
-  <div class="field">
-    <%= f.label :subarea %><br>
-    <%= f.text_field :subarea %>
-  </div>
-  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
@@ -47,17 +39,23 @@
     </div>
     <div class="field">
       <%= a.label :neighborhood %><br>
-      <%= a.text_field :neighborhood %>
+      <%= a.text_field :neighborhood, required: true %>
     </div>
     <div class="field">
       <%= a.label :city %><br>
-      <%= a.text_field :city %>
+      <%= a.text_field :city, required: true %>
     </div>
     <div class="field">
       <%= a.label :state %><br>
-      <%= a.text_field :state %>
+      <%= a.text_field :state, required: true %>
     </div>
   <% end %>
+
+  <%= f.fields_for :subarea do |s| %>
+    <%= s.collection_select "area", Area.all, :id, :area, {:prompt => 'Choose an area'}, {:required => true} %><br>
+  <% end %>
+
+  <%= f.collection_select :subarea_id, Subarea.all, :id, :subarea, {:prompt => 'Choose a subarea'}, {:required => true}%>
 
   <div class="actions">
     <%= f.submit %>
