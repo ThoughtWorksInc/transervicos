@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     dashboard_path
   end
+
+  def load_subareas
+    area = Area.find(params[:area_id])
+	  respond_to do |format|
+	    format.json { render :json => area.subareas }
+	  end
+	end
 end

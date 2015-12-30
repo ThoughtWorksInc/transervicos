@@ -15,9 +15,7 @@
   <%= f.input :description, label: 'Descrição', required: true %>  
   <%= f.input :phone, label: 'Telefone', required: true %>  
   
-
   <%= f.simple_fields_for :address do |a| %>
-
     <%= a.input :street, label: 'Rua', required: true %>  
     <%= a.input :number, label: 'Número', required: true %>  
     <%= a.input :complement, label: 'Complemento' %>  
@@ -26,11 +24,16 @@
     <%= a.input :state, label: 'Estado', required: true %>
   <% end %>
 
-  <%= f.simple_fields_for :subarea do |s| %>
-    <%= s.input :area_id, collection: Area.all, label_method: :area, required: true %>  
-  <% end %>
-
-  <%= f.input :subarea_id, collection: Subarea.all, label_method: :subarea, required: true %>  
-
-  <%= f.submit "Cadastrar Serviço" %>
+  <%= select_tag :area_id, options_from_collection_for_select(Area.all, "id", "area"), :prompt => "Selecione uma area" %>
+  <%= select_tag :subarea_id, options_from_collection_for_select([], "id", "subarea"), :prompt => "Selecione uma subarea",
+                  "data-option-dependent" => true,
+                  "data-option-observed" => "area_id",
+                  "data-option-url" => "/area/:area_id:/subareas.json",
+                  "data-option-key-method" => :id,
+                  "data-option-value-method" => :subarea %>
+  
+  <br>
+  <%= f.submit "Cadastrar Serviço" %> 
 <% end %>
+
+
