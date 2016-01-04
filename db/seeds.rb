@@ -1,15 +1,20 @@
-areas  = ["Saúde", "Direito", "Educação", "Religião", "Comidas", "Beleza"]
-subareas_array = [
-				["Odontologia",  "Cirurgia Plástica ",  "Urologia ",  "Ginecologia ",  "Endocrinologia ",  "Dermatologia ",  "Cirurgia Geral ",  "Infectologia ",  "Proctologia "],
-		 		["Advocacia"],
-		 		["Preparatório Pré-Vestibular", "Ensino Médio", "Ensino Fundamental", "Ensino Superior"]
-				]
+areas = {
+	"Saúde": ["Odontologia",  "Cirurgia Plástica ",  "Urologia ",  "Ginecologia ",  "Endocrinologia ",  "Dermatologia ",  "Cirurgia Geral ",  "Infectologia ",  "Proctologia "],
+	"Direito": ["Advocacia"],
+	"Educação": ["Preparatório Pré-Vestibular", "Ensino Médio", "Ensino Fundamental", "Ensino Superior"],
+	"Religião": [],
+	"Comidas": [],
+	"Beleza": []
+}
 
-areas.each { |name| Area.create(area: name) }
-Area.create(area: "Outro")
+area_id = 1
 
-subareas_array.each_with_index do |subareas, index|
-	area_id = index + 1
-	subareas.each { |name| Subarea.create(subarea: name, area_id: area_id) }
+areas.each do |area_name, subareas| 
+	Area.create(area: area_name) 
+	subareas.each { |subarea_name| Subarea.create(subarea: subarea_name, area_id: area_id) }
 	Subarea.create(subarea: "Outro", area_id: area_id)
+	area_id += 1
 end
+
+Area.create(area: "Outro")
+Subarea.create(subarea: "Outro", area_id: area_id)
