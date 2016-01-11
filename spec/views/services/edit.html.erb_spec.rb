@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe "services/edit", type: :view do
   before(:each) do
     @service = assign(:service, Service.create!(
-      :area => "MyString",
-      :subarea => "MyString",
       :name => "MyString",
       :description => "MyText",
       :phone => "MyString"
@@ -15,10 +13,6 @@ RSpec.describe "services/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", service_path(@service), "post" do
-
-      assert_select "input#service_area[name=?]", "service[area]"
-
-      assert_select "input#service_subarea[name=?]", "service[subarea]"
 
       assert_select "input#service_name[name=?]", "service[name]"
 
