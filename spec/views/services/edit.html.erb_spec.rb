@@ -14,11 +14,11 @@ RSpec.describe "services/edit", type: :view do
 
     assert_select "form[action=?][method=?]", service_path(@service), "post" do
 
-      assert_select "input#service_name[name=?]", "service[name]"
+    assert_select "input#service_name[name=?]", "service[name]"
 
-      assert_select "textarea#service_description[name=?]", "service[description]"
+    assert_select "textarea#service_description[name=?]", "service[description]"
 
-      assert_select "input#service_phone[name=?]", "service[phone]"
+    assert_select "input#service_phone[name=?]", "service[phone]"
     end
   end
 end
