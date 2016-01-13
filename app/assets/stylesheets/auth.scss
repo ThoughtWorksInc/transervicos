@@ -23,7 +23,7 @@
   }
 
   .field {
-    input[type=text], input[type=email], input[type=password] {
+    input[type=text], input[type=email], input[type=password], input[type=tel], input[type=date] {
       width: 100%;
       border: 1px solid #CCC;
       border-top: none;
@@ -33,6 +33,9 @@
       padding: 0 10px 0 50px;
       background-repeat: no-repeat;
       background-position: 15px 12px;
+    }
+    input[type=checkbox] {
+
     }
     &:first-child {
       input[type=text], input[type=email], input[type=password] {
@@ -47,11 +50,11 @@
     }
   }
 
-  .input-user{
+  .input-user {
     background-image: image-url("ico-user.png");
   }
 
-  .input-password{
+  .input-password {
     background-image: image-url("ico-password.png");
   }
 
