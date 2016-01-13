@@ -60,6 +60,17 @@
 		padding: 20px;
 		text-align: center;
 
+		h1 {
+			font-size: 24px;
+		}
+
+		a {
+			font-family: Passion One;
+			font-weight: 300;
+			font-size: 18px;
+			color: #cc2c71;
+		}
+
 		h1:before {
 			display: block;
 			margin: 15px auto;

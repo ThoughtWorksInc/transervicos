@@ -10,15 +10,24 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 
-html body{
+* {
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body {
 	margin: 0 0;
 	background-image: image-url("header.jpg");
-	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
   font-family: Nunito;
   font-weight: 300;
   font-size: 16px;
@@ -29,15 +38,11 @@ html body{
 h1 {
 	font-family: Passion One;
 	font-weight: 700;
-	font-size: 24px;
 	color: #2d3033;
 	text-transform: uppercase;
 	padding: 0 60px;
 }
 
-a {
-	font-family: Passion One;
-	font-weight: 300;
-	font-size: 18px;
-	color: #cc2c71;
+a:hover{
+	text-decoration: none;
 }
