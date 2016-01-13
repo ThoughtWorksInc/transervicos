@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+html body{
+	margin: 0 0;
+	background-image: image-url("header.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+  font-family: Nunito;
+  font-weight: 300;
+  font-size: 16px;
+  color: #6c7279;
+  line-height: 120%;
+}
+
+h1 {
+	font-family: Passion One;
+	font-weight: 700;
+	font-size: 24px;
+	color: #2d3033;
+	text-transform: uppercase;
+	padding: 0 60px;
+}
+
+a {
+	font-family: Passion One;
+	font-weight: 300;
+	font-size: 18px;
+	color: #cc2c71;
+}
