@@ -1,25 +1,19 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-html body{
-	margin: 0 0;
-}
-
-
 .top {
-	background-image: image-url("header.jpg");
-	
+
 	header {
 		padding: 40px;
-	
+
 		ul {
 			list-style: none;
 			display: flex;
 			justify-content: flex-end;
-		
+
 			li {
 				padding-right: 35px;
-			
+
 				a {
 					text-transform: uppercase;
 					font-family: Passion One;
@@ -33,18 +27,16 @@ html body{
 	}
 
 	.title {
-		padding: 60px 0;
+		padding: 0 0 60px 0;
 		color: white;
 		text-align: center;
 
 		h1 {
-			font-family: Passion One;
-			font-weight: 900;
 			font-size: 100px;
-			text-transform: uppercase;
-			margin: 0;
+			color: #FFF;
+			margin-bottom: 80px;
 		}
-	
+
 		p {
 			font-family: Bitter;
 			font-weight: 400;
@@ -61,53 +53,41 @@ html body{
 .topics {
 	display: flex;
 	align-content: space-between;
+	background: #FFF;
 
 	section {
 		flex: 1;
 		padding: 20px;
 		text-align: center;
-		
+
 		h1 {
-			font-family: Passion One;
-			font-weight: 700;
 			font-size: 24px;
-			color: #2d3033;
-			text-transform: uppercase;
-			padding: 0 60px;
 		}
-	
-		p {
-			font-family: Nunito;
-			font-weight: 300;
-			font-size: 16px;
-			color: #6c7279;
-			line-height: 120%;
-		}
-		
+
 		a {
 			font-family: Passion One;
 			font-weight: 300;
 			font-size: 18px;
 			color: #cc2c71;
 		}
-		
+
 		h1:before {
 			display: block;
 			margin: 15px auto;
 			content: "";
 			width: 60px;
 			height: 60px;
-			background-size: 100%;			
+			background-size: 100%;
 		}
-		
+
 		&.brazil h1:before {
 			background: image-url("brazil_flag.svg") no-repeat 0 0;
 		}
-		
+
 		&.rights h1:before {
 			background: image-url("scale.svg") no-repeat 0 0;
 		}
-		
+
 		&.change h1:before {
 			background: image-url("people_in_love.svg") no-repeat 0 0;
 		}
@@ -118,7 +98,7 @@ html body{
 
 	.bottom-site-nav {
 		background: #3a3f63;
-		
+
 		.container {
 		   height: auto;
 		   overflow: hidden;
@@ -142,13 +122,13 @@ html body{
 			font-family: Passion One;
 			font-size: 20px;
 			color: #ffffff;
-			
+
 			.site-map-title {
 				font-size: 30px;
 				padding: 0 10px 0 0;
 				color: #ca3071;
 			}
-			
+
 			ul {
 				list-style: none;
 				display: block;
@@ -165,7 +145,7 @@ html body{
 					}
 				}
 			}
-			
+
 		}
 
 	}
