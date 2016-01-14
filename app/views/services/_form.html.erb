@@ -4,41 +4,41 @@
       <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
       <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-  
-  <%= f.input :name, label: 'Nome', required: true %>  
-  <%= f.input :description, label: 'Descrição', required: true %>  
-  <%= f.input :phone, label: 'Telefone', required: true %>  
-  
+
+  <%= f.input :name, label: 'Nome', required: true %>
+  <%= f.input :description, label: 'Descrição', required: true %>
+  <%= f.input :phone, label: 'Telefone', required: true %>
+
   <%= f.simple_fields_for :address do |a| %>
-    <%= a.input :street, label: 'Rua', required: true %>  
-    <%= a.input :number, label: 'Número', required: true %>  
-    <%= a.input :complement, label: 'Complemento' %>  
-    <%= a.input :neighborhood, label: 'Bairro', required: true %>  
-    <%= a.input :city, label: 'Cidade', required: true %>  
+    <%= a.input :street, label: 'Rua', required: true %>
+    <%= a.input :number, label: 'Número', required: true %>
+    <%= a.input :complement, label: 'Complemento' %>
+    <%= a.input :neighborhood, label: 'Bairro', required: true %>
+    <%= a.input :city, label: 'Cidade', required: true %>
     <%= a.input :state, label: 'Estado', required: true %>
   <% end %>
 
-  
-<!-- Esse foi o jeito que eu achei que deveria funcionar -->
-  <%= select_tag  :area_id, options_from_collection_for_select(Area.all, "id", "area"), 
-                  :prompt => "Select a specialization type" %>
-    
-  <%= f.collection_select :subarea, Subarea.all, "id", "subarea",
-                  {},
-                  "data-option-dependent" => false,
-                  "data-option-observed" => "area_id",
-                  "data-option-url" => "/area/:area_id:/subareas.json",
-                  "data-option-key-method" => :id,
-                  "data-option-value-method" => :id %>
-<!-- end -->
 
-  <%= f.submit "Cadastrar Serviço" %>
-<% end %>
+  <!-- Esse foi o jeito que eu achei que deveria funcionar -->
+  <%= select_tag  :area_id, options_from_collection_for_select(Area.all, "id", "area"),
+    :prompt => "Select a specialization type" %>
+
+    <%= f.collection_select :subarea, Subarea.all, "id", "subarea",
+      {},
+      "data-option-dependent" => false,
+      "data-option-observed" => "area_id",
+      "data-option-url" => "/area/:area_id:/subareas.json",
+      "data-option-key-method" => :id,
+      "data-option-value-method" => :id %>
+      <!-- end -->
+
+      <%= f.submit "Cadastrar Serviço" %>
+    <% end %>
 
 
