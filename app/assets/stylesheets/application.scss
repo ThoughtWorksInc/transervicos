@@ -50,7 +50,26 @@ nav#main-navbar {
 				font-family: $font1;
 				font-size: 1.5em;
 				text-transform: uppercase;
+                &.btn-contorno:hover {
+                    background: white;
+                    color: $fuchsia !important;
+                }
 			}
 		}
 	}
+}
+
+.btn-contorno {
+    padding: 10px 15px;
+    background: none;
+    border-radius: 6px;
+    border: 2px white solid;
+    margin: 0 10px;
+    font-family: $font1;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    &:hover {
+        background: white;
+        color: $fuchsia;
+    }
 }

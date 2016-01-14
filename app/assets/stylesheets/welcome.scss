@@ -17,7 +17,7 @@ header#main-header {
 		font-size: 7em;
 		text-shadow: 0 2px 5px rgba(0,0,0,0.2);
 		text-transform: uppercase;
-		margin: 10vh 0 10vh 0;
+		margin: 15vh 0 10vh 0;
 		@media (max-width: $screen-xs-max) {
 			font-size: 3.5em;
 		}
@@ -27,6 +27,9 @@ header#main-header {
 		font-size: 1.8em;
 		@media (max-width: $screen-xs-max) {
 			font-size: 1.4em;
+		}
+		p {
+			margin-bottom: 30px;
 		}
 	}
 	.call-to-action {
