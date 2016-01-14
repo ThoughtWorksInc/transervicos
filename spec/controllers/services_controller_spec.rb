@@ -21,14 +21,32 @@ RSpec.describe ServicesController, type: :controller do
 
   describe 'POST #create' do
     context 'when logged in' do
+      let(:valid_service_attributes) do
+        service_attributes = attributes_for(:service)
+        service_attributes[:address_attributes] = attributes_for(:address)
+        service_attributes[:subarea_attributes] = attributes_for(:subarea_education_college)
+        service_attributes
+      end
       before :each do
         sign_in
       end
-      it 'creates a new service in database' do
-        expect { post :create, service: attributes_with_foreign_keys(:service) }.to change { Service.count }.by(1)
+      it 'creates a new service' do
+        expect { post :create, service: valid_service_attributes }.to change { Service.count }.by(1)
       end
-      it 'creates a new address in database' do
-        expect { post :create, service: attributes_with_foreign_keys(:service) }.to change { Address.count }.by(1)
+      it 'creates new address' do
+        expect { post :create, service: valid_service_attributes }.to change { Address.count }.by(1)
+      end
+      it 'does not create a service without subarea' do
+        expect do
+          post :create,
+               service: attributes_for(:service_without_subarea)
+        end.to change { Address.count }.by(0)
+      end
+      it 'does not create a service without address' do
+        expect do
+          post :create,
+               service: attributes_for(:service_without_address)
+        end.to change { Address.count }.by(0)
       end
     end
 
