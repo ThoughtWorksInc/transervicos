@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//
+// Bootstrap
+//= require bootstrap.min
 
 jQuery(document).ready(function () {
         $('select[data-option-dependent=true]').each(function (i) {

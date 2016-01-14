@@ -12,15 +12,12 @@
  *
  *= require_self
  *= require_tree .
+
+ *Bootstrap
+ *= require bootstrap.min
  */
 
-* {
-	box-sizing: border-box;
-}
-
-html {
-	height: 100%;
-}
+ @import "core";
 
 body {
 	margin: 0 0;
@@ -28,21 +25,32 @@ body {
 	background-repeat: no-repeat;
 	background-position: center top;
 	background-size: cover;
-  font-family: Nunito;
-  font-weight: 300;
-  font-size: 16px;
-  color: #6c7279;
-  line-height: 120%;
+	font-family: $font3 !important;
+	font-weight: 300;
+	font-size: 16px;
+	color: #6c7279;
+	line-height: 120%;
 }
 
-h1 {
-	font-family: Passion One;
-	font-weight: 700;
-	color: #2d3033;
-	text-transform: uppercase;
-	padding: 0 60px;
+a {
+	color: $fuchsia !important;
+	&:hover {
+		text-decoration: none;
+	}
 }
 
-a:hover{
-	text-decoration: none;
+nav#main-navbar {
+	background: transparent;
+	border-bottom-color: rgba(255,255,255,0.2);
+	ul {
+		li {
+			padding: 15px;
+			a {
+				color: white !important;
+				font-family: $font1;
+				font-size: 1.5em;
+				text-transform: uppercase;
+			}
+		}
+	}
 }

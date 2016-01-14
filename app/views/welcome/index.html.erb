@@ -1,53 +1,197 @@
-<section class="top">
-	<header>
-		<ul>
-			<li><a href="#">Trans Hoje</a></li>
-			<li><a href="#">Desconstruindo Mitos</a></li>
-			<li><a href="#">O Projeto</a></li>
-			<li><%= link_to 'Cadastro', new_user_registration_path %></li>
-		</ul>
-	</header>
-
-	<section class="title">
-		<h1>Transerviços</h1>
-		<p>Você é uma pessoa trans ou travesti que gostaria de oferecer algum serviço desenvolvido por você? Está em busca de serviços e profissionais que não lhe discriminem? Você gostaria de ajudar o público trans ou travesti contratando serviços dessas pessoas? Esse é o seu lugar.</p>
-	</section>
-</section>
-
-<section class="topics">
-	<section class="brazil">
-		<h1>Como é ser trans no Brasil hoje?</h1>
-		<p>As pessoas trans e travestis encontram-se em sua larga maioria no Brasil fora do trabalho de mercado formal por conta da discriminação, não conseguiram completar seus estudos geralmente, não conseguem assistência médica adequada e não possuem apoio da sociedade e dos poderes constituídos, sendo que o Brasil é o país campeão mundial de assassinato de travestis e transexuais.</p>
-		<a href="#">Saiba Mais.</a>
-	</section>
-	<section class="rights">
-		<h1>Direitos que por lei deveríamos ter</h1>
-		<p>O Brasil carece da aprovação de uma lei de identidade de gênero, fundamental para que as pessoas trans e travestis possam ser inseridas dentro da sociedade e consideradas cidadãs e cidadãos, aprovação de políticas públicas de geração de emprego e renda, universalização do sistema de saúde que atenda as especificidades da população trans e travesti, leis de proteção contra a transfobia.</p>
-		<a href="#">Saiba Mais.</a>
-	</section>
-	<section class="change">
-		<h1>E o que eu posso fazer para mudar isso?</h1>
-		<p>Respeitar as pessoas trans e travestis de acordo com o gênero que reivindicam para si, de acordo com o nome social, ou seja, o nome que a pessoa é reconhecida em seu entorno social, evitar propagar piadas e sensos comuns transfóbicos, discriminatórios, que visam exotificar as pessoas trans e travestis e considerá-las inferiores ou naturalmente ridículas, e por fim, caso você precise de algum serviço, que tal contratar uma das talentosas pessoas trans e travestis que anunciam nesse site? E caso você conheça algum serviço que é verdadeiramente respeitoso com as pessoas trans, que tal publicá-lo aqui?</p>
-		<a href="#">Saiba Mais.</a>
-	</section>
-</section>
-
-<section class="bottom">
-	<section class="bottom-site-nav">
-		<div class="container">
-			<div class="bottom-title">TRANSERVI&Ccedil;OS</div>
-			<div class="bottom-sitemap">
-				<p class="site-map-title">MAPA DO SITE</p>
-				<ul>
-					<li><a href="#">Trans Hoje</a></li>
-					<li><a href="#">Desconstruindo Mitos</a></li>
-					<li><a href="#">O Projeto</a></li>
-					<li><%= link_to 'Cadastro', new_user_registration_path %></li>
-				</ul>
+<header id="main-header">
+	<nav class="navbar navbar-default navbar-static-top" id="main-navbar">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a class="page-scroll" href="#trans-hoje">Trans hoje</a>
+				</li>
+				<li>
+					<a class="page-scroll" href="#desconstruindo-mitos">Descontruindo mitos</a>
+				</li>
+				<li>
+					<a class="page-scroll" href="#o-projeto">O projeto</a>
+				</li>
+				<li>
+					<%= link_to 'Cadastro', new_user_registration_path %>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<h1 class="text-center">Transerviços</h1>
+		<div class="row">
+			<div class="col-md-4 lead text-center">
+				Você é uma pessoa trans ou travesti que gostaria de oferecer
+				algum serviço desenvolvido por você?
+			</div>
+			<div class="col-md-4 lead text-center">
+				Está em busca de serviços e profissionais que não lhe discriminem?
+			</div>
+			<div class="col-md-4 lead text-center">
+				Você gostaria de ajudar o público trans ou travesti contratando
+				serviços dessas pessoas?
 			</div>
 		</div>
-	</section>
-	<section class="footer">
-		<p>TRANSERVI&Ccedil;OS | Copyright &copy; 2015<br />Feito com carinho &#9829;</p>
-	</section>
+		<div class="text-center call-to-action">
+			<span class="action">Esse é o seu lugar.</span>
+		</div>
+	</div>
+</header>
+
+<section id="trans-hoje">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h2 class="text-center brazil">Como é ser trans no Brasil hoje?</h2>
+				<p>
+					As pessoas trans e travestis no Brasil encontram-se, em sua larga
+					maioria, fora do trabalho de mercado formal de trabalho.
+				</p>
+				<p>
+					Por conta da discriminação, têm dificuldade para completar seus
+					estudos, não conseguem assistência médica adequada e não possuem
+					apoio da sociedade e dos poderes constituídos, sendo que o Brasil
+					é o país campeão mundial de assassinato de travestis e transexuais.
+				</p>
+				<a href="javascript:;">Saiba mais</a>
+			</div>
+			<div class="col-md-4">
+				<h2 class="text-center rights">Direitos que, por lei, deveríamos ter</h2>
+				<p>
+					O Brasil carece da aprovação de uma lei de identidade
+					de gênero, fundamental para que as pessoas trans e
+					travestis possam ser inseridas dentro da sociedade e
+					consideradas cidadãs e cidadãos.
+				</p>
+				<p>
+					Além disso, faz-se urgente a aprovação de políticas
+					públicas de geração de emprego e renda, universalização
+					do sistema de saúde que atenda as especificidades da
+					população trans e travesti, bem como leis de proteção contra
+					a transfobia.
+				</p>
+				<a href="javascript:;">Saiba mais</a>
+			</div>
+			<div class="col-md-4">
+				<h2 class="text-center change">O que eu posso fazer para mudar isso?</h2>
+				<p>
+					Comece respeitando as pessoas trans e travestis de acordo com
+					o gênero que reivindicam para si, de acordo com o nome
+					social, (o nome com que a pessoa é reconhecida em
+					seu entorno social).
+				</p>
+				<p>
+					Também evitar propagar piadas e sensos comuns transfóbicos,
+					discriminatórios, que visam exotificar as pessoas trans e
+					travestis e considerá-las inferiores ou naturalmente ridículas.
+				</p>
+				<p>
+					Quando você precisar de algum serviço, que tal contratar uma
+					das talentosas pessoas trans e travestis que anunciam
+					nesse site? Caso você conheça algum serviço que é
+					verdadeiramente respeitoso com as pessoas trans,
+					que tal publicá-lo aqui?
+				</p>
+				<a href="javascript:;">Saiba mais</a>
+			</div>
+		</div>
+	</div>
 </section>
+
+<section id="desconstruindo-mitos">
+	<div class="container">
+		<h1 class="text-center">
+			Descontruindo mitos sobre pessoas trans
+		</h1>
+		<div class="row">
+			<div class="col-sm-6 col-lg-5 col-lg-offset-1">
+				<img src="/assets/trans-people.svg" class="img-responsive" alt="Ilustração de pessoas trans"/>
+			</div>
+			<div class="col-sm-6 col-lg-5">
+				<div class="mitos-controle pull-right text-right">
+					<i class="fa fa-lg fa-circle active" data-m="1"></i><br/>
+					<i class="fa fa-lg fa-circle" data-m="2"></i><br/>
+					<i class="fa fa-lg fa-circle" data-m="3"></i>
+				</div>
+				<div id="mitos-container">
+					<div class="mito" data-m="1">
+						<h2>
+							Por qual nome e gênero devo me comunicar com uma pessoa trans?
+						</h2>
+						<p>
+							dasdas
+						</p>
+					</div>
+					<div class="mito" data-m="2" style="display:none">
+						<h2>
+							Mito 2
+						</h2>
+						<p>
+							Texto do mito 2
+						</p>
+					</div>
+					<div class="mito" data-m="3" style="display:none">
+						<h2>
+							Mito 3
+						</h2>
+						<p>
+							Texto do mito 3
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="about">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-4">
+				<h2>
+					<a href="javascript:;">Transerviços</a>
+				</h2>
+			</div>
+			<div class="col-md-3 col-sm-4">
+				<h2>
+					Mapa do site
+				</h2>
+				<ul>
+					<li>
+						<a href="javascript:;">Trans hoje</a>
+					</li>
+					<li>
+						<a href="javascript:;">Desconstruindo mitos</a>
+					</li>
+					<li>
+						<a href="javascript:;">O projeto</a>
+					</li>
+					<li>
+						<%= link_to 'Cadastro', new_user_registration_path %>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3 col-sm-4">
+				<h2>
+					Compartilhe
+				</h2>
+				<i class="fa fa-lg fa-facebook-official"></i>&nbsp;
+				<i class="fa fa-lg fa-twitter"></i>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer id="main-footer" class="text-center">
+	<strong>Transerviços</strong> | Copyright © 2016<br/>
+	Feito com carinho <i class="fa fa-heart"></i>
+</footer>
+
+<script type="text/javascript">
+$('.mitos-controle').children('i').on('click',function(){
+	var m = $(this).data('m');
+	$('#mitos-container').children('.mito').hide().filter('[data-m="'+m+'"]').show();
+	$(this).parent().children('i').removeClass('active');
+	$(this).addClass('active');
+});
+</script>

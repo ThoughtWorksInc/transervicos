@@ -1,162 +1,156 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top {
 
-	header {
-		padding: 40px;
+@import "core";		 /*Global settings*/
+@import "variables"; /*Bootstrap variables*/
 
-		ul {
-			list-style: none;
-			display: flex;
-			justify-content: flex-end;
-
-			li {
-				padding-right: 35px;
-
-				a {
-					text-transform: uppercase;
-					font-family: Passion One;
-					font-size: 24px;
-					font-weight: 400;
-					text-decoration: none;
-					color: white;
-				}
-			}
+header#main-header {
+	color: white;
+	padding: 0 0 15vh 0;
+	margin: 0;
+	background: image-url("header.jpg") no-repeat center top;
+	background-size: cover;
+	h1 {
+		font-family: $font1;
+		font-weight: 700;
+		font-size: 7em;
+		text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		text-transform: uppercase;
+		margin: 10vh 0 10vh 0;
+		@media (max-width: $screen-xs-max) {
+			font-size: 3.5em;
 		}
 	}
-
-	.title {
-		padding: 0 0 60px 0;
-		color: white;
-		text-align: center;
-
-		h1 {
-			font-size: 100px;
-			color: #FFF;
-			margin-bottom: 80px;
+	.lead {
+		font-family: $font2;
+		font-size: 1.8em;
+		@media (max-width: $screen-xs-max) {
+			font-size: 1.4em;
 		}
-
-		p {
-			font-family: Bitter;
-			font-weight: 400;
-			font-style: italic;
-			font-size: 30px;
-			line-height: 120%;
-			margin: auto;
-			margin-top: 35px;
-			width: 800px;
+	}
+	.call-to-action {
+		margin-top: 30px;
+		.action {
+			font-size: 1.8em;
+			background: white;
+			color: $fuchsia;
+			font-family: $font2;
+			padding: 0.7em 1.6em;
+			height: 2.8em;
+			border-radius: 1.4em;
+			@media (max-width: $screen-xs-max) {
+				font-size: 1.2em;
+			}
 		}
 	}
 }
 
-.topics {
-	display: flex;
-	align-content: space-between;
+section#trans-hoje {
+	padding: 10vh 0;
 	background: #FFF;
-
-	section {
-		flex: 1;
-		padding: 20px;
-		text-align: center;
-
-		h1 {
-			font-size: 24px;
-		}
-
-		a {
-			font-family: Passion One;
-			font-weight: 300;
-			font-size: 18px;
-			color: #cc2c71;
-		}
-
-		h1:before {
+	h2 {
+		font-size: 24px;
+		font-family: $font1;
+		text-transform: uppercase;
+		margin: 0 0 15px 0;
+		padding: 0 50px;
+		&:before {
 			display: block;
-			margin: 15px auto;
+			margin: 0 auto;
+			margin-bottom: 15px;
 			content: "";
 			width: 60px;
 			height: 60px;
 			background-size: 100%;
 		}
-
-		&.brazil h1:before {
+		&.brazil:before {
 			background: image-url("brazil_flag.svg") no-repeat 0 0;
 		}
-
-		&.rights h1:before {
+		&.rights:before {
 			background: image-url("scale.svg") no-repeat 0 0;
 		}
-
-		&.change h1:before {
+		&.change:before {
 			background: image-url("people_in_love.svg") no-repeat 0 0;
+		}
+	}
+	a {
+		font-family: $font1;
+		font-weight: 500;
+		font-size: 1.5em;
+	}
+}
+
+section#desconstruindo-mitos {
+	background: $light-blue;
+	padding: 10vh 0;
+	-webkit-transition:all .35s;
+	-moz-transition:all .35s;
+	transition:all .35s;
+	border-top: 2px $fuchsia solid;
+	border-bottom: 2px $dark-blue solid;
+	h1 {
+		font-family: $font1;
+		text-transform: uppercase;
+		font-size: 3.5em;
+		margin-bottom: 1em;
+	}
+	h2 {
+		font-family: $font2;
+	}
+	#mitos-container {
+		margin-right: 40px;
+	}
+	.mitos-controle {
+		width: 20px;
+		line-height: 2.5em;
+		color: transparentize($dark-blue, 0.65);
+		cursor: pointer;
+		i.active {
+			color: $dark-blue;
+		}
+	}
+	.mito {
+		p {
+			font-size: 1.2em;
+			color: darken($dark-blue, 30%);
 		}
 	}
 }
 
-.bottom {
-
-	.bottom-site-nav {
-		background: #3a3f63;
-
-		.container {
-		   height: auto;
-		   overflow: hidden;
-		}
-
-		.bottom-title {
-			float: left;
-			width: 30%;
-			padding: 30px 10px 0 0;
-			text-align: center;
-			font-family: Passion One;
-			font-size: 40px;
-			color: #ffffff;
-		}
-
-		.bottom-sitemap {
-			float: right;
-			width: 40%;
-			padding: 0 10px 0 0;
-			text-align: left;
-			font-family: Passion One;
-			font-size: 20px;
-			color: #ffffff;
-
-			.site-map-title {
-				font-size: 30px;
-				padding: 0 10px 0 0;
-				color: #ca3071;
-			}
-
-			ul {
-				list-style: none;
-				display: block;
-				padding: 0 0 0 0;
-
-				li {
-
-					a {
-						text-transform: uppercase;
-						font-family: Passion One;
-						font-size: 20px;
-						text-decoration: none;
-						color: #ffffff;
-					}
-				}
-			}
-
-		}
-
+section#about {
+	padding: 30px 0;
+	background: $purple;
+	color: white;
+	@media (max-width: $screen-xs-max) {
+		padding-top: 0;
 	}
-
-	.footer {
-		background: #ca3071;
-		padding: 10px 10px;
-		text-align: center;
-		font-family: Open Sans;
-		font-size: 14px;
-		color: #ffffff;
+	h2 {
+		margin: 0;
+		font-size: 2.5em;
+		text-transform: uppercase;
+		font-family: $font1;
+		color: $fuchsia;
+		@media (max-width: $screen-xs-max) {
+			margin-top: 30px;
+		}
+		a {
+			color: white !important;
+		}
 	}
+	ul {
+		list-style: none;
+		padding: 0;
+		li {
+			a {
+				color: white !important;
+			}
+		}
+	}
+}
 
+footer#main-footer {
+	background: $fuchsia;
+	padding: 15px 0;
+	color: rgba(255,255,255,0.7);
 }
