@@ -11,22 +11,20 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
 
   def name_presence
-    if social_name.blank? and civil_name.blank?
-        errors.add(:_, "É preciso informar ao menos um nome.")
+    if social_name.blank? && civil_name.blank?
+      errors.add(:_, 'É preciso informar ao menos um nome.')
     end
   end
 
   def age
-    today = Date.current()
-
+    today = Date.current
     if birth_date.blank?
-        errors.add(:__, "É preciso informar uma data de nascimento.")
-        return
+      errors.add(:__, 'É preciso informar uma data de nascimento.')
+      return
     end
-
     if (birth_date + 18.years) > today
-        errors.add(:_, "É preciso ser maior de idade.")
-        return
+      errors.add(:_, 'É preciso ser maior de idade.')
+      return
     end
   end
 end

@@ -18,3 +18,7 @@
 .DS_Store
 
 .vagrant
+
+# Vim files
+*.swp
+*.swo

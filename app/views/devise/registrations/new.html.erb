@@ -1,59 +1,54 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :social_name %><br />
-    <%= f.text_field :social_name, autofocus: true %>
-  </div>
+  <div class="field-group">
 
-  <div class="field">
-    <%= f.label :civil_name %><br />
-    <%= f.text_field :civil_name %>
-  </div>
+    <div class="field">
+      <%= f.input :social_name, placeholder: 'Nome social', autofocus: true, label: false %>
+    </div>
 
-  <div class="field">
-    <%= f.label :birth_date %><br />
-    <%= f.date_field :birth_date %>
-  </div>
+    <div class="field">
+      <%= f.input :civil_name, placeholder: 'Nome civil', label: false %>
+    </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+    <div class="field">
+        <%= f.input :birth_date, as: :date, label: false %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
+    <div class="field">
+      <%= f.input :username, placeholder: 'Nome de usuário', label: false %>
+    </div>
+
+    <!-- <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <% end %><br /> -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.input :password, placeholder: 'Senha', autocomplete: "off", label: false %>
+    </div>
 
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.telephone_field :phone_number %>
-  </div>
+    <div class="field">
+      <%= f.input :password_confirmation, placeholder: 'Confirmação de senha', autocomplete: "off", label: false %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+    <div class="field">
+      <%= f.input :phone_number, placeholder: 'Número de telefone', label: false %>
+    </div>
 
-  <div class="field">
-    <%= f.label :terms_of_service %><br />
-    <%= f.check_box :terms_of_service %>
-  </div>
+    <div class="field">
+      <%= f.input :email, placeholder: 'Endereço de e-mail', label: false %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.input :terms_of_service, as: :boolean, checked_value: true, unchecked_value: false, label: 'Aceito os termos de uso', class: 'input-use-term' %>
+
+    <%= f.submit "Cadastrar", class: 'btn' %>
+
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p class="not-user-text">Já tem cadastro?</p>
+
+<%= link_to "Acessar", new_session_path(resource_name), class: 'btn' %><br />
+
+<!-- <%= render "devise/shared/links" %> -->
