@@ -4,27 +4,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validate :name_presence
-  validate :age
-
+  validates :birth_date, presence: { message: 'É preciso informar uma data de nascimento.' }
   validates :terms_of_service, acceptance: true
   validates :username, uniqueness: true
+  validate :age
+  validate :name_presence
 
   def name_presence
-    if social_name.blank? && civil_name.blank?
-      errors.add(:_, 'É preciso informar ao menos um nome.')
-    end
+    errors.add(:_, 'É preciso informar ao menos um nome.') if social_name.blank? && civil_name.blank?
   end
 
   def age
     today = Date.current
-    if birth_date.blank?
-      errors.add(:__, 'É preciso informar uma data de nascimento.')
-      return
-    end
-    if (birth_date + 18.years) > today
-      errors.add(:_, 'É preciso ser maior de idade.')
-      return
-    end
+    errors.add(:_, 'É preciso ser maior de idade.') if (birth_date + 18.years) > today
   end
 end
