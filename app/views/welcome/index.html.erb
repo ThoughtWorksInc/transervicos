@@ -1,22 +1,5 @@
+
 <header id="main-header">
-	<nav class="navbar navbar-default navbar-static-top" id="main-navbar">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a class="page-scroll" href="#trans-hoje">Trans hoje</a>
-				</li>
-				<li>
-					<a class="page-scroll" href="#desconstruindo-mitos">Descontruindo mitos</a>
-				</li>
-				<li>
-					<a class="page-scroll" href="#o-projeto">O projeto</a>
-				</li>
-				<li>
-					<%= link_to 'Entrar', new_user_session_path, { :class=>"btn-contorno" } %>
-				</li>
-			</ul>
-		</div>
-	</nav>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -126,49 +109,6 @@
 		</div>
 	</div>
 </section>
-
-<section id="about">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-sm-4">
-				<a href="javascript:;">
-					<%= image_tag 'transervicos-logo.svg', { :style=>"height: 36px" } %>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-4">
-				<h2>
-					Mapa do site
-				</h2>
-				<ul>
-					<li>
-						<a href="javascript:;">Trans hoje</a>
-					</li>
-					<li>
-						<a href="javascript:;">Desconstruindo mitos</a>
-					</li>
-					<li>
-						<a href="javascript:;">O projeto</a>
-					</li>
-					<li>
-						<%= link_to 'Cadastro', new_user_registration_path %>
-					</li>
-				</ul>
-			</div>
-			<div class="col-md-3 col-sm-4">
-				<h2>
-					Compartilhe
-				</h2>
-				<i class="fa fa-lg fa-facebook-official"></i>&nbsp;
-				<i class="fa fa-lg fa-twitter"></i>
-			</div>
-		</div>
-	</div>
-</section>
-
-<footer id="main-footer" class="text-center">
-	<strong>Transerviços</strong> | Copyright © 2016<br/>
-	Feito com carinho <i class="fa fa-heart"></i>
-</footer>
 
 <script type="text/javascript">
 $('.mitos-controle').children('i').on('click',function(){

@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller?
-      'auth'
-    else
+    #if devise_controller?
+      #'auth'
+    #else
       'application'
-    end
+    #end
   end
 end

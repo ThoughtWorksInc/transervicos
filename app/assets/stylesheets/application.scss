@@ -14,12 +14,12 @@
  *= require_tree .
  *= require pickadate/classic
  *= require pickadate/classic.date
+*/
 
- *Bootstrap
- *= require bootstrap.min
- */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
- @import "core";
+@import "core";
 
 body {
 	margin: 0 0;
@@ -27,15 +27,21 @@ body {
 	background-repeat: no-repeat;
 	background-position: center top;
 	background-size: cover;
-	font-family: $font3 !important;
+	font-family: $font3;
 	font-weight: 300;
 	font-size: 16px;
 	color: #6c7279;
 	line-height: 120%;
+    min-height: 100%;
+}
+
+h1 {
+    font-family: $font3;
+    color: white;
 }
 
 a {
-	color: $fuchsia !important;
+	color: $fuchsia;
 	&:hover {
 		text-decoration: none;
 	}
@@ -44,17 +50,20 @@ a {
 nav#main-navbar {
 	background: transparent;
 	border-bottom-color: rgba(255,255,255,0.2);
+    .navbar-brand {
+        padding: 20px;
+    }
 	ul {
 		li {
 			padding: 15px;
 			a {
-				color: white !important;
+				color: white;
 				font-family: $font1;
 				font-size: 1.5em;
 				text-transform: uppercase;
                 &.btn-contorno:hover {
                     background: white;
-                    color: $fuchsia !important;
+                    color: $fuchsia;
                 }
 			}
 		}
@@ -70,10 +79,97 @@ nav#main-navbar {
     font-family: $font1;
     font-size: 0.8em;
     text-transform: uppercase;
-    color: white !important;
+    color: white;
     &:hover {
         background: white;
-        color: $fuchsia !important;
+        color: $fuchsia;
         text-decoration: none;
     }
+}
+
+
+/*Form*/
+.form-group {
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    .form-control {
+        font-size: 1.25em;
+        &[type=text],
+        &[type=email],
+        &[type=password],
+        &[type=tel],
+        &[type=date] {
+            border: 1px solid #CCC;
+            border-top: none;
+            font-family: inherit;
+            padding: 25px 10px 25px 50px;
+            background-repeat: no-repeat;
+            background-position: 15px 15px;
+        }
+        &[type=checkbox] {
+
+        }
+        &:first-child {
+            &[type=text],
+            &[type=email],
+            &[type=password] {
+                border-top: 1px solid #CCC;
+                border-radius: 3px 3px 0 0;
+            }
+        }
+        &:last-child {
+            &[type=text],
+            &[type=email],
+            &[type=password] {
+                border-radius: 0 0 3px 3px;
+            }
+        }
+        &.input-user {
+            background-image: image-url("ico-user.png");
+        }
+
+        &.input-password {
+            background-image: image-url("ico-password.png");
+        }
+    }
+}
+.btn-form {
+    background: #FFF;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+    color: $dark-blue;
+    font-family: $font1;
+    text-transform: uppercase;
+    font-size: 2em;
+    padding: 3px 0 0 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 8px rgba(0,0,0,0.5);
+        background: #F5F5F5;
+    }
+}
+.not-user-text {
+    color: #FFF;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+.lnk-forgot-password {
+    color: #FFF;
+    text-align: center;
+    display: block;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 20px;
+    font-style: italic;
+}
+
+
+section#entrar {
+    padding: 20vh 0;
 }
