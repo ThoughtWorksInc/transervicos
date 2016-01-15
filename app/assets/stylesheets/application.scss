@@ -68,8 +68,10 @@ nav#main-navbar {
     font-family: $font1;
     font-size: 0.8em;
     text-transform: uppercase;
+    color: white !important;
     &:hover {
         background: white;
-        color: $fuchsia;
+        color: $fuchsia !important;
+        text-decoration: none;
     }
 }

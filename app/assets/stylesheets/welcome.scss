@@ -125,11 +125,9 @@ section#about {
 	padding: 30px 0;
 	background: $purple;
 	color: white;
-	@media (max-width: $screen-xs-max) {
-		padding-top: 0;
-	}
 	h2 {
 		margin: 0;
+		padding: 1px 0;
 		font-size: 2.5em;
 		text-transform: uppercase;
 		font-family: $font1;
