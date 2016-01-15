@@ -12,8 +12,7 @@
     </div>
 
     <div class="field">
-      <%= f.input :birth_date, as: :date, start_year: Date.today.year - 17,
-        end_year: Date.today.year - 90, label: false %>
+        <%= f.input :birth_date, as: :string, placeholder: 'Data de nascimento', label: false %>
     </div>
 
     <div class="field">
