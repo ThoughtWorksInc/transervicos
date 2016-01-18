@@ -1,19 +1,19 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_self
- *= require_tree .
- *= require pickadate/classic
- *= require pickadate/classic.date
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_self
+*= require_tree .
+*= require pickadate/classic
+*= require pickadate/classic.date
 */
 
 @import "bootstrap-sprockets";
@@ -32,12 +32,18 @@ body {
 	font-size: 16px;
 	color: #6c7279;
 	line-height: 120%;
-    min-height: 100%;
+	min-height: 100vh;
 }
 
-h1 {
-    font-family: $font3;
-    color: white;
+h1,
+h2 {
+	font-family: $font3;
+	color: white;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 1.5em;
 }
 
 a {
@@ -50,10 +56,19 @@ a {
 nav#main-navbar {
 	background: transparent;
 	border-bottom-color: rgba(255,255,255,0.2);
-    .navbar-header {
+	.navbar-header {
 		.navbar-brand {
-	        padding: 20px;
-	    }
+			padding: 20px;
+			@media (max-width: $screen-xs-max) {
+				padding: 22px 20px;
+			}
+			img {
+				height: 40px;
+				@media (max-width: $screen-xs-max) {
+					height: 30px;
+				}
+			}
+		}
 		.navbar-toggle {
 			margin-top: 20px;
 			margin-bottom: 20px;
@@ -78,43 +93,43 @@ nav#main-navbar {
 				font-family: $font1;
 				font-size: 1.5em;
 				text-transform: uppercase;
-                &.btn-contorno:hover {
-                    background: white;
-                    color: $fuchsia;
-                }
+				&.btn-contorno:hover {
+			    background: white;
+			    color: $fuchsia;
+				}
 			}
 		}
 	}
 }
 /* making collapse menu appear at SM resolution instead of only XS */
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    .navbar-collapse.collapse {
-        display: none !important;
-    }
-    .navbar-collapse.collapse.in,
+	.navbar-collapse.collapse {
+		display: none !important;
+	}
+	.navbar-collapse.collapse.in,
 	.navbar-header .collapse, .navbar-toggle {
-        display: block !important;
-    }
-    .navbar-header {
-        float:none;
-    }
+		display: block !important;
+	}
+	.navbar-header {
+		float:none;
+	}
 }
 .btn-contorno {
-    padding: 10px 15px;
-    background: none;
-    border-radius: 6px;
-    border: 2px white solid;
-    margin: 0 10px;
-    font-family: $font1;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    color: white;
-    &:hover,
+	padding: 10px 15px;
+	background: none;
+	border-radius: 6px;
+	border: 2px white solid;
+	margin: 0 10px;
+	font-family: $font1;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	color: white;
+	&:hover,
 	&:focus {
-        background: white;
-        color: $fuchsia;
-        text-decoration: none;
-    }
+		background: white;
+		color: $fuchsia;
+		text-decoration: none;
+	}
 }
 
 
@@ -125,45 +140,50 @@ form {
 		margin-bottom: 30px;
 	}
 	.form-group {
-	    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
-	    .form-control {
-	        font-size: 1.25em;
-	        &[type=text],
-	        &[type=email],
-	        &[type=password],
-	        &[type=tel],
-	        &[type=date] {
-	            border-top: 1px solid #ddd;
-				border-bottom: 1px solid transparent;
-				border-left: none;
-				border-right: none;
-	            font-family: inherit;
-	            padding: 25px 10px 25px 50px;
-	            background-repeat: no-repeat;
-	            background-position: 15px 15px;
-				border-radius: 0;
-	        }
-	        &:focus {
+		box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+		select,
+		textarea,
+		.form-control {
+			font-size: 1.25em;
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid transparent;
+			border-left: none;
+			border-right: none;
+			font-family: inherit;
+			padding: 25px 10px 25px 50px;
+			background-repeat: no-repeat;
+			background-position: 15px 15px;
+			border-radius: 0;
+			&:focus {
 				border-color: $dark-blue;
 				box-shadow: none;
 			}
-	        &:first-child {
-	            &[type=text],
-	            &[type=email],
-	            &[type=password] {
-	                border-radius: 3px 3px 0 0;
-	            }
-	        }
-	        &:last-child {
-	            &[type=text],
-	            &[type=email],
-	            &[type=password] {
-	                border-radius: 0 0 3px 3px;
-	            }
-	        }
-	        &.input-user {background-image: image-url("ico-user.png");}
-	        &.input-password {background-image: image-url("ico-password.png");}
-	    }
+			&:first-child {
+				&[type=text],
+				&[type=email],
+				&[type=password] {
+					border-radius: 3px 3px 0 0;
+				}
+			}
+			&:last-child {
+				&[type=text],
+				&[type=email],
+				&[type=password] {
+					border-radius: 0 0 3px 3px;
+				}
+			}
+			&.input-user {background-image: image-url("ico-user.png");}
+			&.input-password {background-image: image-url("ico-password.png");}
+		}
+		textarea {
+			resize: none;
+		}
+		select.form-control {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			height: 52px;
+			padding: 0 0 0 50px;
+		}
 	}
 	.checkbox {
 		label {
@@ -172,44 +192,48 @@ form {
 	}
 }
 .btn-form {
-    background: #FFF;
-    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
-    color: $dark-blue;
-    font-family: $font1;
-    text-transform: uppercase;
-    font-size: 2em;
-    padding: 3px 0 0 0;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    border-radius: 3px;
-    &:hover,
-    &:focus {
-        box-shadow: 0px 1px 8px rgba(0,0,0,0.5);
-        background: #F5F5F5;
+	background: #FFF;
+	box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+	color: $dark-blue;
+	font-family: $font1;
+	text-transform: uppercase;
+	font-size: 2em;
+	padding: 3px 0 0 0;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	border-radius: 3px;
+	&:hover,
+	&:focus {
+		box-shadow: 0px 1px 8px rgba(0,0,0,0.5);
+		background: #F5F5F5;
 		color: $dark-blue;
-    }
+	}
 }
 .not-user-text {
-    color: #FFF;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 50px;
+	color: #FFF;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 50px;
 }
 .lnk-forgot-password {
-    color: #FFF;
-    text-align: center;
-    display: block;
-    text-align: center;
-    font-weight: normal;
-    font-size: 16px;
-    margin: 20px;
-    font-style: italic;
+	color: #FFF;
+	text-align: center;
+	display: block;
+	text-align: center;
+	font-weight: normal;
+	font-size: 16px;
+	margin: 20px;
+	font-style: italic;
 }
 
+section.content {
+	padding: 12vh 0;
+}
 
-section#entrar,
-section#cadastrar {
-    padding: 15vh 0;
+footer#main-footer {
+	background: $fuchsia;
+	padding: 15px 0;
+	color: rgba(255,255,255,0.7);
 }

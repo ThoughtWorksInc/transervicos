@@ -1,3 +1,20 @@
-<h1>Seja bem vindo <%= current_user.email %></h1>
-<p><%= link_to 'Cadastrar novo serviço', new_service_path %></p>
-<p><%= link_to 'Sair', destroy_user_session_path, :method => :delete %></p>
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h1>Seja bem vindo <%= current_user.email %></h1>
+                <p><%= link_to 'Cadastrar novo serviço', new_service_path %></p>
+                <p><%= link_to 'Sair', destroy_user_session_path, :method => :delete %></p>
+            </div>
+            <div class="col-sm-8">
+                <div>
+                    Você ainda não tem nenhum serviço cadastrado.
+                    Cadastre o primeiro!
+                </div>
+                <div>
+                    Meus serviços
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
