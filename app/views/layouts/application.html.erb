@@ -41,7 +41,11 @@
             				<a class="page-scroll" href="#o-projeto">O projeto</a>
             			</li>
             			<li>
-            				<%= link_to 'Entrar', new_user_session_path, { :class=>"btn-contorno" } %>
+                    <% if user_signed_in? %>
+                      <%= link_to 'Sair', destroy_user_session_path, :method => :delete, class: "btn-contorno" %>
+                    <% else %>
+                      <%= link_to 'Entrar', new_user_session_path, class: "btn-contorno" %>
+                    <% end %>
             			</li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
