@@ -23,8 +23,8 @@ RSpec.describe ServicesController, type: :controller do
     context 'when logged in' do
       let(:valid_service_attributes) do
         service_attributes = attributes_for(:service)
+        service_attributes[:subarea_id] = create(:subarea_education_college).id
         service_attributes[:address_attributes] = attributes_for(:address)
-        service_attributes[:subarea_attributes] = attributes_for(:subarea_education_college)
         service_attributes
       end
       before :each do
