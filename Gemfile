@@ -52,6 +52,6 @@ gem 'rails_12factor', group: :production
 
 gem 'devise'
 
-gem 'pickadate-rails'
-
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'jasny-bootstrap-rails'
