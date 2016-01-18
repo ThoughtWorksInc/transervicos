@@ -17,6 +17,12 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe 'GET #edit' do
+    let(:service) { create(:service) }
+    before :each do
+      get :edit, id: service.id
+    end
+    it { expect(response).to render_template :edit }
+    it { expect(assigns(:service).name).to eq(service.name) }
   end
 
   describe 'POST #create' do
@@ -65,8 +71,23 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe 'PUT #update' do
+    let(:service) { create(:service) }
+
     context 'with valid params' do
+      it 'updates the name attribute' do
+        put :update, id: service.id, service: { name: 'other name' }
+        expect(assigns(:service).name).to eq('other name')
+      end
+      it 'updates the description attribute' do
+        put :update, id: service.id, service: { description: 'other description' }
+        expect(assigns(:service).description).to eq('other description')
+      end
+      it 'updates the phone attribute' do
+        put :update, id: service.id, service: { phone: 'other phone' }
+        expect(assigns(:service).phone).to eq('other phone')
+      end
     end
+
     context 'with invalid params' do
     end
   end
