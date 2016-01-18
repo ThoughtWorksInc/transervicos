@@ -111,10 +111,13 @@
 </section>
 
 <script type="text/javascript">
-$('.mitos-controle').children('i').on('click',function(){
-	var m = $(this).data('m');
-	$('#mitos-container').children('.mito').hide().filter('[data-m="'+m+'"]').show();
-	$(this).parent().children('i').removeClass('active');
-	$(this).addClass('active');
+
+$(document).ready(function(){
+  $('.mitos-controle').children('i').on('click',function(){
+    var m = $(this).data('m');
+    $('#mitos-container').children('.mito').hide().filter('[data-m="'+m+'"]').show();
+    $(this).parent().children('i').removeClass('active');
+    $(this).addClass('active');
+  });
 });
 </script>
