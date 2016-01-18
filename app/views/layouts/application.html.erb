@@ -22,9 +22,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
-                        <%= image_tag 'transervicos-logo.svg', { :style=>"height: 40px" } %>
-                    </a>
+                    <% if !current_page?('/') %>
+                        <a class="navbar-brand" href="#">
+                            <%= image_tag 'transervicos-logo.svg', { :style=>"height: 40px" } %>
+                        </a>
+                    <% end %>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">

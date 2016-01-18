@@ -11,6 +11,9 @@ header#main-header {
 	margin: 0;
 	background: image-url("header.jpg") no-repeat center top;
 	background-size: cover;
+	@media (max-width: $screen-sm-max) {
+		padding-top: 10vh;
+	}
 	h1 {
 		font-family: $font1;
 		font-weight: 700;
@@ -32,19 +35,9 @@ header#main-header {
 			margin-bottom: 30px;
 		}
 	}
-	.call-to-action {
-		margin-top: 30px;
-		.action {
-			font-size: 1.8em;
-			background: white;
-			color: $fuchsia;
-			font-family: $font2;
-			padding: 0.7em 1.6em;
-			height: 2.8em;
-			border-radius: 1.4em;
-			@media (max-width: $screen-xs-max) {
-				font-size: 1.2em;
-			}
+	.cadastre-busque {
+		@media (max-width: $screen-sm-max) {
+			line-height: 2em;
 		}
 	}
 }

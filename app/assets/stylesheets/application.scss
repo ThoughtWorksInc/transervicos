@@ -50,12 +50,29 @@ a {
 nav#main-navbar {
 	background: transparent;
 	border-bottom-color: rgba(255,255,255,0.2);
-    .navbar-brand {
-        padding: 20px;
-    }
+    .navbar-header {
+		.navbar-brand {
+	        padding: 20px;
+	    }
+		.navbar-toggle {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			background: rgba(255,255,255,0.4);
+			&:hover,
+			&:focus {
+				background: rgba(255,255,255,0.7)
+			}
+			.icon-bar {
+				background-color: white;
+			}
+		}
+	}
+	.navbar-collapse {
+		border-top-color: rgba(255,255,255,0.2);
+	}
 	ul {
 		li {
-			padding: 15px;
+			padding: 15px 8px;
 			a {
 				color: white;
 				font-family: $font1;
@@ -69,7 +86,19 @@ nav#main-navbar {
 		}
 	}
 }
-
+/* making collapse menu appear at SM resolution instead of only XS */
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in,
+	.navbar-header .collapse, .navbar-toggle {
+        display: block !important;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
 .btn-contorno {
     padding: 10px 15px;
     background: none;
@@ -80,7 +109,8 @@ nav#main-navbar {
     font-size: 0.8em;
     text-transform: uppercase;
     color: white;
-    &:hover {
+    &:hover,
+	&:focus {
         background: white;
         color: $fuchsia;
         text-decoration: none;
