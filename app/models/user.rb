@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   def age
     today = Date.current
-    return if birth_date && (birth_date + 18.years) > today
+    return if (birth_date && (birth_date + 18.years) < today)
     errors.add(:_, 'É preciso ser maior de idade.')
   end
 end
