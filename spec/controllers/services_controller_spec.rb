@@ -86,6 +86,13 @@ RSpec.describe ServicesController, type: :controller do
         put :update, id: service.id, service: { phone: 'other phone' }
         expect(assigns(:service).phone).to eq('other phone')
       end
+
+      it 'updates the address attribute' do
+        put :update, id: service.id, service: { address_attributes: {
+          street: 'other street'
+        } }
+        expect(assigns(:service).address.street).to eq('other street')
+      end
     end
 
     context 'with invalid params' do
