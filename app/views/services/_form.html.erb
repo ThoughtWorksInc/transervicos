@@ -23,7 +23,7 @@
   <h2>Endereço</h2>
   <div class="form-group">
     <%= f.fields_for :address do |a| %>
-      <%= a.text_field :street, label: 'Rua', required: true, placeholder:"Rua", class:"form-control" %>
+      <%= a.text_field :street, label: 'Logradouro', required: true, placeholder:"Logradouro", class:"form-control" %>
       <%= a.text_field :number, label: 'Número', required: true, placeholder:"Número", class:"form-control" %>
       <%= a.text_field :complement, label: 'Complemento', placeholder:"Complemento", class:"form-control" %>
       <%= a.text_field :neighborhood, label: 'Bairro', required: true, placeholder:"Bairro", class:"form-control" %>
