@@ -73,8 +73,6 @@ class ServicesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def service_params
     address_attributes = [:id, :street, :number, :complement, :neighborhood, :city, :state]
-    params.require(:service).permit(:name, :description, :phone,
-                                    address_attributes: address_attributes,
-                                    subarea_attributes: [:id])
+    params.require(:service).permit(:name, :description, :phone, :subarea_id, address_attributes: address_attributes)
   end
 end
