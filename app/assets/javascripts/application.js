@@ -50,7 +50,9 @@ jQuery(document).ready(function () {
 });
 
 $(document).ready(function(){
-  $("#user_birth_date").pickadate({
+  var birth_date_input = $("#user_birth_date"),
+      months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outobro', 'Novembro', 'Dezembro'];
+  $("#user_birth_date_picker").pickadate({
     today: 'Hoje',
     clear: 'Limpar',
     close: 'Fechar',
@@ -59,10 +61,21 @@ $(document).ready(function(){
     selectYears: true,
     selectMonths: true,
 
-    monthsFull: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outobro', 'Novembro', 'Dezembro'],
+    monthsFull: months,
     monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
+    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+
+    onClose: function() {
+      var year = this.get('highlight').year,
+          month = this.get('highlight').month + 1,
+          day = this.get('highlight').date;
+      birth_date_input.val(year + '-' + month + '-' + day);
+    }
   });
+  if (birth_date_input.val()) {
+    var date_splitted = birth_date_input.val().split('-');
+    $("#user_birth_date_picker").val(date_splitted[2] + ' ' + months[date_splitted[1] - 1] + ', ' + date_splitted[0]);
+  }
 });
 
 function getMaximumDay() {

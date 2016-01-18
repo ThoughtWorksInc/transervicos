@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validate :age
   validate :name_presence
 
+  attr_accessor :birth_date_picker
+
   def name_presence
     errors.add(:_, 'É preciso informar ao menos um nome.') if social_name.blank? && civil_name.blank?
   end
