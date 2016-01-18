@@ -1,54 +1,41 @@
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<section id="cadastrar">
+    <div class="container">
+        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <h1 class="text-center">Criar conta</h1>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
+                <div class="form-group">
+                    <%= f.text_field :social_name, placeholder: 'Nome social', autofocus: true, label: false, class: 'form-control input-user' %>
+                    <%= f.text_field :civil_name, placeholder: 'Nome civil', label: false, class: 'form-control input-user' %>
+                    <%= f.date_field :birth_date, as: :string, placeholder: 'Data de nascimento', label: false, class: 'form-control'  %>
+                    <%= f.text_field :username, placeholder: 'Nome de usuário', label: false, class: 'form-control'  %>
+                    <!-- <%= f.label :password %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br /> -->
+                    <%= f.password_field :password, placeholder: 'Senha', autocomplete: "off", label: false, class: 'form-control input-password' %>
+                    <%= f.password_field :password_confirmation, placeholder: 'Confirmação de senha', autocomplete: "off", label: false, class: 'form-control input-password' %>
+                    <%= f.telephone_field :phone_number, placeholder: 'Número de telefone', label: false, class: 'form-control' %>
+                    <%= f.email_field :email, placeholder: 'Endereço de e-mail', label: false, class: 'form-control' %>
+                </div>
 
-  <div class="field-group">
+                <div class="text-center">
+                    <div class="checkbox font1-2x">
+                        <label>
+                            <%= f.check_box :terms_of_service, as: :boolean, label: 'Aceito os termos de uso', class: 'checkbox' %> Aceito os termos de uso
+                        </label>
+                    </div>
+                </div>
 
-    <div class="field">
-      <%= f.input :social_name, placeholder: 'Nome social', autofocus: true, label: false %>
+                <div class="actions">
+                    <%= f.submit "Cadastrar", class: 'btn btn-block btn-form' %>
+                </div>
+            <% end %>
+
+            <p class="not-user-text">Já tem cadastro?</p>
+
+            <%= link_to "Acessar", new_session_path(resource_name), class: 'btn btn-block btn-form' %>
+            <!-- <%= render "devise/shared/links" %> -->
+        </div>
     </div>
-
-    <div class="field">
-      <%= f.input :civil_name, placeholder: 'Nome civil', label: false %>
-    </div>
-
-    <div class="field">
-        <%= f.input :birth_date, as: :string, placeholder: 'Data de nascimento', label: false %>
-    </div>
-
-    <div class="field">
-      <%= f.input :username, placeholder: 'Nome de usuário', label: false %>
-    </div>
-
-    <!-- <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br /> -->
-
-    <div class="field">
-      <%= f.input :password, placeholder: 'Senha', autocomplete: "off", label: false %>
-    </div>
-
-    <div class="field">
-      <%= f.input :password_confirmation, placeholder: 'Confirmação de senha', autocomplete: "off", label: false %>
-    </div>
-
-    <div class="field">
-      <%= f.input :phone_number, placeholder: 'Número de telefone', label: false %>
-    </div>
-
-    <div class="field">
-      <%= f.input :email, placeholder: 'Endereço de e-mail', label: false %>
-    </div>
-
-    <%= f.input :terms_of_service, as: :boolean, label: 'Aceito os termos de uso', class: 'input-use-term' %>
-
-    <%= f.submit "Cadastrar", class: 'btn' %>
-
-  </div>
-<% end %>
-
-<p class="not-user-text">Já tem cadastro?</p>
-
-<%= link_to "Acessar", new_session_path(resource_name), class: 'btn' %><br />
-
-<!-- <%= render "devise/shared/links" %> -->
+</section>

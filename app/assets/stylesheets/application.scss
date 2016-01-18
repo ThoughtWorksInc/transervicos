@@ -89,49 +89,57 @@ nav#main-navbar {
 
 
 /*Form*/
-.form-group {
-    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
-    margin-bottom: 30px;
-    .form-control {
-        font-size: 1.25em;
-        &[type=text],
-        &[type=email],
-        &[type=password],
-        &[type=tel],
-        &[type=date] {
-            border: 1px solid #CCC;
-            border-top: none;
-            font-family: inherit;
-            padding: 25px 10px 25px 50px;
-            background-repeat: no-repeat;
-            background-position: 15px 15px;
-        }
-        &[type=checkbox] {
-
-        }
-        &:first-child {
-            &[type=text],
-            &[type=email],
-            &[type=password] {
-                border-top: 1px solid #CCC;
-                border-radius: 3px 3px 0 0;
-            }
-        }
-        &:last-child {
-            &[type=text],
-            &[type=email],
-            &[type=password] {
-                border-radius: 0 0 3px 3px;
-            }
-        }
-        &.input-user {
-            background-image: image-url("ico-user.png");
-        }
-
-        &.input-password {
-            background-image: image-url("ico-password.png");
-        }
-    }
+form {
+	.form-group,
+	.checkbox {
+		margin-bottom: 30px;
+	}
+	.form-group {
+	    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+	    .form-control {
+	        font-size: 1.25em;
+	        &[type=text],
+	        &[type=email],
+	        &[type=password],
+	        &[type=tel],
+	        &[type=date] {
+	            border-top: 1px solid #ddd;
+				border-bottom: 1px solid transparent;
+				border-left: none;
+				border-right: none;
+	            font-family: inherit;
+	            padding: 25px 10px 25px 50px;
+	            background-repeat: no-repeat;
+	            background-position: 15px 15px;
+				border-radius: 0;
+	        }
+	        &:focus {
+				border-color: $dark-blue;
+				box-shadow: none;
+			}
+	        &:first-child {
+	            &[type=text],
+	            &[type=email],
+	            &[type=password] {
+	                border-radius: 3px 3px 0 0;
+	            }
+	        }
+	        &:last-child {
+	            &[type=text],
+	            &[type=email],
+	            &[type=password] {
+	                border-radius: 0 0 3px 3px;
+	            }
+	        }
+	        &.input-user {background-image: image-url("ico-user.png");}
+	        &.input-password {background-image: image-url("ico-password.png");}
+	    }
+	}
+	.checkbox {
+		label {
+			color: white;
+		}
+	}
 }
 .btn-form {
     background: #FFF;
@@ -150,6 +158,7 @@ nav#main-navbar {
     &:focus {
         box-shadow: 0px 1px 8px rgba(0,0,0,0.5);
         background: #F5F5F5;
+		color: $dark-blue;
     }
 }
 .not-user-text {
@@ -170,6 +179,7 @@ nav#main-navbar {
 }
 
 
-section#entrar {
-    padding: 20vh 0;
+section#entrar,
+section#cadastrar {
+    padding: 15vh 0;
 }
