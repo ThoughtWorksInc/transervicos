@@ -1,6 +1,14 @@
 <section class="content">
     <div class="container">
         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+
+            <% if flash[:notice] %>
+              <p class="alert"><%= flash[:notice] %></p>
+            <% end %>
+            <% if flash[:alert] %>
+              <p class="alert"><%= flash[:alert] %></p>
+            <% end %>
+            
             <h1 class="text-center">Entrar no Transerviços</h1>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="form-group">
