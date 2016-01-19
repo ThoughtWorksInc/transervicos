@@ -12,7 +12,7 @@ describe 'When user has valid informations', type: :feature do
     fill_in 'user_password', with: user.password
     click_button 'Entrar'
 
-    expect(page).to have_text('Seja bem vindo')
+    expect(page).to have_text("Olá, #{user.social_name}")
   end
 end
 
