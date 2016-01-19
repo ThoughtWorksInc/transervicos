@@ -231,6 +231,75 @@ section.content {
 	padding: 12vh 0;
 }
 
+section#dashboard {
+	.sem-servicos {
+		color: white;
+		font-weight: 200;
+		padding: 60px 30px;
+		border: 2px rgba(255,255,255,0.4) dotted;
+		border-radius: 20px;
+		margin: 30px 0;
+		font-size: 2em;
+		line-height: initial;
+		@media (max-width:$screen-xs-max) {
+			font-size: 1.4em;
+		}
+	}
+	.panel {
+		&.panel-servico {
+			border: none;
+			box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+			.panel-heading,
+			.panel-footer {
+				background: $light-blue;
+				border: none;
+			}
+			.panel-heading {
+				border-bottom: 2px $fuchsia solid;
+				.panel-title {
+					font-family: $font1;
+					font-size: 1.6em;
+					color: $dark-blue;
+				}
+			}
+			.description {
+				font-size: 1.2em;
+				.icon {
+					width: 20px;
+					margin: 0;
+					color: $dark-blue;
+				}
+				.text {
+					@media (max-width: $screen-xs-max) {
+						margin-left: 30px;
+					}
+				}
+			}
+			table {
+				margin: 0;
+				tr {
+					&:first-of-type {
+						td {
+							@media (min-width: $screen-sm-min) {
+								border-top: none;
+							}
+						}
+					}
+					td {
+						&.icon {
+							width: 30px;
+							color: $dark-blue;
+						}
+					}
+				}
+			}
+			.panel-footer {
+				border-top: 1px $dark-blue solid;
+			}
+		}
+	}
+}
+
 footer#main-footer {
 	background: $fuchsia;
 	padding: 15px 0;
