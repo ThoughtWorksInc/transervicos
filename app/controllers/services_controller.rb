@@ -26,9 +26,9 @@ class ServicesController < ApplicationController
 
   # POST /services
   # POST /services.json
+  # rubocop:disable Metrics/AbcSize
   def create
-    @service = current_user.services.new(service_params)
-    @service.save
+    @service = current_user.services.build(service_params)
     respond_to do |format|
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
