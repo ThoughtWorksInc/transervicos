@@ -12,7 +12,7 @@ header#main-header {
 	background: image-url("header.jpg") no-repeat center top;
 	background-size: cover;
 	@media (max-width: $screen-sm-max) {
-		padding-top: 10vh;
+
 	}
 	h1 {
 		font-family: $font1;
@@ -23,6 +23,7 @@ header#main-header {
 		margin: 10vh 0 8vh 0;
 		@media (max-width: $screen-xs-max) {
 			font-size: 3.5em;
+			margin: 1vh 0;
 		}
 	}
 	.lead {
@@ -45,9 +46,24 @@ header#main-header {
 section#trans-hoje {
 	padding: 10vh 0;
 	background: #FFF;
+	.row {
+		&>div {
+			h2 {
+				@media (max-width: $screen-xs-max) {
+					margin-top: 10vh;
+				}
+			}
+			&:first-of-type {
+				h2 {
+					margin-top: 0;
+				}
+			}
+		}
+	}
 	h2 {
 		font-size: 24px;
 		font-family: $font1;
+		color: $dark-blue;
 		text-transform: uppercase;
 		margin: 0 0 15px 0;
 		padding: 0 50px;
@@ -90,9 +106,14 @@ section#desconstruindo-mitos {
 		text-transform: uppercase;
 		font-size: 3.5em;
 		margin-bottom: 1em;
+		color: $dark-blue;
+		@media (max-width: $screen-xs-max) {
+			font-size: 2em;
+		}
 	}
 	h2 {
 		font-family: $font2;
+		color: $dark-blue;
 	}
 	#mitos-container {
 		margin-right: 40px;

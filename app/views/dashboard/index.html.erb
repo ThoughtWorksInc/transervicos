@@ -1,72 +1,23 @@
 <section class="content" id="dashboard">
   <div class="container">
-    <div class="col-md-4">
-      <div class="user-info">
-        <h1>Olá, <%= current_user.social_name %></h1>
-        <%= link_to 'Cadastrar novo serviço', new_service_path, class:"btn btn-default" %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="user-info">
+          <h1>Olá, <%= current_user.social_name %></h1>
+          <%= link_to 'Cadastrar novo serviço', new_service_path, class:"btn btn-default" %>
+          <%= link_to 'Sair', destroy_user_session_path, :method => :delete, class: "btn-contorno" %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-8">
-      <!--
-      <div class="sem-servicos text-center">
-        <p>Você ainda não cadastrou nenhum serviço.</p>
-        <%= link_to 'Cadastre o primeiro!', new_service_path, class:"btn btn-contorno" %>
-      </div>
-      -->
-      <div>
-        <h1>Meus serviços</h1>
-        <div class="panel panel-default panel-servico">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              Título do serviço
-            </h4>
-          </div>
-          <div class="row">
-            <div class="col-sm-5">
-              <div class="panel-body description">
-                <i class="fa fa-lg fa-info pull-left icon visible-xs"></i>
-                <div class="text">
-                  Descrição do serviço
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-7">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td class="icon text-center"><i class="fa fa-lg fa-phone"></i></td>
-                    <td>(99) 9999.9999</td>
-                  </tr>
-                  <tr>
-                    <td rowspan="4" class="icon text-center"><i class="fa fa-lg fa-map-marker"></i></td>
-                    <td>Logradouro, número</td>
-                  </tr>
-                  <tr>
-                    <td>Complemento</td>
-                  </tr>
-                  <tr>
-                    <td>Bairro</td>
-                  </tr>
-                  <tr>
-                    <td>Cidade &ndash; Estado</td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2" class="icon text-center"><i class="fa fa-lg fa-heart"></i></td>
-                    <td>Área</td>
-                  </tr>
-                  <tr>
-                    <td>Subárea</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="panel-footer text-right">
-            <div class="btn-group btn-group-sm">
-              <a href="javascript:;" class="btn btn-default"><i class="fa fa-lg fa-pencil"></i>&nbsp; Editar</a>
-              <a href="javascript:;" class="btn btn-danger"><i class="fa fa-lg fa-times"></i>&nbsp; Excluir</a>
-            </div>
-          </div>
+      <div class="col-md-8">
+        <!--
+        <div class="sem-servicos text-center">
+          <p>Você ainda não cadastrou nenhum serviço.</p>
+          <%= link_to 'Cadastre o primeiro!', new_service_path, class:"btn btn-contorno" %>
+        </div>
+        -->
+        <div>
+          <h1>Meus serviços</h1>
+          !!! Aqui vai o partial do serviço
         </div>
       </div>
     </div>

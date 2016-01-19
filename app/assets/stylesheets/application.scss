@@ -228,27 +228,12 @@ form {
 }
 
 section.content {
-	padding: 12vh 0;
-}
-
-section#dashboard {
-	.sem-servicos {
-		color: white;
-		font-weight: 200;
-		padding: 60px 30px;
-		border: 2px rgba(255,255,255,0.4) dotted;
-		border-radius: 20px;
-		margin: 30px 0;
-		font-size: 2em;
-		line-height: initial;
-		@media (max-width:$screen-xs-max) {
-			font-size: 1.4em;
-		}
-	}
+	padding: 8vh 0;
+	padding-top: 120px;
 	.panel {
+		border: none;
+		box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 		&.panel-servico {
-			border: none;
-			box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 			.panel-heading,
 			.panel-footer {
 				background: $light-blue;
@@ -296,6 +281,92 @@ section#dashboard {
 			.panel-footer {
 				border-top: 1px $dark-blue solid;
 			}
+		}
+		&.panel-lista {
+			margin-right: 25px;
+			z-index: 1;
+			@media (max-width: $screen-xs-max) {
+				margin-right: 20px;
+			}
+			&>.row-eq-height {
+				@media (min-width: $screen-sm-min) {
+					display: flex;
+				}
+				&>div {
+					&.nome {
+						border-radius: 4px 0 0 4px;
+						padding: 15px;
+						margin-left: 15px;
+						@media (max-width: $screen-xs-max) {
+							border-radius: 4px 4px 0 0;
+							border-bottom: 1px $dark-blue solid;
+							margin-right: 15px;
+						}
+						h2 {
+							margin: 0 0 0.2em 0;
+							font-family: $font1;
+							font-size: 2em;
+							color: $dark-blue;
+							font-weight: 200;
+						}
+						.area {
+							div {
+								margin-left: 1.4em;
+							}
+						}
+					}
+				}
+			}
+			.info {
+				@media (min-width: $screen-sm-min) {
+					padding-top: 22px;
+					padding-left: 7px;
+				}
+				.desc {
+					border-bottom: 1px $light-blue solid;
+					padding-bottom: 10px;
+					margin-bottom: 10px;
+				}
+			}
+			.btn-go {
+				z-index: 2;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background: $purple;
+				line-height: 50px;
+				color: white;
+				text-align: center;
+				box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+				font-size: 1.6em;
+				position: relative;
+				top: 10px;
+				left: 25px;
+				@media (max-width: $screen-xs-max) {
+					top: -20px;
+					left: 20px;
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
+					font-size: 1.28em;
+				}
+			}
+		}
+	}
+}
+
+section#dashboard {
+	.sem-servicos {
+		color: white;
+		font-weight: 200;
+		padding: 60px 30px;
+		border: 2px rgba(255,255,255,0.4) dotted;
+		border-radius: 20px;
+		margin: 30px 0;
+		font-size: 2em;
+		line-height: initial;
+		@media (max-width:$screen-xs-max) {
+			font-size: 1.4em;
 		}
 	}
 }

@@ -24,30 +24,22 @@
                         <span class="icon-bar"></span>
                     </button>
                     <% if !current_page?('/') %>
-                        <a class="navbar-brand" href="#">
-                            <%= image_tag 'transervicos-logo.svg' %>
-                        </a>
+                      <%= link_to image_tag('transervicos-logo.svg'), root_path, class:"navbar-brand" %>
                     <% end %>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-            				<a class="page-scroll" href="#trans-hoje">Trans hoje</a>
-            			</li>
-            			<li>
-            				<a class="page-scroll" href="#desconstruindo-mitos">Descontruindo mitos</a>
-            			</li>
-            			<li>
-            				<a class="page-scroll" href="#o-projeto">O projeto</a>
-            			</li>
-            			<li>
-                    <% if user_signed_in? %>
-                      <%= link_to 'Sair', destroy_user_session_path, :method => :delete, class: "btn-contorno" %>
-                    <% else %>
-                      <%= link_to 'Entrar', new_user_session_path, class: "btn-contorno" %>
-                    <% end %>
-            			</li>
-                    </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li>
+                      <%= link_to "Serviços", services_path %>
+                    </li>
+                    <li>
+                      <% if user_signed_in? %>
+                        <%= link_to 'Meu perfil', dashboard_path, class: "btn-contorno" %>
+                      <% else %>
+                        <%= link_to 'Entrar', new_user_session_path, class: "btn-contorno" %>
+                      <% end %>
+                    </li>
+                  </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>

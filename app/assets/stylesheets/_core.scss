@@ -12,17 +12,19 @@ $dark-blue: #6798C9;
 /*Color classes*/
 .bg-fuchsia,
 .bg-purple,
-.bg-light-blue {
+.bg-dark-blue {
     color: rgba(255,255,255,0.9);
 }
 
 .bg-fuchsia {background-color: $fuchsia;}
 .bg-purple {background-color: $purple}
 .bg-light-blue {background-color: $light-blue}
+.bg-dark-blue {background-color: $dark-blue}
 
 .text-fuchsia {color: $fuchsia;}
 .text-purple {color: $purple;}
 .text-light-blue {color: $light-blue;}
+.text-dark-blue {color: $dark-blue;}
 
 
 /*Typography*/

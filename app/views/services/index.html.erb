@@ -1,33 +1,37 @@
-<p id="notice"><%= notice %></p>
+<section class="content">
+  <div class="container">
+    <h1>Serviços</h1>
+    <%= link_to 'Cadastrar serviço', new_service_path, class:"btn btn-default" %>
+    <p id="notice">
+      <%= notice %>
+    </p>
 
-<h1>Listing Services</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Area</th>
-      <th>Subarea</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @services.each do |service| %>
-      <tr>
-        <td><%= service.name %></td>
-        <td><%= service.description %></td>
-        <td><%= service.phone %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="panel panel-default panel-lista">
+        <div class="row row-eq-height">
+          <div class="col-sm-4 bg-light-blue nome text-dark-blue">
+            <h2><%= service.name %></h2>
+            <div class="area">
+              <i class="fa fa-heart pull-left"></i>
+              <div>!!! Área<br/>!!! Subárea</div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <%= link_to service do %>
+              <i class="fa fa-arrow-right btn-go pull-right"></i>
+            <% end %>
+            <div class="panel-body info">
+              <div class="desc font1-2x">
+                <%= service.description %>
+              </div>
+              <div>
+                <i class="fa fa-lg fa-phone text-dark-blue pull-left"></i>&nbsp; <%= service.phone %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Service', new_service_path %>
+  </div>
+</section>

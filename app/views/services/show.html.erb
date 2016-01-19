@@ -1,24 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @service.description %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @service.phone %>
-</p>
-
-<p>
-  <strong>Subarea_id:</strong>
-  <%= @service.subarea_id %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<section class="content">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <%= render '/partials/service', service: @service %>
+  </div>
+</section>
