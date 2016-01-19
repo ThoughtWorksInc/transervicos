@@ -17,7 +17,9 @@
         -->
         <div>
           <h1>Meus serviços</h1>
-          !!! Aqui vai o partial do serviço
+          <% @services.each do |service| %>
+            <%= render '/partials/service', service: service %>
+          <% end %>
         </div>
       </div>
     </div>

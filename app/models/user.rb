@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validate :age
   validate :name_presence
+  has_many :services
 
   attr_accessor :birth_date_picker
 
