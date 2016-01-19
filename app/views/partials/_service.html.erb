@@ -20,26 +20,30 @@
             <td class="icon text-center"><i class="fa fa-lg fa-phone"></i></td>
             <td><%= service.phone %></td>
           </tr>
-          <tr>
-            <td rowspan="4" class="icon text-center"><i class="fa fa-lg fa-map-marker"></i></td>
-            <td>Logradouro, número</td>
-          </tr>
-          <tr>
-            <td>Complemento</td>
-          </tr>
-          <tr>
-            <td>Bairro</td>
-          </tr>
-          <tr>
-            <td>Cidade &ndash; Estado</td>
-          </tr>
-          <tr>
-            <td rowspan="2" class="icon text-center"><i class="fa fa-lg fa-heart"></i></td>
-            <td>Área</td>
-          </tr>
-          <tr>
-            <td>Subárea</td>
-          </tr>
+          <% if service.address %>
+            <tr>
+              <td rowspan="4" class="icon text-center"><i class="fa fa-lg fa-map-marker"></i></td>
+              <td><%= "#{service.address.street}, #{service.address.number} " %></td>
+            </tr>
+            <tr>
+              <td><%= "#{service.address.complement}" %></td>
+            </tr>
+            <tr>
+              <td><%= "#{service.address.neighborhood}" %></td>
+            </tr>
+            <tr>
+              <td><%= "#{service.address.city}, #{service.address.state}" %></td>
+            </tr>
+          <% end %>
+          <% if service.subarea %>
+            <tr>
+              <td rowspan="2" class="icon text-center"><i class="fa fa-lg fa-heart"></i></td>
+              <td> <%= "#{service.subarea.area.area if service.subarea.area}" %></td>
+            </tr>
+            <tr>
+              <td> <%= "#{service.subarea.subarea}" %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

@@ -5,6 +5,12 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe 'GET #show' do
+    let(:service) { create(:service) }
+    before :each do
+      get :show, id: service.id
+    end
+    it { expect(response).to render_template :show }
+    it { expect(assigns(:service).name).to eq(service.name) }
   end
 
   describe 'GET #new' do
