@@ -13,7 +13,12 @@
             <h2><%= service.name %></h2>
             <div class="area">
               <i class="fa fa-heart pull-left"></i>
-              <div>!!! Área<br/>!!! Subárea</div>
+              <div>
+                <% if service.subarea %>
+                  <%= service.subarea.area.area %><br/>
+                  <%= service.subarea.subarea %>
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="col-sm-8">
