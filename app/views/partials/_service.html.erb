@@ -50,8 +50,11 @@
   </div>
   <div class="panel-footer text-right">
     <div class="btn-group btn-group-sm">
-      <a href="javascript:;" class="btn btn-default"><i class="fa fa-lg fa-pencil"></i>&nbsp; Editar</a>
-      <a href="javascript:;" class="btn btn-danger"><i class="fa fa-lg fa-times"></i>&nbsp; Excluir</a>
+      <% link_content = "<i class='fa fa-lg fa-pencil'></i>&nbsp;Editar" %>
+      <%= link_to link_content.html_safe, edit_service_path(service), class: 'btn btn-default'%>
+
+      <% link_content = "<i class='fa fa-lg fa-times'></i>&nbsp;Excluir" %>
+      <%= link_to link_content.html_safe, service_path(service), method: :delete, class: 'btn btn-danger'%>
     </div>
   </div>
 </div>
