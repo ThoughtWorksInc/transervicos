@@ -53,7 +53,7 @@ jQuery(document).ready(function () {
     });
 
     $('#user_phone_number, #service_phone').inputmask({
-      mask: "(99) 9999-?99999"
+      mask: "(99) 9999?9-9999"
     });
 
 });
