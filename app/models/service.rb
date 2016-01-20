@@ -16,6 +16,6 @@ class Service < ActiveRecord::Base
   default_scope { order('created_at desc') }
 
   def owner
-    User.find(user_id).social_name ||= User.find(user_id).civil_name || ''
+    User.find(user_id).social_name || User.find(user_id).civil_name || ''
   end
 end
