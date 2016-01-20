@@ -50,5 +50,14 @@ jQuery(document).ready(function () {
 
     $('#user_birth_date').inputmask({
       mask: '99/99/9999'
-    })
+    });
+
+    $('#user_phone_number').inputmask({
+      mask: "(99) 9999-?99999"
+    });
+
+    $('#service_phone').inputmask({
+      mask: "(99) 9999-?99999"
+    });
+
 });
