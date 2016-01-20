@@ -52,11 +52,7 @@ jQuery(document).ready(function () {
       mask: '99/99/9999'
     });
 
-    $('#user_phone_number').inputmask({
-      mask: "(99) 9999-?99999"
-    });
-
-    $('#service_phone').inputmask({
+    $('#user_phone_number, #service_phone').inputmask({
       mask: "(99) 9999-?99999"
     });
 
