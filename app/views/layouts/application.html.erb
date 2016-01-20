@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-static-top pull-right" id="main-navbar" style="width:100%;">
+        <nav class="navbar navbar-default navbar-static-top" id="main-navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -29,20 +29,28 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
-                    <li>
-                      <%= link_to "Serviços", services_path %>
-                    </li>
-                    <li>
-                      <% if user_signed_in? %>
-                        <%= link_to 'Meu perfil', dashboard_path, class: "btn-contorno" %>
-                      <% else %>
+                    <% if user_signed_in? %>
+                      <li>
+                        <%= link_to "Serviços", services_path %>
+                      </li>
+                    <% end %>
+                    <% if user_signed_in? %>
+                      <li>
+                        <%= link_to "Meu perfil", dashboard_path%>
+                      </li>
+                      <li>
+                        <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "btn-contorno"%>
+                      </li>
+                    <% else %>
+                      <li>
                         <%= link_to 'Entrar', new_user_session_path, class: "btn-contorno" %>
-                      <% end %>
-                    </li>
+                      </li>
+                    <% end %>
                   </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        <div></div>
 
         <%= yield %>
 

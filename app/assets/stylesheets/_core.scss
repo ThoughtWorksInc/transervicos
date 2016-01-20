@@ -25,9 +25,13 @@ $dark-blue: #6798C9;
 .text-purple {color: $purple;}
 .text-light-blue {color: $light-blue;}
 .text-dark-blue {color: $dark-blue;}
+.text-white {color: white;}
 
 
 /*Typography*/
+.font0-8x {
+  font-size: 0.8em;
+}
 .font1-2x {
     font-size: 1.2em;
 }

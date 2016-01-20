@@ -1,7 +1,15 @@
 <section class="content">
   <div class="container">
-    <h1>Serviços</h1>
-    <%= link_to 'Cadastrar serviço', new_service_path, class:"btn btn-default" %>
+    <h1 class="clearfix">
+      <% if user_signed_in? %>
+        <span class="font0-8x pull-right">
+          <%= link_to new_service_path, class:"btn btn-sm btn-contorno" do %>
+            Cadastrar<span class="hidden-xs"> serviço</span>
+          <% end %>
+        </span>
+      <% end %>
+      Serviços
+    </h1>
     <p id="notice">
       <%= notice %>
     </p>

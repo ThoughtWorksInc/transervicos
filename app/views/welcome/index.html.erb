@@ -11,7 +11,10 @@
 						trans ou está em busca de serviços ou profissionais que não te discriminem?
 					</p>
 					<div class="cadastre-busque">
-						<%= link_to 'cadastre-se', new_user_registration_path, { :class=>"btn-contorno" } %><br class="visible-xs"/>ou<br class="visible-xs"/><%= link_to 'busque serviços', services_path, { :class=>"btn-contorno"} %>
+						<% if !user_signed_in? %>
+							<%= link_to 'cadastre-se', new_user_registration_path, { :class=>"btn-contorno" } %><br class="visible-xs"/>ou<br class="visible-xs"/>
+						<% end %>
+						<%= link_to 'busque serviços', services_path, { :class=>"btn-contorno"} %>
 					</div>
 				</div>
 			</div>

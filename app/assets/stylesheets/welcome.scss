@@ -7,20 +7,15 @@
 
 header#main-header {
 	color: white;
-	padding: 0 0 10vh 0;
+	padding: 3vh 0 8vh 0;
 	margin: 0;
-	background: image-url("header.jpg") no-repeat center top;
-	background-size: cover;
-	@media (max-width: $screen-sm-max) {
-
-	}
 	h1 {
 		font-family: $font1;
 		font-weight: 700;
 		font-size: 7em;
 		text-shadow: 0 2px 5px rgba(0,0,0,0.2);
 		text-transform: uppercase;
-		margin: 10vh 0 8vh 0;
+		margin: 8vh 0;
 		@media (max-width: $screen-xs-max) {
 			font-size: 3.5em;
 			margin: 1vh 0;
