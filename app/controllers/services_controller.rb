@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @current_user_is_owner = current_user && @service.user_id == current_user.id
   end
 
   # GET /services/new
