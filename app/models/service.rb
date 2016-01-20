@@ -1,4 +1,7 @@
 class Service < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   validates :subarea, presence: true
   validates :address, presence: true
   validates :name, presence: true
