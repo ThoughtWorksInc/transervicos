@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'services/new', type: :view do
   before(:each) do
-    assign(:service, Service.new(
-                       name: 'MyString',
-                       description: 'MyText',
-                       phone: 'MyString'
-    ))
+    assign(:service, build(:service))
   end
 
   it 'renders new service form' do

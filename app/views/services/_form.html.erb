@@ -35,16 +35,20 @@
   <h2>Área</h2>
   <div class="form-group">
     <!-- Esse foi o jeito que eu achei que deveria funcionar -->
-    <%= select_tag  :area_id, options_from_collection_for_select(Area.all, "id", "area"),
+    <% selected_area = @service.subarea.area ? @service.subarea.area.id : nil %>
+    <% selected_subareas = @service.subarea.area ? @service.subarea.area.subareas : [] %>
+    <%= select_tag  :area_id, options_from_collection_for_select(Area.all, "id", "area", selected_area),
       :prompt => "Selecione uma área",
       :class => "form-control" %>
-    <%= f.select :subarea_id, options_from_collection_for_select([], "id", "subarea"), { prompt: 'Selecione uma subarea'},
-      {"data-option-dependent" => true,
+    <%= f.select :subarea_id,
+      options_from_collection_for_select(selected_subareas, "id", "subarea", @service.subarea_id),
+      { prompt: 'Selecione uma subarea'},
+      { "data-option-dependent" => true,
         "data-option-observed" => "area_id",
         "data-option-url" => "/area/:area_id:/subareas.json",
         "data-option-key-method" => :id,
         "data-option-value-method" => :subarea,
-        :class => "form-control" } %>
+      :class => "form-control" } %>
   </div>
 
   <div class="actions">
