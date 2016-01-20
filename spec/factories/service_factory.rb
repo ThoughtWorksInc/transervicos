@@ -5,6 +5,7 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraph(2) }
     phone { Faker::PhoneNumber.phone_number }
     association :subarea, factory: :subarea_education_college, strategy: :create
+    association :user, factory: :user, strategy: :create
   end
 
   factory :service_without_subarea, class: Service do

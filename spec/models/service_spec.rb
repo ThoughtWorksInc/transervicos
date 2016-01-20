@@ -38,5 +38,23 @@ RSpec.describe Service, type: :model do
       service = FactoryGirl.build(:service, phone: nil)
       expect(service).to be_invalid
     end
+
+    it 'returns the social name if user has both social and civil name' do
+      user = create(:user, social_name: 'social name', civil_name: 'civil name')
+      service = build(:service, user: user)
+      expect(service.owner).to eq('social name')
+    end
+
+    it 'returns the civil name if user has only civil name' do
+      user = create(:user, social_name: nil, civil_name: 'civil name')
+      service = build(:service, user: user)
+      expect(service.owner).to eq('civil name')
+    end
+
+    it 'returns the social name if user has only social name' do
+      user = create(:user, social_name: 'social name', civil_name: nil)
+      service = build(:service, user: user)
+      expect(service.owner).to eq('social name')
+    end
   end
 end
