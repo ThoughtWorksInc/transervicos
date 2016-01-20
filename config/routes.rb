@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope(path_names: { new: 'novo', edit: 'editar' }) do
-    resources :services
+    resources :services, path: 'servicos'
   end
 
   get 'dashboard' => 'dashboard#index', :path => 'meu-perfil'

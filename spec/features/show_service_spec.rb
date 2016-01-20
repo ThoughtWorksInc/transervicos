@@ -9,7 +9,7 @@ describe 'When user is owner of the service', type: :feature do
     fill_in 'user_password', with: service.user.password
     click_button 'Entrar'
 
-    visit "/services/#{service.slug}"
+    visit "/servicos/#{service.slug}"
 
     expect(page).to have_link('Editar')
   end
@@ -25,7 +25,7 @@ describe 'When isn\'t owner of the service', type: :feature do
     fill_in 'user_password', with: another_user.password
     click_button 'Entrar'
 
-    visit "/services/#{service.slug}"
+    visit "/servicos/#{service.slug}"
 
     expect(page).to_not have_link('Editar')
   end
