@@ -11,4 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
     [:social_name, :civil_name, :birth_date, :username, :email,
      :phone_number, :password, :password_confirmation]
   end
+
+  def after_update_path_for(_resource)
+    dashboard_path
+  end
 end

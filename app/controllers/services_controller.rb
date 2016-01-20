@@ -32,7 +32,7 @@ class ServicesController < ApplicationController
     @service = current_user.services.build(service_params)
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
