@@ -10,7 +10,7 @@
           <div class="form-group">
             <%= f.text_field :social_name, placeholder: 'Nome social', autofocus: true, label: false, class: 'form-control input-user' %>
             <%= f.text_field :civil_name, placeholder: 'Nome civil', label: false, class: 'form-control input-user' %>
-            <%= f.text_field :birth_date, placeholder: '__/__/____', label: false, class: 'form-control'  %>
+            <%= f.text_field :birth_date, placeholder: '__/__/____', label: false, class: 'form-control', value: f.object.birth_date.strftime("%d/%m/%Y")  %>
             <%= f.text_field :username, placeholder: 'Nome de usuário', label: false, class: 'form-control'  %>
             <%= f.password_field :password, placeholder: 'Senha', autocomplete: "off", label: false, class: 'form-control input-password' %>
             <%= f.password_field :password_confirmation, placeholder: 'Confirmação de senha', autocomplete: "off", label: false, class: 'form-control input-password' %>
