@@ -462,3 +462,20 @@ footer#main-footer {
 	padding: 15px 0;
 	color: rgba(255,255,255,0.7);
 }
+
+
+#error_explanation {
+	/* mensagens de erro do Devise*/
+	@extend .alert;
+	@extend .alert-warning;
+	h2 {
+		color: inherit;
+		margin: 0 0 0.5em 0;
+		font-size: 1.3em;
+	}
+}
+#notice {
+	/*mensagens do rails*/
+	@extend .alert;
+	@extend .alert-info;
+}

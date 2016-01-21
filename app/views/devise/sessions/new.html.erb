@@ -2,31 +2,33 @@
     <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <h1 class="text-center">Entrar no Transerviços</h1>
+            <% if flash[:notice] %>
+              <div class="alert alert-warning" role="alert">
+                <%= flash[:notice] %>
+              </div>
+            <% end %>
+            <% if flash[:alert] %>
+              <div class="alert alert-warning" role="alert">
+                <%= flash[:alert] %>
+              </div>
+            <% end %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form-group">
+                    <%= f.email_field :email, placeholder: 'email', autofocus: true, class: 'form-control input-user' %>
+                    <%= f.password_field :password, placeholder: 'senha', class: 'form-control input-password' %>
+                </div>
 
-              <% if flash[:notice] %>
-                <p class="alert"><%= flash[:notice] %></p>
-              <% end %>
-              <% if flash[:alert] %>
-                <p class="alert"><%= flash[:alert] %></p>
-              <% end %>
+                <div class="actions">
+                <%= f.submit "Entrar", class: 'btn btn-block btn-form' %>
+                </div>
+            <% end %>
 
-              <h1 class="text-center">Entrar no Transerviços</h1>
-              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                  <div class="form-group">
-                      <%= f.email_field :email, placeholder: 'email', autofocus: true, class: 'form-control input-user' %>
-                      <%= f.password_field :password, placeholder: 'senha', class: 'form-control input-password' %>
-                  </div>
+            <p class="not-user-text">Ainda não é usuário?</p>
 
-                  <div class="actions">
-                  <%= f.submit "Entrar", class: 'btn btn-block btn-form' %>
-                  </div>
-              <% end %>
+            <%= link_to "Cadastre-se", new_registration_path(resource_name), class: 'btn btn-block btn-form' %><br />
 
-              <p class="not-user-text">Ainda não é usuário?</p>
-
-              <%= link_to "Cadastre-se", new_registration_path(resource_name), class: 'btn btn-block btn-form' %><br />
-
-              <%= link_to "Esqueci a senha", new_password_path(resource_name), class: 'lnk-forgot-password' %>
+            <%= link_to "Esqueci a senha", new_password_path(resource_name), class: 'lnk-forgot-password' %>
           </div>
         </div>
     </div>
