@@ -161,13 +161,14 @@ form {
 		select,
 		textarea,
 		.form-control {
+			height: auto;
 			font-size: 1.25em;
 			border-top: 1px solid #ddd;
 			border-bottom: 1px solid transparent;
 			border-left: none;
 			border-right: none;
 			font-family: inherit;
-			padding: 25px 10px 25px 50px;
+			padding: 12px 10px 12px 50px;
 			background-repeat: no-repeat;
 			background-position: 15px 15px;
 			border-radius: 0;
@@ -176,18 +177,10 @@ form {
 				box-shadow: none;
 			}
 			&:first-child {
-				&[type=text],
-				&[type=email],
-				&[type=password] {
-					border-radius: 3px 3px 0 0;
-				}
+				border-radius: 3px 3px 0 0;
 			}
 			&:last-child {
-				&[type=text],
-				&[type=email],
-				&[type=password] {
-					border-radius: 0 0 3px 3px;
-				}
+				border-radius: 0 0 3px 3px;
 			}
 			@media (max-width: $screen-xs-max) {
 				font-size: 1em;
@@ -205,6 +198,16 @@ form {
 			-moz-appearance: none;
 			height: 52px;
 			padding: 0 0 0 50px;
+		}
+		.radio {
+			background: white;
+			padding: 12px 10px 12px 20px;
+			font-size: 1.25em;
+			margin: 0;
+			@media (max-width: $screen-xs-max) {
+				font-size: 1em;
+				padding: 20px 8px;
+			}
 		}
 	}
 	.checkbox {

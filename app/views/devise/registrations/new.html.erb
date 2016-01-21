@@ -21,6 +21,23 @@
             <%= f.email_field :email, placeholder: 'Endereço de e-mail', label: false, class: 'form-control' %>
           </div>
 
+          <p class="not-user-text">Qual é seu nome preferencial?</p>
+          <p class="text-center text-white">Esse é o nome que ficará visível junto aos seus serviços.</p>
+          <div class="form-group">
+            <div class="radio form-control">
+              <label>
+              <input type="radio" name="nomePreferencial" id="nomePreferencial1" value="option1" checked>
+              Nome social
+              </label>
+            </div>
+            <div class="radio form-control">
+              <label>
+              <input type="radio" name="nomePreferencial" id="nomePreferencial2" value="option2">
+              Nome civil
+              </label>
+            </div>
+          </div>
+
           <div class="text-center">
             <div class="checkbox font1-2x">
               <label>
