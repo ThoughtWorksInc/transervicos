@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   validate :name_presence
   has_many :services
 
+  SOCIAL_NAME_PREFERENCE = 'S'
+  CIVIL_NAME_PREFERENCE = 'C'
+
   attr_accessor :birth_date_picker
 
   def name_presence
@@ -21,5 +24,13 @@ class User < ActiveRecord::Base
     today = Date.current
     return if birth_date && (birth_date + 18.years) < today
     errors.add(:_, 'É preciso ser maior de idade.')
+  end
+
+  def preferred_name
+    if name_preference == SOCIAL_NAME_PREFERENCE
+      social_name
+    elsif name_preference == CIVIL_NAME_PREFERENCE
+      civil_name
+    end
   end
 end

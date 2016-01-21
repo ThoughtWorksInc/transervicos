@@ -1,4 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  describe '#preferred_name' do
+    context 'the name of preference is the social' do
+      let :user do
+        build(:user, social_name: 'social name',
+                     civil_name: 'civil name',
+                     name_preference: User::SOCIAL_NAME_PREFERENCE)
+      end
+
+      it 'returns the social_name' do
+        expect(user.preferred_name).to be_eql('social name')
+      end
+    end
+
+    context 'the name of preference is the civil' do
+      let :user do
+        build(:user, social_name: 'social name',
+                     civil_name: 'civil name',
+                     name_preference: User::CIVIL_NAME_PREFERENCE)
+      end
+
+      it 'returns the civil_name' do
+        expect(user.preferred_name).to be_eql('civil name')
+      end
+    end
+  end
 end
