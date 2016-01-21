@@ -43,6 +43,9 @@ h2 {
 
 h1 {
 	margin: 2em 0 0.5em 0;
+	@media (max-width: $screen-xs-max) {
+		font-size: 2em;
+	}
 	&:first-of-type {
 		margin-top: 0;
 	}
@@ -186,6 +189,11 @@ form {
 					border-radius: 0 0 3px 3px;
 				}
 			}
+			@media (max-width: $screen-xs-max) {
+				font-size: 1em;
+				padding: 20px 8px 20px 40px;
+				background-position: 10px 10px;
+			}
 			&.input-user {background-image: image-url("ico-user.png");}
 			&.input-password {background-image: image-url("ico-password.png");}
 		}
@@ -224,6 +232,9 @@ form {
 		background: #F5F5F5;
 		color: $dark-blue;
 	}
+	@media (max-width: $screen-xs-max) {
+		font-size: 1.7em;
+	}
 }
 .not-user-text {
 	color: #FFF;
@@ -240,6 +251,18 @@ form {
 	font-size: 16px;
 	margin: 20px;
 	font-style: italic;
+}
+.devise-links {
+	padding-top: 20px;
+	a {
+		margin: 20px 0;
+		color: white;
+		text-align: center;
+		display: block;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 section.content {
