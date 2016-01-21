@@ -36,3 +36,4 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 4. `cd /vagrant/transervicos` 
 5. `rake server:start` (inicia o servidor)
 6. Abra seu browser e acesse `http:localhost:8080`
+
