@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def common_params
     [:social_name, :civil_name, :birth_date, :username, :email,
-     :phone_number, :password, :password_confirmation]
+     :phone_number, :password, :password_confirmation, :name_preference]
   end
 
   def after_update_path_for(_resource)

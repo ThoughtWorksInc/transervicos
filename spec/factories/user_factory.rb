@@ -9,5 +9,6 @@ FactoryGirl.define do
     birth_date { 20.years.ago }
     username { Faker::Internet.user_name }
     phone_number { Faker::PhoneNumber.phone_number }
+    name_preference { User::SOCIAL_NAME_PREFERENCE }
   end
 end

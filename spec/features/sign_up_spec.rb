@@ -14,11 +14,12 @@ describe 'When user enter valid informations', type: :feature do
     fill_in 'user_password_confirmation', with: user.password_confirmation
     fill_in 'user_phone_number', with: user.phone_number
     fill_in 'user_email', with: user.email
+    choose 'user_name_preference_social'
     check 'user_terms_of_service'
 
     click_button 'Cadastrar'
 
-    expect(page).to have_text("Olá, #{user.social_name}")
+    expect(page).to have_text("Olá, #{user.preferred_name}")
   end
 end
 
