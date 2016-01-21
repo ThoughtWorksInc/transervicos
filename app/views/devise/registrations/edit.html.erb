@@ -23,13 +23,13 @@
           <div class="form-group">
             <div class="radio form-control">
               <label>
-              <input type="radio" name="user[name_preference]" id="user_name_preference_social" value="S" checked>
+              <input type="radio" name="user[name_preference]" id="user_name_preference_social" value="S" <%= f.object.name_preference.eql?(User::SOCIAL_NAME_PREFERENCE) ? 'checked' : '' %> >
               Nome social
               </label>
             </div>
             <div class="radio form-control">
               <label>
-              <input type="radio" name="user[name_preference]" id="user_name_preference_civil" value="C">
+              <input type="radio" name="user[name_preference]" id="user_name_preference_civil" value="C" <%= f.object.name_preference.eql?(User::CIVIL_NAME_PREFERENCE) ? 'checked' : '' %> >
               Nome civil
               </label>
             </div>
