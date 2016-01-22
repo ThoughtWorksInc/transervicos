@@ -23,12 +23,28 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe 'GET #edit' do
-    let(:service) { create(:service) }
-    before :each do
-      get :edit, id: service.id
+    context 'when used is not logged in' do
+      let(:service) { create(:service) }
+
+      it 'redirects to sign in page' do
+        get :edit, id: service.id
+
+        expect(response).to redirect_to new_user_session_path
+      end
     end
-    it { expect(response).to render_template :edit }
-    it { expect(assigns(:service).name).to eq(service.name) }
+
+    context 'when user is logged in and user is updating his own service' do
+      let(:service) { create(:service, user_id: @user.id) }
+
+      before :each do
+        @user = create(:user)
+        sign_in @user
+        get :edit, id: service.id
+      end
+
+      it { expect(response).to render_template :edit }
+      it { expect(assigns(:service).name).to eq(service.name) }
+    end
   end
 
   describe 'POST #create' do
@@ -77,9 +93,15 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe 'PUT #update' do
-    let(:service) { create(:service) }
+    context 'when user is logged in and is updating his own service' do
+      let(:service) { create(:service, user_id: @user.id) }
 
-    context 'with valid params' do
+      before :each do
+        @user = create(:user)
+        sign_in @user
+        get :edit, id: service.id
+      end
+
       it 'updates the name attribute' do
         put :update, id: service.id, service: { name: 'other name' }
         expect(assigns(:service).name).to eq('other name')
@@ -99,9 +121,6 @@ RSpec.describe ServicesController, type: :controller do
         } }
         expect(assigns(:service).address.street).to eq('other street')
       end
-    end
-
-    context 'with invalid params' do
     end
   end
 

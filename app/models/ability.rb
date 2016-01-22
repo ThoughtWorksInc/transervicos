@@ -3,10 +3,10 @@ class Ability
 
   def initialize(user)
     if user.nil?
-        can :read, Service
+      can :read, Service
     else
       can [:read, :create], Service
-      can [:update, :destroy], Service, :user_id => user.id
+      can [:update, :destroy], Service, user_id: user.id
     end
     # Define abilities for the passed in user here. For example:
     #

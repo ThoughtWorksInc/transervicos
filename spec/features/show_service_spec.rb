@@ -27,6 +27,6 @@ describe 'When isn\'t owner of the service', type: :feature do
 
     visit "/servicos/#{service.slug}"
 
-    expect(page).to have_link('Editar')
+    expect(page).to_not have_link('Editar')
   end
 end
