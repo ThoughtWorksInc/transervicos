@@ -370,6 +370,14 @@ section.content {
 					margin-top: 10px;
 					padding-top: 10px;
 					border-top: 1px $light-blue solid;
+					i {
+						width: 40px;
+						text-align: center;
+						margin: 0;
+					}
+					div {
+						margin-left: 45px;
+					}
 				}
 			}
 			.btn-go {
