@@ -295,7 +295,7 @@ section.content {
 				line-height: 1.5em;
 				.icon {
 					width: 20px;
-					margin: 0;
+					margin: 3px 0 0 0;
 					color: $dark-blue;
 				}
 				.text {
@@ -365,6 +365,9 @@ section.content {
 				@media (min-width: $screen-sm-min) {
 					padding-top: 22px;
 					padding-left: 7px;
+				}
+				.desc {
+					line-height: 1.5em;
 				}
 				.attr {
 					margin-top: 10px;
