@@ -50,27 +50,32 @@
         <%= yield %>
 
         <section id="about">
-        	<div class="container">
-        		<div class="row">
-        			<div class="col-md-8 col-sm-6">
-        				<a href="javascript:;">
-        					<%= image_tag 'transervicos-logo.svg', { :style=>"height: 36px" } %>
-        				</a>
-        			</div>
-        			<div class="col-md-4 col-sm-6">
-        				<h2>
-        					Compartilhe
-        				</h2>
-        				<i class="fa fa-lg fa-facebook-official"></i>&nbsp;
-        				<i class="fa fa-lg fa-twitter"></i>
-        			</div>
-        		</div>
-        	</div>
+
         </section>
 
-        <footer id="main-footer" class="text-center">
-        	<strong>Transerviços</strong> | Copyright © 2016<br/>
-        	Feito com carinho <i class="fa fa-heart"></i>
+        <footer id="main-footer" class="footer">
+          <div class="about">
+            <div class="container">
+          		<div class="row">
+          			<div class="col-md-8 col-sm-6">
+          				<a href="javascript:;">
+          					<%= image_tag 'transervicos-logo.svg', { :style=>"height: 36px" } %>
+          				</a>
+          			</div>
+          			<div class="col-md-4 col-sm-6">
+          				<h2>
+          					Compartilhe
+          				</h2>
+          				<i class="fa fa-lg fa-facebook-official"></i>&nbsp;
+          				<i class="fa fa-lg fa-twitter"></i>
+          			</div>
+          		</div>
+          	</div>
+          </div>
+          <div class="copyright text-center">
+          	<strong>Transerviços</strong> | Copyright © 2016<br/>
+          	Feito com carinho <i class="fa fa-heart"></i>
+          </div>
         </footer>
 
     </body>

@@ -21,7 +21,6 @@
 @import "core";
 
 body {
-	margin: 0 0;
 	background-image: image-url("header.jpg");
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -32,7 +31,6 @@ body {
 	font-size: 16px;
 	color: #6c7279;
 	line-height: 120%;
-	min-height: 100vh;
 }
 
 h1,
@@ -471,10 +469,61 @@ section#dashboard {
 	}
 }
 
-footer#main-footer {
-	background: $fuchsia;
-	padding: 15px 0;
-	color: rgba(255,255,255,0.7);
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: $footer-height-sm;
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: $footer-height-xs;
+	}
+}
+footer.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: $footer-height-sm;
+	@media (max-width: $screen-xs-max) {
+		height: $footer-height-xs;
+	}
+	.about {
+		padding: 30px 0;
+		background: $purple;
+		color: white;
+		h2 {
+			margin: 0;
+			padding: 1px 0;
+			font-size: 2.5em;
+			text-transform: uppercase;
+			font-family: $font1;
+			color: $fuchsia;
+			@media (max-width: $screen-xs-max) {
+				margin-top: 30px;
+			}
+			a {
+				color: white !important;
+			}
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			li {
+				a {
+					color: white !important;
+				}
+			}
+		}
+	}
+	.copyright {
+		padding: 15px 0;
+		color: rgba(255,255,255,0.7);
+		background: $fuchsia;
+	}
 }
 
 
