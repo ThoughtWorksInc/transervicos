@@ -271,6 +271,19 @@ section.content {
 	@media (max-width: $screen-xs-max) {
 		padding: 0 0 20px 0;
 	}
+	.sem-servicos {
+		color: white;
+		font-weight: 200;
+		padding: 60px 30px;
+		border: 2px rgba(255,255,255,0.4) dotted;
+		border-radius: 20px;
+		margin: 30px 0;
+		font-size: 2em;
+		line-height: initial;
+		@media (max-width:$screen-xs-max) {
+			font-size: 1.4em;
+		}
+	}
 	.panel {
 		border: none;
 		box-shadow: 0 3px 8px rgba(0,0,0,0.25);
@@ -452,19 +465,6 @@ section#dashboard {
 					}
 				}
 			}
-		}
-	}
-	.sem-servicos {
-		color: white;
-		font-weight: 200;
-		padding: 60px 30px;
-		border: 2px rgba(255,255,255,0.4) dotted;
-		border-radius: 20px;
-		margin: 30px 0;
-		font-size: 2em;
-		line-height: initial;
-		@media (max-width:$screen-xs-max) {
-			font-size: 1.4em;
 		}
 	}
 }

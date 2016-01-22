@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="col-md-9">
-        <% if @services.nil? %>
+        <% if @services.empty? %>
           <div class="sem-servicos text-center">
             <p>Você ainda não cadastrou nenhum serviço.</p>
             <%= link_to 'Cadastre o primeiro!', new_service_path, class:"btn btn-contorno" %>
