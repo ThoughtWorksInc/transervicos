@@ -26,4 +26,12 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  context 'with invalid attributes' do
+    let(:user) { build(:user, username: nil) }
+
+    it 'does not save user without username' do
+      expect(user).to be_invalid
+    end
+  end
 end

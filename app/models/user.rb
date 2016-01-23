@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :birth_date, presence: { message: 'É preciso informar uma data de nascimento.' }
   validates :terms_of_service, acceptance: true
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true
   validate :age
   validate :name_presence
   has_many :services
