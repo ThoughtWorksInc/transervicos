@@ -125,5 +125,19 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+
+    before :each do
+      user = create(:user)
+      @service = create(:service, user_id: user.id)
+      sign_in user
+    end
+
+    it 'deletes a service' do
+      expect { delete :destroy, id: @service.id }.to change { Service.count }.by(-1)
+    end
+
+    it 'deletes the address when deletes a service' do
+      expect { delete :destroy, id: @service.id }.to change { Address.count }.by(-1)
+    end
   end
 end

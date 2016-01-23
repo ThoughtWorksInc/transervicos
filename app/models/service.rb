@@ -8,7 +8,7 @@ class Service < ActiveRecord::Base
   validates :description, presence: true
   validates :phone, presence: true
 
-  has_one :address
+  has_one :address, dependent: :destroy
   belongs_to :subarea
   belongs_to :user
   accepts_nested_attributes_for :address
