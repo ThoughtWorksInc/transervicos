@@ -125,7 +125,6 @@ RSpec.describe ServicesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-
     before :each do
       user = create(:user)
       @service = create(:service, user_id: user.id)
