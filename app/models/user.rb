@@ -27,10 +27,10 @@ class User < ActiveRecord::Base
   end
 
   def preferred_name
-    if name_preference == SOCIAL_NAME_PREFERENCE
-      social_name
-    elsif name_preference == CIVIL_NAME_PREFERENCE
-      civil_name
+    if name_preference == CIVIL_NAME_PREFERENCE
+      return civil_name.nil? ? social_name : civil_name
+    elsif name_preference == SOCIAL_NAME_PREFERENCE
+      return social_name.nil? ? civil_name : social_name
     end
   end
 end

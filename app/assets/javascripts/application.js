@@ -19,6 +19,16 @@
 //= require jasny-bootstrap.min
 //
 
+function userTyped(commen, e) {
+    if(e.value.length > 0) {
+        document.getElementById(commen).disabled = false;
+    } else {
+        document.getElementById(commen).checked = false;
+        document.getElementById(commen).disabled = true;
+    }
+}
+
+
 jQuery(document).ready(function () {
     $('select[data-option-dependent=true]').each(function (i) {
         var observer_dom_id = $(this).attr("id");
@@ -55,5 +65,4 @@ jQuery(document).ready(function () {
     $('#user_phone_number, #service_phone').inputmask({
       mask: "(99) 9999?99999"
     });
-
 });

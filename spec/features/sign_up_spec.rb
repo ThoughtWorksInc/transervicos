@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'When user enter valid informations', type: :feature do
-  let(:user) { build(:user) }
+  let(:user) { build(:user, name_preference: 'name') }
 
   scenario 'user signs in successfully' do
     visit new_user_registration_path
@@ -14,7 +14,6 @@ describe 'When user enter valid informations', type: :feature do
     fill_in 'user_password_confirmation', with: user.password_confirmation
     fill_in 'user_phone_number', with: user.phone_number
     fill_in 'user_email', with: user.email
-    choose 'user_name_preference_social'
     check 'user_terms_of_service'
 
     click_button 'Cadastrar'

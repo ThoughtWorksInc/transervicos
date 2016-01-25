@@ -12,6 +12,11 @@ RSpec.describe User, type: :model do
       it 'returns the social_name' do
         expect(user.preferred_name).to be_eql('social name')
       end
+
+      it 'returns civil name when social name is empty' do
+        user.social_name = nil
+        expect(user.preferred_name).to be_eql('civil name')
+      end
     end
 
     context 'the name of preference is the civil' do
@@ -23,6 +28,11 @@ RSpec.describe User, type: :model do
 
       it 'returns the civil_name' do
         expect(user.preferred_name).to be_eql('civil name')
+      end
+
+      it 'returns social name when civil name is empty' do
+        user.civil_name = nil
+        expect(user.preferred_name).to be_eql('social name')
       end
     end
   end

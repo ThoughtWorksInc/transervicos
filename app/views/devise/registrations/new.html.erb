@@ -7,8 +7,8 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
           <div class="form-group">
-            <%= f.text_field :social_name, placeholder: 'Nome social', autofocus: true, label: false, class: 'form-control input-user' %>
-            <%= f.text_field :civil_name, placeholder: 'Nome civil', label: false, class: 'form-control input-user' %>
+            <%= f.text_field :social_name, placeholder: 'Nome social', autofocus: true, label: false, class: 'form-control input-user', onkeyup: "userTyped('user_name_preference_social', this)" %>
+            <%= f.text_field :civil_name, placeholder: 'Nome civil', label: false, class: 'form-control input-user', onkeyup: "userTyped('user_name_preference_civil', this)" %>
             <%= f.text_field :birth_date, placeholder: '__/__/____', label: false, class: 'form-control'  %>
             <%= f.text_field :username, placeholder: 'Nome de usuário', label: false, class: 'form-control'  %>
             <!-- <%= f.label :password %>
@@ -26,13 +26,13 @@
           <div class="form-group">
             <div class="radio form-control">
               <label>
-              <input type="radio" name="user[name_preference]" id="user_name_preference_social" value="S" checked>
+              <input type="radio" name="user[name_preference]" id="user_name_preference_social" value="S" disabled>
               Nome social
               </label>
             </div>
             <div class="radio form-control">
               <label>
-              <input type="radio" name="user[name_preference]" id="user_name_preference_civil" value="C">
+              <input type="radio" name="user[name_preference]" id="user_name_preference_civil" value="C" disabled>
               Nome civil
               </label>
             </div>
