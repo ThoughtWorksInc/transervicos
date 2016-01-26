@@ -126,10 +126,6 @@ section#desconstruindo-mitos {
 			font-size: 2em;
 		}
 	}
-	h2 {
-		font-family: $font2;
-		color: $dark-blue;
-	}
 	#mitos-container {
 		margin-right: 40px;
 	}
@@ -143,9 +139,14 @@ section#desconstruindo-mitos {
 		}
 	}
 	.mito {
+		h2 {
+			font-family: $font2;
+			color: $dark-blue;
+			margin-bottom: 1em;
+		}
 		p {
-			font-size: 1.2em;
 			color: darken($dark-blue, 30%);
+			margin-bottom: 1em;
 		}
 	}
 }
