@@ -38,6 +38,23 @@ header#main-header {
 	}
 }
 
+section#feedback-tw {
+	padding: 30px 0;
+	background-image: image-url("preview-ribbon.png");
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: 100px 100px;
+	@media (max-width: $screen-xs-max) {
+		background-size: 80px 80px;
+	}
+	h2 {
+		margin: 0 0 0.5em 0;
+	}
+	a {
+		color: mix(white, $fuchsia, 40%);
+	}
+}
+
 section#trans-hoje {
 	padding: 10vh 0;
 	background: #FFF;

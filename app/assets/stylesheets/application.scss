@@ -150,64 +150,100 @@ nav#main-navbar {
 
 /*Form*/
 form {
-	.form-group,
-	.checkbox {
-		margin-bottom: 30px;
-	}
-	.form-group {
+	fieldset {
 		box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
-		select,
-		textarea,
-		.form-control {
-			height: auto;
-			font-size: 1.25em;
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid transparent;
+		margin-bottom: 30px;
+		background: white;
+		.form-group {
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid #ddd;
 			border-left: none;
 			border-right: none;
-			font-family: inherit;
-			padding: 12px 10px 12px 50px;
+			padding: 20px 15px 20px 45px;
 			background-repeat: no-repeat;
-			background-position: 15px 15px;
+			background-position: 15px 20px;
 			border-radius: 0;
-			&:focus {
-				border-color: $dark-blue;
-				box-shadow: none;
-			}
+			margin: 0;
 			&:first-child {
 				border-radius: 3px 3px 0 0;
 			}
 			&:last-child {
 				border-radius: 0 0 3px 3px;
+				border-bottom: none;
 			}
 			@media (max-width: $screen-xs-max) {
-				font-size: 1em;
-				padding: 20px 8px 20px 40px;
-				background-position: 10px 10px;
+				padding: 10px 12px 14px 40px;
+				background-position: 10px 11px;
 			}
 			&.input-user {background-image: image-url("ico-user.png");}
 			&.input-password {background-image: image-url("ico-password.png");}
+			/***/
+			label {
+				padding: 0 10px;
+				&.label-required {
+					padding-left: 0;
+					&:before {
+						content: "\0002A\02009";
+						width: 10px;
+						text-align: right;
+						color: $fuchsia;
+					}
+				}
+				@media (max-width: $screen-xs-max) {
+					font-size: 0.8em;
+					margin: 0;
+				}
+			}
+			.form-control {
+				height: auto;
+				font-size: 1.25em;
+				font-family: inherit;
+				padding: 6px 10px;
+				border: none;
+				border-bottom: 2px #ddd solid;
+				box-shadow: none;
+				border-radius: 0;
+				@media (max-width: $screen-xs-max) {
+					font-size: 1em;
+					padding-top: 4px;
+					padding-bottom: 4px;
+				}
+				&:focus {
+					border-color: $dark-blue;
+					box-shadow: none;
+				}
+			}
+			textarea {
+				@extend .form-control;
+				resize: none;
+				border: 2px #ddd solid;
+				border-radius: 6px;
+			}
+			select {
+				@extend .form-control;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				height: 52px;
+				@media (max-width: $screen-xs-max) {
+					height: 42px;
+				}
+			}
 		}
-		textarea {
-			resize: none;
-		}
-		select.form-control {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			height: 52px;
-			padding: 0 0 0 50px;
 		}
 		.radio {
 			background: white;
-			padding: 12px 10px 12px 20px;
+			padding: 15px 10px 15px 0;
 			font-size: 1.25em;
 			margin: 0;
 			@media (max-width: $screen-xs-max) {
 				font-size: 1em;
-				padding: 20px 8px;
+			}
+			label {
+				font-size :1em;
 			}
 		}
 	}
+	.form-group {
 	.checkbox {
 		label {
 			color: white;

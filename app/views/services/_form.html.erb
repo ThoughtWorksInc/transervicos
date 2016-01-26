@@ -14,42 +14,73 @@
   <% end %>
 
   <h2>Sobre o serviço</h2>
-  <div class="form-group">
-    <%= f.text_field :name, label: 'Nome', required: true, placeholder:"Nome", class:"form-control" %>
-    <%= f.text_area :description, label: 'Descrição', required: true, placeholder:"Descrição", class:"form-control", rows:"5" %>
-    <%= f.telephone_field :phone, label: 'Telefone', required: true, placeholder:"Telefone", class:"form-control" %>
-  </div>
+  <fieldset class="form-fieldset">
+    <div class="form-group input-user">
+      <%= f.label :name, "Nome", :class=>"label-required" %>
+      <%= f.text_field :name, label: 'Nome', required: true, placeholder:"", class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, "Descrição", :class=>"label-required" %>
+      <%= f.text_area :description, label: 'Descrição', required: true, placeholder:"", class:"", rows:"5" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone, "Telefone", :class=>"label-required" %>
+      <%= f.telephone_field :phone, label: 'Telefone', required: true, placeholder:"", class:"form-control" %>
+    </div>
+  </fieldset>
 
   <h2>Endereço</h2>
-  <div class="form-group">
+  <fieldset class="form-fieldset">
     <%= f.fields_for :address do |a| %>
-      <%= a.text_field :street, label: 'Logradouro', required: true, placeholder:"Logradouro", class:"form-control" %>
-      <%= a.text_field :number, label: 'Número', required: true, placeholder:"Número", class:"form-control" %>
-      <%= a.text_field :complement, label: 'Complemento', placeholder:"Complemento", class:"form-control" %>
-      <%= a.text_field :neighborhood, label: 'Bairro', required: true, placeholder:"Bairro", class:"form-control" %>
-      <%= a.text_field :city, label: 'Cidade', required: true, placeholder:"Cidade", class:"form-control" %>
-      <%= a.text_field :state, label: 'Estado', required: true, placeholder:"Estado", class:"form-control" %>
+      <div class="form-group">
+          <%= f.label :street, "Logradouro", :class=>"label-required" %>
+          <%= a.text_field :street, label: '', required: true, placeholder:"", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :number, "Número", :class=>"label-required" %>
+          <%= a.text_field :number, label: '', required: true, placeholder:"", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :complement, "Complemento" %>
+          <%= a.text_field :complement, label: '', placeholder:"", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :neighborhood, "Bairro", :class=>"label-required" %>
+          <%= a.text_field :neighborhood, label: '', required: true, placeholder:"", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :city, "Cidade", :class=>"label-required" %>
+          <%= a.text_field :city, label: '', required: true, placeholder:"", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :state, "Estado", :class=>"label-required" %>
+          <%= a.text_field :state, label: '', required: true, placeholder:"", class:"form-control" %>
+      </div>
     <% end %>
-  </div>
+  </fieldset>
 
   <h2>Área</h2>
-  <div class="form-group">
-    <!-- Esse foi o jeito que eu achei que deveria funcionar -->
+  <fieldset class="form-fieldset">
     <% selected_area = @service.subarea.area ? @service.subarea.area.id : nil %>
     <% selected_subareas = @service.subarea.area ? @service.subarea.area.subareas : [] %>
-    <%= select_tag  :area_id, options_from_collection_for_select(Area.all, "id", "area", selected_area),
-      :prompt => "Selecione uma área",
-      :class => "form-control" %>
-    <%= f.select :subarea_id,
-      options_from_collection_for_select(selected_subareas, "id", "subarea", @service.subarea_id),
-      { prompt: 'Selecione uma subarea'},
-      { "data-option-dependent" => true,
-        "data-option-observed" => "area_id",
-        "data-option-url" => "/area/:area_id:/subareas.json",
-        "data-option-key-method" => :id,
-        "data-option-value-method" => :subarea,
-      :class => "form-control" } %>
-  </div>
+    <div class="form-group">
+      <!-- Esse foi o jeito que eu achei que deveria funcionar -->
+      <%= f.label :area_id, "Área", :class=>"label-required" %>
+      <%= select_tag  :area_id, options_from_collection_for_select(Area.all, "id", "area", selected_area),
+        :prompt => "Selecione uma área" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :subarea_id, "Subárea", :class=>"label-required" %>
+      <%= f.select :subarea_id,
+        options_from_collection_for_select(selected_subareas, "id", "subarea", @service.subarea_id),
+        { prompt: 'Selecione uma subárea'},
+        { "data-option-dependent" => true,
+          "data-option-observed" => "area_id",
+          "data-option-url" => "/area/:area_id:/subareas.json",
+          "data-option-key-method" => :id,
+          "data-option-value-method" => :subarea } %>
+    </div>
+  </fieldset>
 
   <div class="actions">
     <%= f.submit save_service_text(@service), class: 'btn btn-block btn-form' %>

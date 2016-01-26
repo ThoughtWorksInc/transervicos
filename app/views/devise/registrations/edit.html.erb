@@ -7,38 +7,67 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
 
-          <div class="form-group">
-            <%= f.text_field :social_name, placeholder: 'Nome social', autofocus: true, label: false, class: 'form-control input-user' %>
-            <%= f.text_field :civil_name, placeholder: 'Nome civil', label: false, class: 'form-control input-user' %>
-            <%= f.text_field :birth_date, placeholder: '__/__/____', label: false, class: 'form-control', value: f.object.birth_date.strftime("%d/%m/%Y")  %>
-            <%= f.text_field :username, placeholder: 'Nome de usuário', label: false, class: 'form-control'  %>
-            <%= f.password_field :password, placeholder: 'Senha', autocomplete: "off", label: false, class: 'form-control input-password' %>
-            <%= f.password_field :password_confirmation, placeholder: 'Confirmação de senha', autocomplete: "off", label: false, class: 'form-control input-password' %>
-            <%= f.telephone_field :phone_number, placeholder: 'Número de telefone', label: false, class: 'form-control' %>
-            <%= f.email_field :email, placeholder: 'Endereço de e-mail', label: false, class: 'form-control' %>
-          </div>
+          <fieldset class="form-fieldset">
+            <div class="form-group input-user">
+              <%= f.label :social_name, "Nome social", :class=>"label-required" %>
+              <%= f.text_field :social_name, autofocus: true, class: 'form-control' %>
+            </div>
+            <div class="form-group input-user">
+              <%= f.label :civil_name, "Nome civil", :class=>"label-required" %>
+              <%= f.text_field :civil_name, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :birth_date, "Data de nascimento", :class=>"label-required" %>
+              <%= f.text_field :birth_date, class: 'form-control', value: f.object.birth_date.strftime("%d/%m/%Y")  %>
+            </div>
+            <div class="form-group">
+              <%= f.label :username, "Nome de usuário", :class=>"label-required" %>
+              <%= f.text_field :username, class: 'form-control'  %>
+            </div>
+            <div class="form-group input-password">
+              <%= f.label :password, "Nova senha", :class=>"label-required" %>
+              <%= f.password_field :password, placeholder: '(deixe em branco para não alterá-la)', autocomplete: "off", class: 'form-control' %>
+            </div>
+            <div class="form-group input-password">
+              <%= f.label :password_confirmation, "Nova senha (confirmação)", :class=>"label-required" %>
+              <%= f.password_field :password_confirmation, placeholder: '(repita a nova senha para alterá-la)', autocomplete: "off", class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :phone_number, "Número de telefone", :class=>"label-required" %>
+              <%= f.telephone_field :phone_number, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "Endereço de e-mail", :class=>"label-required" %>
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+          </fieldset>
 
           <p class="not-user-text">Qual é seu nome preferencial?</p>
           <p class="text-center text-white">Esse é o nome que ficará visível junto aos seus serviços.</p>
-          <div class="form-group">
-            <div class="radio form-control">
-              <label>
-              <input type="radio" name="user[name_preference]" id="user_name_preference_social" value="S" <%= f.object.name_preference.eql?(User::SOCIAL_NAME_PREFERENCE) ? 'checked' : '' %> >
-              Nome social
-              </label>
+          <fieldset class="form-fieldset">
+            <div class="form-group">
+              <div class="radio">
+                <label>
+                <input type="radio" name="user[name_preference]" id="user_name_preference_social" value="S" <%= f.object.name_preference.eql?(User::SOCIAL_NAME_PREFERENCE) ? 'checked' : '' %> >
+                Nome social
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                <input type="radio" name="user[name_preference]" id="user_name_preference_civil" value="C" <%= f.object.name_preference.eql?(User::CIVIL_NAME_PREFERENCE) ? 'checked' : '' %> >
+                Nome civil
+                </label>
+              </div>
             </div>
-            <div class="radio form-control">
-              <label>
-              <input type="radio" name="user[name_preference]" id="user_name_preference_civil" value="C" <%= f.object.name_preference.eql?(User::CIVIL_NAME_PREFERENCE) ? 'checked' : '' %> >
-              Nome civil
-              </label>
-            </div>
-          </div>
+          </fieldset>
 
           <p class="not-user-text">Forneça sua senha atual para confirmar as alterações:</p>
-          <div class="form-group">
-            <%= f.password_field :current_password, placeholder:"Senha atual", autocomplete: "off", class:"form-control" %>
-          </div>
+          <fieldset class="form-fieldset">
+            <div class="form-group input-password">
+              <%= f.label :current_password, "Senha atual", :class=>"label-required" %>
+              <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
+            </div>
+          </fieldset>
 
           <div class="actions">
             <%= f.submit "Atualizar meus dados", class:"btn btn-form btn-block" %>
