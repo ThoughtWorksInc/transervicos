@@ -48,7 +48,10 @@ section#feedback-tw {
 		background-size: 80px 80px;
 	}
 	h2 {
-		margin: 0 0 0.5em 0;
+		margin: 0 0 1em 0;
+	}
+	p {
+		margin-bottom: 1em;
 	}
 	a {
 		color: mix(white, $fuchsia, 40%);
