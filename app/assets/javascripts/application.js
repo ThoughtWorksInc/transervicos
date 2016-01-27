@@ -65,4 +65,14 @@ jQuery(document).ready(function () {
     $('#user_phone_number, #service_phone').inputmask({
       mask: "(99) 9999?99999"
     });
+
+    if ( $('#user_social_name').val() === '' ) {
+      console.log('social');
+      $('#user_name_preference_social').attr('disabled', true);
+    }
+
+    if ( $('#user_civil_name').val() === '' ) {
+      console.log('civil');
+      $('#user_name_preference_civil').attr('disabled', true);
+    }
 });

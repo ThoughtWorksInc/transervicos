@@ -28,9 +28,9 @@ class User < ActiveRecord::Base
 
   def preferred_name
     if name_preference == CIVIL_NAME_PREFERENCE
-      civil_name || social_name
+      return civil_name.empty? ? social_name : civil_name
     elsif name_preference == SOCIAL_NAME_PREFERENCE
-      social_name || civil_name
+      return social_name.empty? ? civil_name : social_name
     end
   end
 end
