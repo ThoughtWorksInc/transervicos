@@ -32,6 +32,9 @@ header#main-header {
 		}
 	}
 	.cadastre-busque {
+		.btn-contorno {
+			margin: 0 12px;
+		}
 		@media (max-width: $screen-sm-max) {
 			line-height: 2em;
 		}

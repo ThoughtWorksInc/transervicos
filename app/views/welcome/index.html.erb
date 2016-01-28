@@ -12,10 +12,7 @@
 						pessoas ou que não as discrimine?
 					</p>
 					<div class="cadastre-busque">
-						<% if !user_signed_in? %>
-							<%= link_to 'cadastre-se', new_user_registration_path, { :class=>"btn-contorno", :style=>"margin: 0 10px" } %><br class="visible-xs"/>ou<br class="visible-xs"/>
-						<% end %>
-						<%= link_to 'busque serviços', services_path, { :class=>"btn-contorno" } %>
+						<% if !user_signed_in? %><%= link_to 'cadastre-se', new_user_registration_path, { :class=>"btn-contorno" } %><br class="visible-xs"/>ou<br class="visible-xs"/><% end %><%= link_to 'busque serviços', services_path, { :class=>"btn-contorno" } %>
 					</div>
 				</div>
 			</div>
@@ -56,8 +53,8 @@
 	<a name="trans-hoje"></a>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<h2 class="text-center brazil">Como é ser trans ou travesti no Brasil hoje?</h2>
+			<div class="col-md-4 text-center">
+				<h2 class="brazil">Como é ser trans ou travesti no Brasil hoje?</h2>
 				<p>
 					O Brasil é o país campeão mundial de assassinatos de travestis e transexuais.
 					A discriminação faz com que a grande maioria dessas pessoas não consiga
@@ -65,8 +62,8 @@
 				</p>
 				<!--<a href="javascript:;">Saiba mais</a>-->
 			</div>
-			<div class="col-md-4">
-				<h2 class="text-center rights">Direitos que, por lei, deveríamos ter</h2>
+			<div class="col-md-4 text-center">
+				<h2 class="rights">Direitos que, por lei, deveríamos ter</h2>
 				<p>
 					Aprovação de uma lei de identidade de gênero para que as pessoas trans
 					e travestis possam modificar seus documentos sem grandes burocracias,
@@ -75,8 +72,8 @@
 				</p>
 				<!--<a href="javascript:;">Saiba mais</a>-->
 			</div>
-			<div class="col-md-4">
-				<h2 class="text-center change">O que eu posso fazer para mudar isso?</h2>
+			<div class="col-md-4 text-center">
+				<h2 class="change">O que eu posso fazer para mudar isso?</h2>
 				<p>
 					Que tal contratar uma das talentosas pessoas trans e travestis que anunciam
 					nesse site? E caso você conheça algum serviço que é verdadeiramente
