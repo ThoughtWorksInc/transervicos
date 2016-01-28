@@ -130,15 +130,18 @@ section#desconstruindo-mitos {
 		}
 	}
 	#mitos-container {
-		margin-right: 40px;
+
 	}
 	.mitos-controle {
-		width: 20px;
+		text-align: center;
 		line-height: 2.5em;
 		color: transparentize($dark-blue, 0.65);
 		cursor: pointer;
-		i.active {
-			color: $dark-blue;
+		i {
+			margin: 0 5px;
+			&.active {
+				color: $dark-blue;
+			}
 		}
 	}
 	.mito {
