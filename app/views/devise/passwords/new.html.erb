@@ -8,9 +8,12 @@
           <%= devise_error_messages! %>
 
           <p class="not-user-text">Insira seu endereço de email abaixo para receber as intruções de como redefinir sua senha.</p>
-          <div class="form-group">
-            <%= f.email_field :email, autofocus: true, class:"form-control" %>
-          </div>
+          <fieldset class="form-fieldset">
+            <div class="form-group">
+              <%= f.label :email, "Endereço de email", :class=>"label-required" %>
+              <%= f.email_field :email, autofocus: true, class:"form-control" %>
+            </div>
+          </fieldset>
 
           <div class="actions">
             <%= f.submit "Enviar instruções", class:"btn btn-form btn-block" %>
