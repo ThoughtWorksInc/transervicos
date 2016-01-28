@@ -38,5 +38,4 @@ describe 'When user doesn\'t enter valid informations', type: :feature do
 
     expect(page).to have_text('É preciso ser maior de idade')
   end
-  
 end
