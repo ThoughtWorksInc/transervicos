@@ -33,11 +33,6 @@ RSpec.describe Service, type: :model do
       service = FactoryGirl.build(:service, description: nil)
       expect(service).to be_invalid
     end
-
-    it 'does not create service without phone' do
-      service = FactoryGirl.build(:service, phone: nil)
-      expect(service).to be_invalid
-    end
   end
 
   describe '#owner' do
