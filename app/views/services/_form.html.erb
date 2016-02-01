@@ -33,28 +33,28 @@
   <fieldset class="form-fieldset">
     <%= f.fields_for :address do |a| %>
       <div class="form-group">
-          <%= f.label :street, "Logradouro", :class=>"label-required" %>
-          <%= a.text_field :street, label: '', required: true, placeholder:"", class:"form-control" %>
+          <%= f.label :street, "Logradouro" %>
+          <%= a.text_field :street, label: '', placeholder:"", class:"form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :number, "Número", :class=>"label-required" %>
-          <%= a.text_field :number, label: '', required: true, placeholder:"", class:"form-control" %>
+          <%= f.label :number, "Número" %>
+          <%= a.text_field :number, label: '', placeholder:"", class:"form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :complement, "Complemento" %>
           <%= a.text_field :complement, label: '', placeholder:"", class:"form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :neighborhood, "Bairro", :class=>"label-required" %>
-          <%= a.text_field :neighborhood, label: '', required: true, placeholder:"", class:"form-control" %>
+          <%= f.label :neighborhood, "Bairro" %>
+          <%= a.text_field :neighborhood, label: '', placeholder:"", class:"form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :city, "Cidade", :class=>"label-required" %>
-          <%= a.text_field :city, label: '', required: true, placeholder:"", class:"form-control" %>
+          <%= f.label :city, "Cidade" %>
+          <%= a.text_field :city, label: '', placeholder:"", class:"form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :state, "Estado", :class=>"label-required" %>
-          <%= a.text_field :state, label: '', required: true, placeholder:"", class:"form-control" %>
+          <%= f.label :state, "Estado" %>
+          <%= a.text_field :state, label: '', placeholder:"", class:"form-control" %>
       </div>
     <% end %>
   </fieldset>
