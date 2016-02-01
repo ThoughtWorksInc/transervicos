@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :birth_date, presence: { message: 'É preciso informar uma data de nascimento.' }
+  validates :social_name, presence: true
+  validates :birth_date, presence: true
   validates :terms_of_service, acceptance: true
   validates :username, uniqueness: true, allow_blank: true
   validate :age

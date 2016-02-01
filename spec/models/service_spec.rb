@@ -42,7 +42,7 @@ RSpec.describe Service, type: :model do
 
   describe '#owner' do
     it 'is a sugar for User.preferred_name' do
-      user = create(:user, social_name: nil, civil_name: 'civil name')
+      user = create(:user, civil_name: '', social_name: 'social name')
       service = build(:service, user: user)
       expect(user).to receive(:preferred_name)
       service.owner

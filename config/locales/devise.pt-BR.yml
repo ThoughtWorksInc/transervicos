@@ -53,9 +53,9 @@ pt-BR:
       expired: "expirado, por favor solicite uma nova"
       not_found: "não encontrado"
       not_locked: "não encontra-se bloqueada"
-      accepted: deve ser aceito
-      blank: não pode ficar em branco
-      present: deve ficar em branco
+      accepted: deve ser aceito.
+      blank: não pode ficar em branco.
+      present: deve ficar em branco.
       confirmation: não é igual a %{attribute}
       empty: não pode ficar vazio
       equal_to: deve ser igual a %{count}
@@ -77,12 +77,23 @@ pt-BR:
         one: 'é muito longo (máximo: 1 caracter)'
         other: 'é muito longo (máximo: %{count} caracteres)'
       too_short:
-        one: 'é muito curto (mínimo: 1 caracter)'
-        other: 'é muito curto (mínimo: %{count} caracteres)'
+        one: 'é muito curta (mínimo: 1 caracter)'
+        other: 'é muito curta. Insira, pelo menos, %{count} caracteres.'
       wrong_length:
         one: não possui o tamanho esperado (1 caracter)
         other: não possui o tamanho esperado (%{count} caracteres)
       not_saved:
-        one: "1 erro impediu a gravação de %{resource} :"
-        other: "%{count} erros impediram a gravação de %{resource} :"
-      other_than: deve ser diferente de %{count}
+        one: "1 erro impediu a finalização do cadastro:"
+        other: "%{count} erros impediram a finalização do cadastro:"
+      other_than: "deve ser diferente de %{count}"
+  activerecord:
+    models:
+      user: 'usuário'
+    attributes:
+      user:
+        email: 'Endereço de email'
+        password: 'Senha'
+        password_confirmation: 'Confirmação de senha'
+        terms_of_service: 'Termos de uso'
+        birth_date: 'Data de nascimento'
+        social_name: 'Nome social'

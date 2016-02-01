@@ -9,15 +9,15 @@
 
           <fieldset class="form-fieldset">
             <div class="form-group input-user">
-              <%= f.label :social_name, "Nome" %>
+              <%= f.label :social_name, "Nome", class: "label-required" %>
               <%= f.text_field :social_name, placeholder:'Você pode usar seu nome social', class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= f.label :birth_date, "Data de nascimento", :class=>"label-required" %>
+              <%= f.label :birth_date, "Data de nascimento", class: "label-required" %>
               <%= f.text_field :birth_date, placeholder:'É necessário ter mais de 18 anos', class: 'form-control'  %>
             </div>
             <div class="form-group input-password">
-              <%= f.label :password, "Senha", :class=>"label-required" %>
+              <%= f.label :password, "Senha", class: "label-required" %>
               <%= f.password_field :password, placeholder:'Mínimo de 8 caracteres', autocomplete: "off", class: 'form-control' %>
             </div>
             <div class="form-group input-password">
@@ -25,7 +25,7 @@
               <%= f.password_field :password_confirmation, placeholder:'Confirme sua senha', autocomplete: "off", class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= f.label :email, "Endereço de e-mail", :class=>"label-required" %>
+              <%= f.label :email, "Endereço de e-mail", class: "label-required" %>
               <%= f.email_field :email, class: 'form-control' %>
             </div>
           </fieldset>
