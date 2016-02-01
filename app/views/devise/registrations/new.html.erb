@@ -32,8 +32,8 @@
 
           <div class="text-center">
             <div class="checkbox font1-2x">
-              <label>
-                <%= f.check_box :terms_of_service, as: :boolean, label: 'Aceito os termos de uso', class: 'checkbox' %> Aceito os termos de uso
+              <label class="label-required">
+                <%= f.check_box :terms_of_service, as: :boolean, label: 'Aceito os termos de uso', class: 'checkbox' %> <span class="text-fuchsia">*</span>&nbsp;Aceito os termos de uso
               </label>
             </div>
           </div>
