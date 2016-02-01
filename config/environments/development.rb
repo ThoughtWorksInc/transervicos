@@ -18,9 +18,9 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     port: 587,
     address: 'smtp.mailgun.org',
-    domain: ENV['mailer_domain'],
-    user_name: ENV['mailer_username'],
-    password: ENV['mailer_password'],
+    domain: ENV['MAILER_DOMAIN'],
+    user_name: ENV['MAILER_USERNAME'],
+    password: ENV['MAILER_PASSWORD'],
     authentication: :plain
   }
   # Don't care if the mailer can't send.
