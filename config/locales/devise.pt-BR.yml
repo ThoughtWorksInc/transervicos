@@ -97,3 +97,6 @@ pt-BR:
         terms_of_service: 'Termos de uso'
         birth_date: 'Data de nascimento'
         social_name: 'Nome social'
+      address:
+        city: 'Cidade'
+        state: 'Estado'

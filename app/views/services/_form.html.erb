@@ -2,7 +2,7 @@
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:
+        <%= pluralize(@service.errors.count, "erro") %> impediram a finalização do cadastro:
       </h2>
 
       <ul>
@@ -16,11 +16,11 @@
   <h2>Sobre o serviço</h2>
   <fieldset class="form-fieldset">
     <div class="form-group input-user">
-      <%= f.label :name, "Nome do serviço oferecido", :class=>"label-required" %>
+      <%= f.label :name, "Nome do serviço oferecido", class: "label-required" %>
       <%= f.text_field :name, label: 'Nome', required: true, placeholder:"", class:"form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :description, "Descrição", :class=>"label-required" %>
+      <%= f.label :description, "Descrição", class: "label-required" %>
       <%= f.text_area :description, label: 'Descrição', required: true, placeholder:"", class:"", rows:"5" %>
     </div>
     <div class="form-group">
@@ -57,11 +57,11 @@
           <%= a.text_field :neighborhood, label: '', placeholder:"", class:"form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :city, "Cidade" %>
+          <%= f.label :city, "Cidade", class: "label-required" %>
           <%= a.text_field :city, label: '', placeholder:"", class:"form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :state, "Estado" %>
+          <%= f.label :state, "Estado", class: "label-required" %>
           <%= a.text_field :state, label: '', placeholder:"", class:"form-control" %>
       </div>
     <% end %>
