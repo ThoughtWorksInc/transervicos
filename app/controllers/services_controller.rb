@@ -78,6 +78,7 @@ class ServicesController < ApplicationController
     params.require(:service).permit(:name,
                                     :description,
                                     :phone,
+                                    :other_phone,
                                     :subarea_id,
                                     :owner_name,
                                     :owner_email,
