@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   scope(path_names: { new: 'novo', edit: 'editar' }) do
     resources :services, path: 'servicos'
   end
