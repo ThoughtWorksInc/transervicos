@@ -1,0 +1,22 @@
+src_files:
+  - assets/javascripts/**/*[sS]pec.js
+
+stylesheets:
+
+helpers:
+  - 'helpers/**/*.js'
+
+spec_files:
+  - '**/*[sS]pec.js'
+
+src_dir:
+
+spec_dir:
+
+spec_helper: spec/javascripts/support/jasmine_helper.rb
+
+boot_dir:
+
+boot_files:
+
+random:
