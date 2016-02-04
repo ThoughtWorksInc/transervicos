@@ -350,22 +350,31 @@ section.content {
 					}
 				}
 			}
-			table {
-				margin: 0;
-				tr {
-					&:first-of-type {
-						td {
-							@media (min-width: $screen-sm-min) {
-								border-top: none;
-							}
+			.attr {
+				padding: 10px 0;
+				border-bottom: 1px $light-blue solid;
+				&:last-of-type {
+					border-bottom: none;
+				}
+				i {
+					width: 40px;
+					text-align: center;
+					margin: 0;
+				}
+				&>div {
+					margin-left: 45px;
+					.referer {
+						margin-top: 5px;
+						font-size: 0.8em;
+						&>span {
+							opacity: 0.5;
 						}
 					}
-					td {
-						&.icon {
-							width: 30px;
-							color: $dark-blue;
-						}
-					}
+				}
+				div+div {
+					border-top: 1px $light-blue solid;
+					margin-top: 10px;
+					padding-top: 10px;
 				}
 			}
 			.panel-footer {
@@ -409,8 +418,8 @@ section.content {
 			}
 			.info {
 				@media (min-width: $screen-sm-min) {
-					padding-top: 22px;
-					padding-left: 7px;
+					padding-top: 18px;
+					padding-left: 0;
 				}
 				.desc {
 					line-height: 1.5em;
@@ -426,6 +435,13 @@ section.content {
 					}
 					div {
 						margin-left: 45px;
+						&.referer {
+							margin-top: 5px;
+							font-size: 0.8em;
+							&>span {
+								opacity: 0.5;
+							}
+						}
 					}
 				}
 			}

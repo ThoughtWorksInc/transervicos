@@ -1,4 +1,4 @@
-<%= form_for @service do |f| %>
+<%= form_for @service, :html => { :id => "formform" } do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -17,56 +17,89 @@
   <fieldset class="form-fieldset">
     <div class="form-group input-user">
       <%= f.label :name, "Nome do serviço oferecido", class: "label-required" %>
-      <%= f.text_field :name, label: 'Nome', required: true, placeholder:"", class:"form-control" %>
+      <%= f.text_field :name, required: true, placeholder:"", class:"form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :description, "Descrição", class: "label-required" %>
-      <%= f.text_area :description, label: 'Descrição', required: true, placeholder:"", class:"", rows:"5" %>
+      <%= f.text_area :description, required: true, placeholder:"", class:"", rows:"5" %>
     </div>
     <div class="form-group">
       <%= f.label :phone, "Telefone" %>
-      <%= f.telephone_field :phone, label: 'Telefone', placeholder:"", class:"form-control" %>
+      <%= f.telephone_field :phone, placeholder:"", class:"form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :other_phone, "Telefone 2" %>
-      <%= f.telephone_field :other_phone, label: 'Telefone 2', placeholder:"", class:"form-control" %>
+      <%= f.telephone_field :other_phone, placeholder:"", class:"form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :owner_name, "Owner Name" %>
-      <%= f.telephone_field :owner_name, label: 'owner name', placeholder:"", class:"form-control" %>
+      <div class="radio">
+        <label>
+          <input type="radio" name="prestador" id="prestador1" value="prestador" checked>
+          Sou a pessoa prestadora do serviço.
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="prestador" id="prestador2" value="recomendacao">
+          Estou cadastrando o serviço de outra pessoa.
+        </label>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :owner_email, "Owner email" %>
-      <%= f.telephone_field :owner_email, label: 'owner email', placeholder:"", class:"form-control" %>
+    <script type="text/javascript">
+      $('[name="prestador"]').on('change',function(){
+        if ($(this).val() == 'recomendacao')
+        {
+          $('#dados-recomendacao').show();
+          $('#service_owner_name').prop('required',true);
+        }
+        else
+        {
+          $('#dados-recomendacao').hide();
+          $('#service_owner_name').val('');
+          $('#service_owner_email').val('');
+          $('#service_owner_name').prop('required',false);
+        }
+      });
+    </script>
+    <div id="dados-recomendacao" style="display:none">
+      <div class="form-group input-user">
+        <%= f.label :owner_name, "Nome da pessoa prestadora do serviço", class: "label-required" %>
+        <%= f.telephone_field :owner_name, placeholder:"Você pode informar o nome social.", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :owner_email, "Email da pessoa prestadora do serviço" %>
+        <%= f.telephone_field :owner_email, placeholder:"", class:"form-control" %>
+      </div>
     </div>
   </fieldset>
 
   <h2>Endereço</h2>
+  <p class="text-white">Somente cidade e estado são obrigatórios.</p>
   <fieldset class="form-fieldset">
     <%= f.fields_for :address do |a| %>
       <div class="form-group">
-          <%= f.label :street, "Logradouro" %>
-          <%= a.text_field :street, label: '', placeholder:"", class:"form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :number, "Número" %>
-          <%= a.text_field :number, label: '', placeholder:"", class:"form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :complement, "Complemento" %>
-          <%= a.text_field :complement, label: '', placeholder:"", class:"form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :neighborhood, "Bairro" %>
-          <%= a.text_field :neighborhood, label: '', placeholder:"", class:"form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :city, "Cidade", class: "label-required" %>
-          <%= a.text_field :city, label: '', placeholder:"", class:"form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :state, "Estado", class: "label-required" %>
-          <%= a.text_field :state, label: '', placeholder:"", class:"form-control" %>
+        <%= f.label :city, "Cidade", class: "label-required" %>
+        <%= a.text_field :city, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :state, "Estado", class: "label-required" %>
+        <%= a.text_field :state, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :street, "Logradouro" %>
+        <%= a.text_field :street, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :number, "Número" %>
+        <%= a.text_field :number, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :complement, "Complemento" %>
+        <%= a.text_field :complement, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :neighborhood, "Bairro" %>
+        <%= a.text_field :neighborhood, label: '', placeholder:"", class:"form-control" %>
       </div>
     <% end %>
   </fieldset>
