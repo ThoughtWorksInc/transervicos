@@ -94,6 +94,7 @@ pt-BR:
         email: 'Endereço de email'
         password: 'Senha'
         password_confirmation: 'Confirmação de senha'
+        current_password: 'Senha atual'
         terms_of_service: 'Termos de uso'
         birth_date: 'Data de nascimento'
         social_name: 'Nome social'
