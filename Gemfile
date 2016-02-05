@@ -12,7 +12,6 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'jasny-bootstrap-rails'
-gem 'jquery-turbolinks'
 
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -31,7 +30,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rubocop'
   gem 'capybara'
-  gem 'jasmine'
 end
 
 group :development do
@@ -42,6 +40,7 @@ end
 group :test do
   gem 'faker'
   gem 'database_cleaner'
+  gem 'jasmine'
 end
 
 group :production do
