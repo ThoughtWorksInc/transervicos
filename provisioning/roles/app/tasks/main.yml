@@ -16,7 +16,10 @@
 - name: Install "karma" package
   command: npm install karma --save-dev chdir={{ base_path }}
   sudo: yes
-  sudo_user: vagrant
+
+- name: Install "karma-jasmine" package
+  command: npm install karma-jasmine --save-dev chdir={{ base_path }}
+  sudo: yes
 
 - name: Install "karma-phantomjs-launcher" package
   command: npm install karma-phantomjs-launcher --save-dev chdir={{ base_path }}
@@ -28,15 +31,17 @@
   environment:
     PHANTOMJS_BIN: /vagrant/transervicos/node_modules/phantomjs-prebuilt/bin/phantomjs
 
-- name: Install "grunt-cli" package
-  command: npm install grunt-cli --save-dev chdir={{ base_path }}
+- name: Install "grunt" package
+  command: npm install grunt --save-dev chdir={{ base_path }}
   sudo: yes
-  sudo_user: vagrant
 
-- name: Install "grunt-karma" package
+- name: Install "grunt-cli" package globally
+  command: npm install -g grunt-cli --save-dev chdir={{ base_path }}
+  sudo: yes
+
+- name: Install "grunt-karma" package globally
   command: npm install grunt-karma --save-dev chdir={{ base_path }}
   sudo: yes
-  sudo_user: vagrant
 
 - name: Install libfontconfig (needed because of phantomjs)
   apt: "pkg=libfontconfig state=installed"
