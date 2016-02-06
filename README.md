@@ -20,10 +20,10 @@ O Cashier é um plugin para o Vagrant que permite a utilização de cache de pro
 
 #### Provisionando o vagrant
 
-Para efetuar o provisionamento, execute os seguintes comandos: 
+Para efetuar o provisionamento, execute os seguintes comandos:
 
 1. `cd caminho_do_projeto`
-2. `vagrant up`
+2. `vagrant up --no-provision`
 3. `vagrant provision` (A primeira execução será um pouco lenta)
 
 #### Utilizando o Vagrant
@@ -33,7 +33,17 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 1. `cd caminho_do_projeto`
 2. `vagrant up`
 3. `vagrant ssh` (entra na máquina e abre o terminal do Linux)
-4. `cd /vagrant/transervicos` 
+4. `cd /vagrant/transervicos`
 5. `rake server:start` (inicia o servidor)
 6. Abra seu browser e acesse `http:localhost:8080`
 
+### Rodando os testes
+
+#### Testes unitários de ruby
+
+1. `rake spec`
+
+#### Testes unitários de Javascript
+
+1. `cd /vagrant/transervicos`
+2. `grunt karma`
