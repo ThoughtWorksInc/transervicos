@@ -11,7 +11,7 @@
 /tmp
 .DS_Store
 
-Gemfile.lock
+npm-debug.log
 
 .vagrant
 
