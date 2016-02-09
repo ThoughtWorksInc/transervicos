@@ -6,7 +6,7 @@
 
 #### Instalando o Vagrant e o Ansible
 
-1. Instale o [Ansible](http://www.ansible.com "ansible")
+1. Instale o [Ansible](http://www.ansible.com "ansible") **a partir da versão 1.9**
 2. Instale o [Vagrant](http://www.vagrantup.com/ "vagrant")
 3. Instale o [VirtualBox](https://www.virtualbox.org/wiki/Downloads "virtualbox")
 
