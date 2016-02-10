@@ -39,7 +39,7 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 
 ### Rodando os testes
 
-Estando logado na máquina com ssh, vá até o diretório do projeto com `cd /vagrant/transervicos`
+Estando logado na máquina com `vagrant ssh`, vá até o diretório do projeto com `cd /vagrant/transervicos`
 
 #### Para rodar os testes unitários de ruby
 
