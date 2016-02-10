@@ -39,11 +39,12 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 
 ### Rodando os testes
 
-#### Testes unitários de ruby
+Estando logado na máquina com ssh, vá até o diretório do projeto com `cd /vagrant/transervicos`
+
+#### Para rodar os testes unitários de ruby
 
 1. `rake spec`
 
-#### Testes unitários de Javascript
+#### Para rodar os testes unitários de Javascript
 
-1. `cd /vagrant/transervicos`
-2. `grunt karma`
+1. `grunt karma`
