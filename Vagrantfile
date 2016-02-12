@@ -2,13 +2,12 @@ new_plugin_installed = false
 %w(
   vagrant-cachier
 ).each do |plugin|
-  unless Vagrant.has_plugin?(plugin)
-    puts "Missing plugin #{plugin}, installing..."
-    `vagrant plugin install #{plugin}`
-    new_plugin_installed = true
-  end
+  next if Vagrant.has_plugin?(plugin)
+  puts "Missing plugin #{plugin}, installing..."
+  `vagrant plugin install #{plugin}`
+  new_plugin_installed = true
 end
-exec "vagrant #{ARGV.join' '}" if new_plugin_installed
+exec "vagrant #{ARGV.join(' ')}" if new_plugin_installed
 
 BASE_PATH = '/vagrant/transervicos'
 VAGRANTFILE_API_VERSION = '2'
