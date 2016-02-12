@@ -34,8 +34,8 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 2. `vagrant up`
 3. `vagrant ssh` (entra na máquina e abre o terminal do Linux)
 4. `cd /vagrant/transervicos`
-6. `rake db:migrate server:start` (roda migrações e inicia o servidor)
-7. Abra seu browser e acesse `http:localhost:8000`
+5. `rake db:migrate server:start` (roda migrações e inicia o servidor)
+6. Abra seu browser e acesse `http:localhost:8000`
 
 ### Rodando os testes
 
