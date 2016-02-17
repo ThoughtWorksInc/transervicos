@@ -11,22 +11,22 @@
             <p class="not-user-text"></p>
             <fieldset class="form-fieldset">
               <div class="form-group">
-                <div class="form-group input-user">
-                  <%= f.label :password, "New password", :class=>"label-required"  %><br />
+                <div class="form-group input-password">
+                  <%= f.label :password, "Nova senha", :class=>"label-required"  %><br />
                   <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                      <em>(Mínimo de <%= @minimum_password_length %> caracteres)</em><br />
                   <% end %>
                   <%= f.password_field :password, autofocus: true, autocomplete: "off",  class:"form-control" %>
                   </div>
-                <div class="form-group input-user">
-                  <%= f.label :password_confirmation, "Confirm new password", :class=>"label-required" %><br />
+                <div class="form-group input-password">
+                  <%= f.label :password_confirmation, "Confirme nova senha", :class=>"label-required" %><br />
                   <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
                 </div>
               </div>
             </fieldset>
 
             <div class="actions">
-              <%= f.submit "Change my password", class:"btn btn-form btn-block" %>
+              <%= f.submit "Mudar minha senha", class:"btn btn-form btn-block" %>
             </div>
         <% end %>
 
