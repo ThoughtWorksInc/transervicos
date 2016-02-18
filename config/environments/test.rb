@@ -42,5 +42,5 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 8000 }
 
-  config.asset_host = "http://localhost:8000"
+  config.asset_host = 'http://localhost:8000'
 end

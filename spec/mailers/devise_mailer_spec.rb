@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Devise::Mailer, type: :mailer do
   let :user do
-    build(:user, social_name: 'social name',
+    build(:user,
+          social_name: 'social name',
           civil_name: 'civil name',
           name_preference: User::SOCIAL_NAME_PREFERENCE)
   end
@@ -18,7 +19,7 @@ RSpec.describe Devise::Mailer, type: :mailer do
     end
 
     it 'has transervicos logo in the email body' do
-      expect(/<img.*http:\/\/localhost:8000\/assets\/logo-mail\.png.*>/.match(mail.body.encoded)).not_to be_nil
+      expect(%r{<img.*http:\/\/localhost:8000\/assets\/logo-mail\.png.*>}.match(mail.body.encoded)).not_to be_nil
     end
   end
 end
