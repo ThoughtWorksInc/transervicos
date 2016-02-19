@@ -23,6 +23,8 @@ gem 'rails_admin'
 
 gem 'friendly_id', '~> 5.0.1'
 
+gem 'health-monitor-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
