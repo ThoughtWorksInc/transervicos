@@ -95,6 +95,8 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    health-monitor-rails (4.1.0)
+      rails (>= 3.2)
     i18n (0.7.0)
     jasmine (2.4.0)
       jasmine-core (~> 2.4)
@@ -280,6 +282,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   friendly_id (~> 5.0.1)
+  health-monitor-rails
   jasmine
   jasny-bootstrap-rails
   jbuilder (~> 2.0)
