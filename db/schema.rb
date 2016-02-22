@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202184346) do
+ActiveRecord::Schema.define(version: 20160219191835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20160202184346) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,6 +69,13 @@ ActiveRecord::Schema.define(version: 20160202184346) do
   end
 
   add_index "services", ["slug"], name: "index_services_on_slug", unique: true, using: :btree
+
+  create_table "states", force: :cascade do |t|
+    t.string   "acronym"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "subareas", force: :cascade do |t|
     t.string   "subarea"
