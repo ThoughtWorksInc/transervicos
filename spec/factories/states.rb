@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :state do
-    acronym 'MyString'
-    name 'MyString'
+    acronym { Faker::Address.state_abbr }
+    name { Faker::Address.state }
   end
 end

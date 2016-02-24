@@ -78,12 +78,12 @@
   <fieldset class="form-fieldset">
     <%= f.fields_for :address do |a| %>
       <div class="form-group">
-        <%= f.label :city, "Cidade", class: "label-required" %>
-        <%= a.text_field :city, label: '', placeholder:"", class:"form-control" %>
+        <%= f.label :state, "Estado", class: "label-required" %>
+        <%= a.collection_select :state, states_selector, :id, :name %>
       </div>
       <div class="form-group">
-        <%= f.label :state, "Estado", class: "label-required" %>
-        <%= a.text_field :state, label: '', placeholder:"", class:"form-control" %>
+        <%= f.label :city, "Cidade", class: "label-required" %>
+        <%= a.collection_select :city, [], :id, :name %>
       </div>
       <div class="form-group">
         <%= f.label :street, "Logradouro" %>
