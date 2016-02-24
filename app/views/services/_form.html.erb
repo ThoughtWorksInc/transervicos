@@ -79,11 +79,11 @@
     <%= f.fields_for :address do |a| %>
       <div class="form-group">
         <%= f.label :state, "Estado", class: "label-required" %>
-        <%= a.collection_select :state, states_selector, :id, :name %>
+        <%= a.collection_select :state_id, states_selector, :id, :name, {prompt: 'Selecione um estado'}, {id: 'state-selector'} %>
       </div>
       <div class="form-group">
         <%= f.label :city, "Cidade", class: "label-required" %>
-        <%= a.collection_select :city, [], :id, :name %>
+        <%= a.collection_select :city_id, [], :id, :name, {prompt: 'Selecione uma cidade'}, {id: 'city-selector', disabled: true}%>
       </div>
       <div class="form-group">
         <%= f.label :street, "Logradouro" %>

@@ -1,5 +1,8 @@
 class Address < ActiveRecord::Base
   belongs_to :service
-  validates :city, presence: true
-  validates :state, presence: true
+  belongs_to :state
+  belongs_to :city
+
+  validates :city_id, presence: true
+  validates :state_id, presence: true
 end
