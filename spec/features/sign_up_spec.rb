@@ -15,6 +15,9 @@ describe 'When user enter valid informations', type: :feature do
 
     click_button 'Cadastrar'
 
+    user_from_db = User.first
+
+    expect(user_from_db.preferred_name).to eq user.social_name
     expect(page).to have_text("Olá, #{user.preferred_name}")
   end
 end

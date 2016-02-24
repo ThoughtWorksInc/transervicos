@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  before_save :set_name_preference
+
   validates :social_name, presence: true
   validates :birth_date, presence: true
   validates :terms_of_service, acceptance: true
@@ -33,5 +35,9 @@ class User < ActiveRecord::Base
     elsif name_preference == SOCIAL_NAME_PREFERENCE
       return social_name.empty? ? civil_name : social_name
     end
+  end
+
+  def set_name_preference
+    self.name_preference = social_name.blank? ? CIVIL_NAME_PREFERENCE : SOCIAL_NAME_PREFERENCE
   end
 end
