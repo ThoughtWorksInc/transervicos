@@ -6,8 +6,8 @@
       </h2>
 
       <ul>
-        <% @service.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <% @service.errors.messages.each do |message| %>
+          <li><%= message.last.last %></li>
         <% end %>
       </ul>
     </div>

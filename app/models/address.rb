@@ -3,6 +3,6 @@ class Address < ActiveRecord::Base
   belongs_to :state
   belongs_to :city
 
-  validates :city_id, presence: true
-  validates :state_id, presence: true
+  validates_with CityValidator
+  validates_with StateValidator
 end

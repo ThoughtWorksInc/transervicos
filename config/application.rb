@@ -24,5 +24,8 @@ module Transervicos
     config.active_record.raise_in_transactional_callbacks = true
 
     config.version = '1.0.0'
+
+    # add custom validators path
+    config.autoload_paths += %W("#{config.root}/app/validators/")
   end
 end
