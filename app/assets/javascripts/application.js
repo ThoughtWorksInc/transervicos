@@ -25,26 +25,41 @@
         subareaElement.attr('disabled', true);
       }
 
-      areaElement.on({
-
-        'change': function() {
-          var regexp = /:[0-9a-zA-Z_]+:/g;
-          subareaElement.empty().append(subareaDefaultOption);
-          if (areaElement.val()) {
-            var url = optionsDocumentUrl.replace(regexp, areaElement.val());
-            var subareaOptions = [];
-            $.getJSON(url, function(data) {
-              $.each(data, function(index, object) {
-                subareaOptions.push($("<option/>").val(object[optionValue]).text(object[optionText]));
-              });
-              subareaElement.append(subareaOptions);
-              subareaElement.attr('disabled', false);
-            });
-          }
+      areaElement.on('change', function() {
+        var regexp = /:[0-9a-zA-Z_]+:/g;
+        subareaElement.empty().append(subareaDefaultOption);
+        if (areaElement.val()) {
+          var url = optionsDocumentUrl.replace(regexp, areaElement.val());
+          $.getJSON(url, function(data) {
+            subareaElement.append(buildOptions(data, optionValue, optionText));
+            subareaElement.attr('disabled', false);
+          });
         }
-
       });
     });
+
+    var buildOptions = function(collection, valueAttr, textAttr) {
+      var options = [];
+      $.each(collection, function(index, object) {
+        options.push($('<option/>').val(object[valueAttr]).text(object[textAttr]));
+      });
+      return options;
+    };
+
+    var loadCitiesForState = function(){
+      var stateId = $('#state-selector').find("option:selected").val();
+      var citySelector = $('#city-selector');
+      if (stateId === '') {
+        citySelector.attr('disabled', true);
+      } else {
+        var url = '/state/' + stateId;
+        $.getJSON(url, function(data) {
+          citySelector.html($('<option/>').text('Selecione uma cidade'));
+          citySelector.append(buildOptions(data['cities'], 'id', 'name'));
+          citySelector.removeAttr('disabled');
+        });
+      }
+    };
 
     $('#user_birth_date').inputmask({
       mask: '99/99/9999'
@@ -61,6 +76,9 @@
     if ($('#user_civil_name').val() === '') {
       $('#user_name_preference_civil').attr('disabled', true);
     }
+
+    $('#state-selector').on('change', loadCitiesForState);
+    $(document).ready(loadCitiesForState);
   });
 
 }(window.jQuery, window, document));

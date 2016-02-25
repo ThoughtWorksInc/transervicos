@@ -10,8 +10,10 @@ class Service < ActiveRecord::Base
   has_one :address, dependent: :destroy
   belongs_to :subarea
   belongs_to :user
+
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :subarea
+
   default_scope { order('created_at desc') }
 
   def owner

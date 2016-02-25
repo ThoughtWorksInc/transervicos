@@ -53,6 +53,8 @@ RSpec.describe ServicesController, type: :controller do
         service_attributes = attributes_for(:service)
         service_attributes[:subarea_id] = create(:subarea_education_college).id
         service_attributes[:address_attributes] = attributes_for(:address)
+        service_attributes[:address_attributes][:city_id] = create(:city).id
+        service_attributes[:address_attributes][:state_id] = create(:state).id
         service_attributes
       end
       before :each do

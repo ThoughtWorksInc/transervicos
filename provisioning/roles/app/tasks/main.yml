@@ -49,3 +49,9 @@
 - name: install ruby dependencies
   command: bash -lc 'bundle install' chdir={{ base_path }}
   sudo_user: vagrant
+
+- lineinfile: dest=/home/vagrant/.bashrc line='alias brake="bundle exec rake"'
+
+- lineinfile: dest=/home/vagrant/.bashrc line='alias brails="bundle exec rails"'
+
+- lineinfile: dest=/home/vagrant/.bashrc line='alias b="bundle exec"'
