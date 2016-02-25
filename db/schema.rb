@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20160222182548) do
     t.string   "number"
     t.string   "complement"
     t.string   "neighborhood"
-    t.string   "city"
-    t.string   "state"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "service_id"
