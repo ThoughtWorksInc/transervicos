@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do
     respond_to do |format|
       format.json { render nothing: true, status: :forbidden }
-      format.html { redirect_to new_user_session_path, alert: 'Você não está autorizado a acessar esta página.' }
+      format.html { redirect_to main_app.root_url, alert: 'Você não está autorizado a acessar esta página.' }
     end
   end
 end
