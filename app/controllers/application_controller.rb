@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   include CanCan::ControllerAdditions
+
+  NOT_ALLOWED_MESSAGE = 'Você não está autorizado a acessar esta página'
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -18,7 +20,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do
     respond_to do |format|
       format.json { render nothing: true, status: :forbidden }
-      format.html { redirect_to main_app.root_url, alert: 'Você não está autorizado a acessar esta página.' }
+      format.html { redirect_to main_app.new_user_session_path, alert: NOT_ALLOWED_MESSAGE }
     end
   end
 end
