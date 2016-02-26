@@ -25,12 +25,13 @@ gem 'friendly_id', '~> 5.0.1'
 
 gem 'health-monitor-rails'
 
+gem 'rubocop'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
   gem 'factory_girl_rails'
-  gem 'rubocop'
   gem 'capybara'
 end
 
