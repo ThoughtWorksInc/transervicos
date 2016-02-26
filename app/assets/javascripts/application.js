@@ -78,7 +78,6 @@
     }
 
     $('#state-selector').on('change', loadCitiesForState);
-    $(document).ready(loadCitiesForState);
   });
 
 }(window.jQuery, window, document));

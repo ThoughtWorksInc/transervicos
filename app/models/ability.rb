@@ -7,6 +7,7 @@ class Ability
     else
       can [:read, :create], Service
       can [:update, :destroy], Service, user_id: user.id
+      can :manage, :all if user.admin?
     end
     # Define abilities for the passed in user here. For example:
     #
