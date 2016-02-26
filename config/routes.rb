@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
   root 'welcome#index'
+
+  get '/404' => 'errors#not_found'
+  get '/422' => 'errors#unacceptable'
+  get '/500' => 'errors#internal_error'
 end
