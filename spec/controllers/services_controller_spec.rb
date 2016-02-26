@@ -26,10 +26,10 @@ RSpec.describe ServicesController, type: :controller do
     context 'when used is not logged in' do
       let(:service) { create(:service) }
 
-      it 'redirects to home page' do
+      it 'redirects to login page' do
         get :edit, id: service.id
 
-        expect(response).to redirect_to root_url
+        expect(response).to redirect_to new_user_session_path
       end
     end
 
