@@ -45,22 +45,6 @@
         </label>
       </div>
     </div>
-    <script type="text/javascript">
-      $('[name="prestador"]').on('change',function(){
-        if ($(this).val() == 'recomendacao')
-        {
-          $('#dados-recomendacao').show();
-          $('#service_owner_name').prop('required',true);
-        }
-        else
-        {
-          $('#dados-recomendacao').hide();
-          $('#service_owner_name').val('');
-          $('#service_owner_email').val('');
-          $('#service_owner_name').prop('required',false);
-        }
-      });
-    </script>
     <div id="dados-recomendacao" style="display:none">
       <div class="form-group input-user">
         <%= f.label :owner_name, "Nome da pessoa prestadora do serviço", class: "label-required" %>
@@ -79,11 +63,11 @@
     <%= f.fields_for :address do |a| %>
       <div class="form-group">
         <%= f.label :state, "Estado", class: "label-required" %>
-        <%= a.collection_select :state_id, states_selector, :id, :name, {prompt: 'Selecione um estado'}, {id: 'state-selector'} %>
+        <%= a.collection_select :state_id, states_selector, :id, :name, {prompt: 'Selecione um estado'}, {id: 'state-selector' } %>
       </div>
       <div class="form-group">
         <%= f.label :city, "Cidade", class: "label-required" %>
-        <%= a.collection_select :city_id, [], :id, :name, {prompt: 'Selecione uma cidade'}, {id: 'city-selector', disabled: true}%>
+        <%= a.collection_select :city_id, [], :id, :name, {prompt: 'Selecione uma cidade'}, {id: 'city-selector', disabled: true, 'data-selected-city' => @service.try(:address).try(:city_id) }%>
       </div>
       <div class="form-group">
         <%= f.label :street, "Logradouro" %>

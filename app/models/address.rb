@@ -5,4 +5,7 @@ class Address < ActiveRecord::Base
 
   validates_with CityValidator
   validates_with StateValidator
+
+  accepts_nested_attributes_for :city
+  accepts_nested_attributes_for :state
 end
