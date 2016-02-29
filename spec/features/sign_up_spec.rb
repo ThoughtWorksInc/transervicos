@@ -23,7 +23,7 @@ describe 'When user enter valid informations', type: :feature do
 end
 
 describe 'When user doesn\'t enter valid informations', type: :feature do
-  let(:user) { build(:user, birth_date: 18.years.ago) }
+  let(:user) { build(:user, birth_date: 17.years.ago) }
 
   scenario 'user doesn\'t fill any name' do
     visit new_user_registration_path

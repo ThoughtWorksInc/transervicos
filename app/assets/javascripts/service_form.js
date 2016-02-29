@@ -3,7 +3,6 @@
 
   $(function() {
     var stateSelector = $('#state-selector');
-    var citySelector = $('#city-selector');
 
     var buildOptions = function(collection, valueAttr, textAttr) {
       var options = [];
@@ -15,6 +14,8 @@
 
     var loadCitiesForState = function(){
       var stateId = stateSelector.find("option:selected").val();
+      var citySelector = $('#city-selector');
+
       if (stateId === '') {
         citySelector.attr('disabled', true);
       } else {
@@ -32,23 +33,28 @@
       }
     };
 
-    stateSelector.on('change', loadCitiesForState);
+    var updateOwnerData = function() {
+      if ($('#owner-check input:checked').val() == 'recomendacao') {
+        $('#dados-recomendacao').show();
+        $('#service_owner_name').prop('required',true);
+      }
+      else {
+        $('#dados-recomendacao').hide();
+        $('#service_owner_name').prop('required',false);
+      }
+    }
 
     var ready = function(){
-      $('[name="prestador"]').on('change',function(){
-        if ($(this).val() == 'recomendacao')
-        {
-          $('#dados-recomendacao').show();
-          $('#service_owner_name').prop('required',true);
-        }
-        else
-        {
-          $('#dados-recomendacao').hide();
-          $('#service_owner_name').val('');
-          $('#service_owner_email').val('');
-          $('#service_owner_name').prop('required',false);
-        }
-      });
+      if( $('#owner-check').data('is-owner') == true ) {
+        $('#prestador2').prop('checked', true);
+      } else {
+        $('#prestador1').prop('checked', true);
+      }
+
+      $('[name="prestador"]').on('change', updateOwnerData);
+      stateSelector.on('change', loadCitiesForState);
+
+      updateOwnerData();
       loadCitiesForState();
     };
 

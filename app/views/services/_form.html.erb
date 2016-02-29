@@ -31,10 +31,10 @@
       <%= f.label :other_phone, "Telefone 2" %>
       <%= f.telephone_field :other_phone, placeholder:"", class:"form-control" %>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="owner-check" data-is-owner=<%= should_display_owner_data(@service) %>>
       <div class="radio">
         <label>
-          <input type="radio" name="prestador" id="prestador1" value="prestador" checked>
+          <input type="radio" name="prestador" id="prestador1" value="prestador">
           Sou a pessoa prestadora do serviço.
         </label>
       </div>
@@ -45,7 +45,7 @@
         </label>
       </div>
     </div>
-    <div id="dados-recomendacao" style="display:none">
+    <div id="dados-recomendacao" style="display:none" >
       <div class="form-group input-user">
         <%= f.label :owner_name, "Nome da pessoa prestadora do serviço", class: "label-required" %>
         <%= f.telephone_field :owner_name, placeholder:"Você pode informar o nome social.", class:"form-control" %>
