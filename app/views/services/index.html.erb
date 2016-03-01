@@ -42,6 +42,12 @@
                 <div class="desc font1-2x">
                   <%= service.description %>
                 </div>
+                  <% unless service.website.blank? %>
+                    <div class="attr">
+                      <i class="fa fa-lg fa-external-link text-dark-blue pull-left"></i>
+                      <div><%= link_to service.website, service.website, method: :get %></div>
+                    </div>
+                  <% end %>
                 <% if !service.phone.blank? %>
                   <div class="attr">
                     <i class="fa fa-lg fa-phone text-dark-blue pull-left"></i>

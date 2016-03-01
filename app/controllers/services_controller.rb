@@ -82,6 +82,7 @@ class ServicesController < ApplicationController
                                     :subarea_id,
                                     :owner_name,
                                     :owner_email,
+                                    :website,
                                     address_attributes: address_attributes)
   end
 end

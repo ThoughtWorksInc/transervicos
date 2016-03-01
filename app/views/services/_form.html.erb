@@ -1,4 +1,4 @@
-<%= form_for @service, :html => { :id => "formform" } do |f| %>
+<%= form_for @service, :html => { :id => "formform", :novalidate => 'novalidate' } do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -18,6 +18,10 @@
     <div class="form-group input-user">
       <%= f.label :name, "Nome do serviço oferecido", class: "label-required" %>
       <%= f.text_field :name, required: true, placeholder:"", class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :website, "Site" %>
+      <%= f.url_field :website, required: false, placeholder:"", class:"form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :description, "Descrição", class: "label-required" %>
