@@ -7,8 +7,9 @@ class Service < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
 
-  validates :website, format: {  with: URI.regexp,
-      message: 'Site deve estar no formato: http://meusite.com.br'
+  validates :website, format: {
+    with: URI.regexp,
+    message: 'Site deve estar no formato: http://meusite.com.br'
   }, if: proc { |a| a.website.present? }
 
   has_one :address, dependent: :destroy
