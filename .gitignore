@@ -20,5 +20,8 @@ npm-debug.log
 *.swo
 .byebug_history
 
+# Idea files
+.idea
+
 # Ignore node_modules
 /node_modules
