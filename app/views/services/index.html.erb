@@ -45,7 +45,7 @@
                   <% unless service.website.blank? %>
                     <div class="attr">
                       <i class="fa fa-lg fa-external-link text-dark-blue pull-left"></i>
-                      <div><%= link_to service.website, service.website, method: :get %></div>
+                      <div><%= link_to service.website, service.website, method: :get, target: :_blank %></div>
                     </div>
                   <% end %>
                 <% if !service.phone.blank? %>
