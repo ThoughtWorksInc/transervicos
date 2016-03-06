@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/404' => 'errors#not_found'
-  get '/422' => 'errors#unacceptable'
-  get '/500' => 'errors#internal_error'
+  match '/404' => 'errors#not_found', :via => :all
+  match '/422' => 'errors#unacceptable', :via => :all
+  match '/500' => 'errors#internal_error', :via => :all
 end
