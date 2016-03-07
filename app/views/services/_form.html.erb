@@ -94,21 +94,21 @@
 
   <h2>Área</h2>
   <fieldset class="form-fieldset">
-    <% selected_area = @service.subarea.area ? @service.subarea.area.id : nil %>
-    <% selected_subareas = @service.subarea.area ? @service.subarea.area.subareas : [] %>
+    <% selected_area = get_selected_subarea_id(@service) %>
+    <% selected_subareas = get_selected_subareas(@service) %>
     <div class="form-group">
       <!-- Esse foi o jeito que eu achei que deveria funcionar -->
       <%= f.label :area_id, "Área", :class=>"label-required" %>
-      <%= select_tag  :area_id, options_from_collection_for_select(Area.all, "id", "area", selected_area),
+      <%= select_tag  :area_id, options_from_collection_for_select(Area.all, :id, :area, selected_area),
         :prompt => "Selecione uma área" %>
     </div>
     <div class="form-group">
       <%= f.label :subarea_id, "Subárea", :class=>"label-required" %>
       <%= f.select :subarea_id,
-        options_from_collection_for_select(selected_subareas, "id", "subarea", @service.subarea_id),
+        options_from_collection_for_select(selected_subareas, :id, :subarea, @service.subarea_id),
         { prompt: 'Selecione uma subárea'},
         { "data-option-dependent" => true,
-          "data-option-observed" => "area_id",
+          "data-option-observed" => :area_id,
           "data-option-url" => "/area/:area_id:/subareas.json",
           "data-option-key-method" => :id,
           "data-option-value-method" => :subarea } %>
