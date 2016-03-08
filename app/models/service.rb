@@ -21,7 +21,7 @@ class Service < ActiveRecord::Base
 
   default_scope { order('created_at desc') }
 
-  before_save { |service| service.website = url_with_protocol(service.website) }
+  before_save { |service| service.website = url_with_protocol(service.website) unless service.website.blank?  }
 
   def owner
     user.preferred_name
