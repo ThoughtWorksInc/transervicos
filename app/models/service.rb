@@ -8,8 +8,8 @@ class Service < ActiveRecord::Base
   validates :description, presence: true
 
   validates :website, format: {
-    with: URI.regexp,
-    message: 'Site deve estar no formato: http://meusite.com.br'
+    with: %r{\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z}i,
+    message: 'Site deve estar no formato: www.meusite.com.br'
   }, if: proc { |a| a.website.present? }
 
   has_one :address, dependent: :destroy
@@ -21,7 +21,15 @@ class Service < ActiveRecord::Base
 
   default_scope { order('created_at desc') }
 
+  before_save { |service| service.website = url_with_protocol(service.website) }
+
   def owner
     user.preferred_name
+  end
+
+  private
+
+  def url_with_protocol(url)
+    /^https?/i.match(url) ? url : "http://#{url}"
   end
 end
