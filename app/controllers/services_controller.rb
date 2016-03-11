@@ -6,7 +6,10 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @services = Service.where(nil) # creates an anonymous scope
+    @services = @services.text_search(params[:search]) unless params[:search].blank?
+    @services = @services.state_search(params[:state][:state_id]) unless params[:state].blank?
+    @services = @services.city_search(params[:city][:city_id]) unless params[:city_id].blank?
   end
 
   # GET /services/1
