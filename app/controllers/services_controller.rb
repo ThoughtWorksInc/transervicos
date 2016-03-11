@@ -8,8 +8,8 @@ class ServicesController < ApplicationController
   def index
     @services = Service.where(nil) # creates an anonymous scope
     @services = @services.text_search(params[:search]) unless params[:search].blank?
-    @services = @services.state_search(params[:state][:state_id]) unless params[:state].blank?
-    @services = @services.city_search(params[:city][:city_id]) unless params[:city_id].blank?
+    @services = @services.state_search(params[:state][:state_id]) if params[:state] && params[:state][:state_id].present?
+    @services = @services.city_search(params[:city][:city_id]) if params[:city] && params[:city][:city_id].present?
   end
 
   # GET /services/1
