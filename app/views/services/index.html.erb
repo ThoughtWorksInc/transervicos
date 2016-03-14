@@ -17,11 +17,11 @@
         <%= text_field_tag :search, params[:search], placeholder: "Search Services" %>
         <div>
           <%= label_tag :state, "Estado" %>
-          <%= collection_select :state, :state_id, states_selector, :id, :name, {prompt: 'Selecione um estado'}, {id: 'state-selector' } %>
+          <%= collection_select :state, :state_id, states_selector, :id, :name, {prompt: 'Selecione um estado', selected: (params[:state][:state_id] if params[:state] && params[:state][:state_id].present?) }, {id: 'state-selector' } %>
         </div>
         <div>
           <%= label_tag :city, "Cidade" %>
-          <%= collection_select :city, :city_id, [], :id, :name, {prompt: 'Selecione uma cidade'}, {id: 'city-selector', disabled: true, 'data-selected-city' => @service.try(:address).try(:city_id) }%>
+          <%= collection_select :city, :city_id, [], :id, :name, {prompt: 'Selecione uma cidade'}, {id: 'city-selector', disabled: true , 'data-selected-city' => (params[:city][:city_id] if params[:city] && params[:city][:city_id].present?)}%>
         </div>
         <%= submit_tag "Search" %>
     <% end %>

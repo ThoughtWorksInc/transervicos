@@ -57,6 +57,11 @@
           citySelector.html($('<option/>').val('').text('Selecione uma cidade'));
           citySelector.append(buildOptions(data['cities'], 'id', 'name'));
           citySelector.removeAttr('disabled');
+        }).done(function(){
+            var cityId = citySelector.data('selected-city');
+            if (cityId) {
+                citySelector.find('option[value=' + cityId + ']').attr('selected','selected');
+            }
         });
       }
     };
@@ -78,6 +83,7 @@
     }
 
     $('#state-selector').on('change', loadCitiesForState);
+    loadCitiesForState();
   });
 
 }(window.jQuery, window, document));
