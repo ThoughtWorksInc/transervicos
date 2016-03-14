@@ -18,4 +18,12 @@ module ServicesHelper
   def get_selected_subareas(service)
     service.subarea && service.subarea.area ? service.subarea.area.subareas : []
   end
+
+  def read_selected_state_from_url
+    params[:state][:state_id] if params[:state] && params[:state][:state_id].present?
+  end
+
+  def read_selected_city_from_url
+    params[:city][:city_id] if params[:city] && params[:city][:city_id].present?
+  end
 end
