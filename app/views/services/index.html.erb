@@ -14,10 +14,10 @@
     </h1>
 
     <%= form_tag(services_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Services" %>
+        <%= text_field_tag :search, params[:search], placeholder: "Nome/Descrição" %>
         <div>
           <%= label_tag :state, "Estado" %>
-          <%= collection_select :state, :state_id, states_selector, :id, :name, {prompt: 'Selecione um estado', selected: read_selected_state_from_url }, {id: 'state-selector' } %>
+          <%= collection_select :state, :state_id, states_selector, :id, :name, { include_blank: 'Selecione um estado', selected: read_selected_state_from_url }, {id: 'state-selector' } %>
         </div>
         <div>
           <%= label_tag :city, "Cidade" %>
