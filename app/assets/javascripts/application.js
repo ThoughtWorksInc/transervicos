@@ -66,6 +66,20 @@
       }
     };
 
+    $("#search-form").bind("reset", function() {
+      $('#search-description').val('');
+      $('#state-selector').val('');
+      var citySelector = $('#city-selector');
+      citySelector.val('');
+      var cityId = citySelector.data('selected-city');
+      if(cityId) {
+        citySelector.find('option[value=' + cityId + ']').remove('selected');
+        citySelector.data('selected-city','','');
+      }
+      citySelector.attr('disabled', true);
+      return false;
+    });
+
     $('#user_birth_date').inputmask({
       mask: '99/99/9999'
     });
@@ -83,6 +97,7 @@
     }
 
     $('#state-selector').on('change', loadCitiesForState);
+
     loadCitiesForState();
   });
 
