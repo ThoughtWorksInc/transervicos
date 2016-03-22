@@ -89,6 +89,7 @@ pt-BR:
   activerecord:
     models:
       user: 'usuário'
+      service: 'serviço'
     attributes:
       user:
         email: 'Endereço de email'
@@ -101,6 +102,15 @@ pt-BR:
       address:
         city: 'Cidade'
         state: 'Estado'
+        city_id: 'Cidade'
+        state_id: 'Estado'
+      service:
+        name: 'Nome'
+        description: 'Descrição'
+        phone: 'Telefone'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+        owner_name: 'Nome proprietário'
   admin:
     home:
       name: Home
