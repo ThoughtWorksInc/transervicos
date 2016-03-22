@@ -146,8 +146,6 @@ nav#main-navbar {
 		margin-right: 20px;
 	}
 }
-
-
 /*Form*/
 form {
 	fieldset {
@@ -272,6 +270,14 @@ form {
 		font-size: 1.7em;
 	}
 }
+.btn-search {
+  @extend .btn-form;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.search-actions {
+  margin-top: 10px;
+}
 .not-user-text {
 	color: #FFF;
 	font-size: 20px;
@@ -322,6 +328,10 @@ section.content {
 	.panel {
 		border: none;
 		box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        &.panel-search {
+          margin-right: 25px;
+          padding: 20px;
+        }
 		&.panel-servico {
 			.panel-heading,
 			.panel-footer {
