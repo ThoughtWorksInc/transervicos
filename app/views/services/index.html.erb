@@ -10,9 +10,12 @@
           <% end %>
         </span>
       <% end %>
-      Serviços
+      Busca de Serviços
     </h1>
 
+    <div>
+      <p class="text-white">Campos de busca</p>
+    </div>
     <%= form_tag(services_path, :method => "get", id: "search-form") do %>
       <div class="panel panel-search">
         <div class="row">
