@@ -30,7 +30,7 @@ describe 'When user doesn\'t enter valid informations', type: :feature do
 
     click_button 'Cadastrar'
 
-    expect(page).to have_text('É preciso informar ao menos um nome.')
+    expect(page).to have_text('Nome não pode ficar em branco.')
   end
 
   scenario 'user has less than 18 years old' do
