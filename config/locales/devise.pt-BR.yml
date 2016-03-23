@@ -98,7 +98,7 @@ pt-BR:
         current_password: 'Senha atual'
         terms_of_service: 'Termos de uso'
         birth_date: 'Data de nascimento'
-        social_name: 'Nome social'
+        social_name: 'Nome'
       address:
         city: 'Cidade'
         state: 'Estado'

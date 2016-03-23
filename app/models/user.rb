@@ -11,17 +11,12 @@ class User < ActiveRecord::Base
   validates :terms_of_service, acceptance: true
   validates :username, uniqueness: true, allow_blank: true
   validate :age
-  validate :name_presence
   has_many :services
 
   SOCIAL_NAME_PREFERENCE = 'S'
   CIVIL_NAME_PREFERENCE = 'C'
 
   attr_accessor :birth_date_picker
-
-  def name_presence
-    errors.add(:_, 'É preciso informar ao menos um nome.') if social_name.blank? && civil_name.blank?
-  end
 
   def age
     today = Date.current
