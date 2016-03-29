@@ -175,6 +175,10 @@ form {
 			}
 			&.input-user {background-image: image-url("ico-user.png");}
 			&.input-password {background-image: image-url("ico-password.png");}
+            &.terms-of-service {
+              background-image: image-url("scale.png");
+              background-size: 20px 20px;
+            }
 			/***/
 			label {
 				padding: 0 10px;
