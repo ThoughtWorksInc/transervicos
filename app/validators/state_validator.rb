@@ -3,7 +3,7 @@ class StateValidator < ActiveModel::Validator
   FAIL_MESSAGE = 'não existe'
 
   def validate(model)
-    if(model.state_id.blank?)
+    if model.state_id.blank?
       model.errors[:state_id] << REQUIRED_MESSAGE
     else
       model.errors[:state_id] << FAIL_MESSAGE unless State.exists?(model.state_id)
