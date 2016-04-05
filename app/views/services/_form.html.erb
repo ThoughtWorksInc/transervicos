@@ -2,7 +2,7 @@
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@service.errors.count, "erro") %> impediram a finalização do cadastro:
+        <%= pluralize(@service.errors.count, "erro") %> <%= t('misc.impedir', count: @service.errors.count) %> a finalização do cadastro:
       </h2>
 
       <ul>
