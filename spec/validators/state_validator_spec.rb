@@ -14,7 +14,7 @@ RSpec.describe StateValidator, type: :validator do
     validator = StateValidator.new
     validator.validate(model)
 
-    expect(errors[:state_id].first).to be_eql(StateValidator::FAIL_MESSAGE)
+    expect(errors[:state_id].first).to be_eql(StateValidator::REQUIRED_MESSAGE)
   end
 
   it 'disallow models with non-existing state' do

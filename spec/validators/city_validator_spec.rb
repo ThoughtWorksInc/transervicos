@@ -14,7 +14,7 @@ RSpec.describe CityValidator, type: :validator do
     validator = CityValidator.new
     validator.validate(model)
 
-    expect(errors[:city_id].first).to be_eql(CityValidator::FAIL_MESSAGE)
+    expect(errors[:city_id].first).to be_eql(CityValidator::REQUIRED_MESSAGE)
   end
 
   it 'disallow models with non-existing city' do
