@@ -45,6 +45,8 @@ Execute o comando `rails c` e coloque o comando
 
 Depois `us.admin = true` e então `us.save`.
 
+Logue no site com o novo usuário criado e vá para a url `http://localhost:8000/admin`.
+
 ### Rodando os testes
 
 Estando logado na máquina com `vagrant ssh`, vá até o diretório do projeto com `cd /vagrant/transervicos`
