@@ -38,6 +38,15 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 5. `rake db:migrate db:seed server:start` (roda migrações, popula tabelas essenciais e inicia o servidor)
 6. Abra seu browser e acesse `http:localhost:8000`
 
+#### Criando um usuário admin
+
+Execute o comando `rails c` e coloque o comando 
+`us = User.create(password: 'password',password_confirmation: 'password',email: 'roselma.mendes@gmail.com',social_name: "Roselma",civil_name: "Roselma",birth_date: 20.years.ago,username: "roselma",phone_number: "12346789",name_preference: User::SOCIAL_NAME_PREFERENCE)`
+
+Depois `us.admin = true` e então `us.save`.
+
+Logue no site com o novo usuário criado e vá para a url `http://localhost:8000/admin`.
+
 ### Rodando os testes
 
 Estando logado na máquina com `vagrant ssh`, vá até o diretório do projeto com `cd /vagrant/transervicos`
