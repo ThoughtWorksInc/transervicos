@@ -41,7 +41,7 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 #### Criando um usuário admin
 
 Execute o comando `rails c` e coloque o comando 
-`us = User.create(password: 'password',password_confirmation: 'password',email: 'roselma.mendes@gmail.com',social_name: "Roselma",civil_name: "Roselma",birth_date: 20.years.ago,username: "roselma",phone_number: "12346789",name_preference: User::SOCIAL_NAME_PREFERENCE)`
+`us = User.create(password: 'password',password_confirmation: 'password',email: <email>,social_name: <nome>,civil_name: <nome>,birth_date: 20.years.ago,username: <usuario>,phone_number: "12346789",name_preference: User::SOCIAL_NAME_PREFERENCE)`
 
 Depois `us.admin = true` e então `us.save`.
 
