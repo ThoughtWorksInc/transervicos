@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :forbidden_word do
-    word "MyString"
+    word 'MyString'
   end
-
 end
