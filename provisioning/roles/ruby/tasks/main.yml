@@ -15,6 +15,11 @@
    - libgdbm3
    - libgdbm-dev
 
+- name: Check if ruby {{ ruby_version }} is installed.
+  shell: /usr/local/bin/ruby --version | grep {{ ruby_version }}
+  register: ruby_installed
+  ignore_errors: yes
+
 - name: Download ruby.
   get_url: >
    url={{ ruby_download_url }}
@@ -27,14 +32,15 @@
    creates={{ workspace }}/ruby-{{ ruby_version }}
 
 - name: Build ruby.
+  when: ruby_installed.rc != 0
   command: >
    {{ item }}
    chdir={{ workspace }}/ruby-{{ ruby_version }}
-   creates=/usr/local/bin/ruby
   with_items:
    - ./configure --enable-shared
    - make
    - sudo make install
+
 
 - name: Add ruby symlinks.
   file: >
