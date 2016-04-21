@@ -35,4 +35,10 @@ class User < ActiveRecord::Base
   def set_name_preference
     self.name_preference = social_name.blank? ? CIVIL_NAME_PREFERENCE : SOCIAL_NAME_PREFERENCE
   end
+
+  rails_admin do
+    configure :birth_date do
+      strftime_format '%d-%m-%Y'
+    end
+  end
 end
