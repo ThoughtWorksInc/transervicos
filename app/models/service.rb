@@ -1,3 +1,4 @@
+# coding: utf-8
 class Service < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -11,6 +12,8 @@ class Service < ActiveRecord::Base
     with: %r{\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z}i,
     message: 'Site deve estar no formato: www.meusite.com.br'
   }, if: proc { |a| a.website.present? }
+
+  validate :description_cannot_contain_forbidden_word
 
   has_one :address, dependent: :destroy
   belongs_to :subarea
@@ -34,6 +37,19 @@ class Service < ActiveRecord::Base
   end
 
   private
+
+  FORBIDDEN_WORD_ERROR_MESSAGE = 'do serviço contém palavras não permitidas. As palavras são: '
+
+  def description_cannot_contain_forbidden_word
+    word_list = ForbiddenWord.all.map(&:word)
+    words_in_description = word_list.keep_if do |word|
+      description =~ /\b#{Regexp.escape(word)}\b/i
+    end
+    return if words_in_description.empty?
+
+    message = FORBIDDEN_WORD_ERROR_MESSAGE + words_in_description.join(', ') + '.'
+    errors.add(:description, message)
+  end
 
   def url_with_protocol(url)
     /^https?/i.match(url) ? url : "http://#{url}"
