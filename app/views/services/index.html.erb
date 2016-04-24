@@ -61,6 +61,16 @@
                   <% end %>
                 </div>
               </div>
+              <div>
+                <%= link_to like_service_path(service.id), method: :put do %>
+                    Gostei
+                    <%= service.get_upvotes.size %>
+                <% end %>
+                <%= link_to dislike_service_path(service.id), method: :put do %>
+                    Não Gostei
+                    <%= service.get_downvotes.size %>
+                <% end %>
+              </div>
             </div>
             <div class="col-sm-8">
               <%= link_to service do %>

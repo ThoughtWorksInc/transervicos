@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   mount HealthMonitor::Engine, at: '/'
 
   scope(path_names: { new: 'novo', edit: 'editar' }) do
-    resources :services, path: 'servicos'
+    resources :services, path: 'servicos' do
+      member do
+        put "like", to: "services#upvote"
+        put "dislike", to: "services#downvote"
+      end
+    end
   end
 
   get 'dashboard' => 'dashboard#index', path: 'meu-perfil'

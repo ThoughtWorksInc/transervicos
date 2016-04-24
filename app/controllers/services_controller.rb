@@ -65,6 +65,18 @@ class ServicesController < ApplicationController
     end
   end
 
+  def upvote
+    @service = Service.find(params[:id])
+    @service.liked_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @service = Service.find(params[:id])
+    @service.downvote_by current_user
+    redirect_to :back
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
