@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rails_admin'
+gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'friendly_id', '~> 5.0.1'
 
