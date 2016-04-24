@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   scope(path_names: { new: 'novo', edit: 'editar' }) do
     resources :services, path: 'servicos' do
       member do
-        put "like", to: "services#upvote"
-        put "dislike", to: "services#downvote"
+        put 'like', to: 'services#upvote'
+        put 'dislike', to: 'services#downvote'
       end
     end
   end
