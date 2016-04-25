@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :voting_session do
-    ip "MyString"
+    ip 'MyString'
   end
-
 end
