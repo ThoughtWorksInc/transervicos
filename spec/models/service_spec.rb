@@ -36,12 +36,19 @@ RSpec.describe Service, type: :model do
     end
   end
 
-  context 'containing forbidden words on description' do
+  context 'filter forbidden words' do
     it 'is invalid when description contains a forbidden word' do
       create(:forbidden_word, word: 'bad')
       service = build(:service, description: 'Contains bad word.')
       expect(service).to be_invalid
       expect(service.errors[:description].first).to include('bad.')
+    end
+
+    it 'is invalid when name contains a forbidden word' do
+      create(:forbidden_word, word: 'bad')
+      service = build(:service, name: 'Bad service')
+      expect(service).to be_invalid
+      expect(service.errors[:name].first).to include('bad.')
     end
 
     it 'is invalid when description contains several forbidden words' do
