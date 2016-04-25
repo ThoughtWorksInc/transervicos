@@ -67,13 +67,25 @@ class ServicesController < ApplicationController
 
   def upvote
     @service = Service.find(params[:id])
-    @service.liked_by current_user
+    @voter = current_user || VotingSession.find_or_create_voting_session(request.remote_ip)
+
+    if @voter.voted_down_on? @service
+      @service.undisliked_by @voter
+    end
+    @service.liked_by @voter
+
     redirect_to :back
   end
 
   def downvote
     @service = Service.find(params[:id])
-    @service.downvote_by current_user
+    @voter = current_user || VotingSession.find_or_create_voting_session(request.remote_ip)
+
+    if @voter.voted_up_on? @service
+      @service.unliked_by @voter
+    end
+    @service.downvote_by @voter
+
     redirect_to :back
   end
 
