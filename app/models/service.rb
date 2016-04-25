@@ -16,6 +16,7 @@ class Service < ActiveRecord::Base
   }, if: proc { |a| a.website.present? }
 
   validate :description_cannot_contain_forbidden_word
+  validate :name_cannot_contain_forbidden_word
 
   has_one :address, dependent: :destroy
   belongs_to :subarea
@@ -43,14 +44,25 @@ class Service < ActiveRecord::Base
   FORBIDDEN_WORD_ERROR_MESSAGE = 'do serviço contém palavras não permitidas. As palavras são: '
 
   def description_cannot_contain_forbidden_word
-    word_list = ForbiddenWord.all.map(&:word)
-    words_in_description = word_list.keep_if do |word|
-      description =~ /\b#{Regexp.escape(word)}\b/i
-    end
-    return if words_in_description.empty?
+    forbidden_words_in_description = forbidden_words_in description
+    validate_forbidden_words :description, forbidden_words_in_description
+  end
 
-    message = FORBIDDEN_WORD_ERROR_MESSAGE + words_in_description.join(', ') + '.'
-    errors.add(:description, message)
+  def name_cannot_contain_forbidden_word
+    forbidden_words_in_name = forbidden_words_in name
+    validate_forbidden_words :name, forbidden_words_in_name
+  end
+
+  def forbidden_words_in(content)
+    word_list = ForbiddenWord.all.map(&:word)
+    word_list.keep_if do |word|
+      content =~ /\b#{Regexp.escape(word)}\b/i
+    end
+  end
+
+  def validate_forbidden_words(field, forbidden_words)
+    message = FORBIDDEN_WORD_ERROR_MESSAGE + forbidden_words.join(', ') + '.'
+    errors.add(field, message) if not forbidden_words.empty?
   end
 
   def url_with_protocol(url)
