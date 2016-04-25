@@ -54,4 +54,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.asset_host = 'http://localhost:8000'
+
+  # Prevents 'Cannot render console from X.X.X.X!' when running server
+  config.web_console.whitelisted_ips = %w(198.168.0.0/16 10.0.2.0/16)
 end

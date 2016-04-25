@@ -52,6 +52,8 @@
       if (stateId === '') {
         citySelector.attr('disabled', true);
       } else {
+        if (stateId === undefined) return;
+
         var url = '/state/' + stateId;
         $.getJSON(url, function(data) {
           citySelector.html($('<option/>').val('').text('Selecione uma cidade'));
