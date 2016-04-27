@@ -62,7 +62,7 @@ class Service < ActiveRecord::Base
 
   def validate_forbidden_words(field, forbidden_words)
     message = FORBIDDEN_WORD_ERROR_MESSAGE + forbidden_words.join(', ') + '.'
-    errors.add(field, message) if not forbidden_words.empty?
+    errors.add(field, message) unless forbidden_words.empty?
   end
 
   def url_with_protocol(url)
