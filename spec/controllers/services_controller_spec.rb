@@ -126,6 +126,61 @@ RSpec.describe ServicesController, type: :controller do
     end
   end
 
+  describe 'PUT #upvote' do
+    context 'when logged user votes' do
+      let(:service1) { create(:service, user_id: @user1.id) }
+      let(:service2) { create(:service, user_id: @user2.id) }
+      let(:service3) do
+        service3 = create(:service, user_id: @user1.id)
+        put :downvote, id: service3.id, user: @user1
+        service3
+      end
+
+      before :each do
+        @request.env['HTTP_REFERER'] = '/services'
+        @user1 = create(:user)
+        @user2 = create(:user)
+        sign_in @user1
+        sign_in @user2
+      end
+
+      it 'up in a service he created' do
+        expect { put :upvote, id: service1.id, user: @user1 }.to change { service1.get_upvotes.size }.by(1)
+      end
+
+      it 'up in a service he did not create' do
+        expect { put :upvote, id: service2.id, user: @user1 }.to change { service2.get_upvotes.size }.by(1)
+      end
+
+      it 'down in a service he did not create' do
+        expect { put :downvote, id: service2.id, user: @user1 }.to change { service2.get_downvotes.size }.by(1)
+      end
+
+      it 'up in a service he already voted down' do
+        # one user must be always equal 1 vote
+        expect { put :upvote, id: service3.id, user: @user1 }.to change {
+          [service3.get_downvotes.size, service3.get_upvotes.size]
+        }.to([0, 1])
+      end
+    end
+
+    # context 'when guest user vote up' do
+    #   let(:service) {
+    #     @request.env['HTTP_REFERER'] = '/services'
+    #     sign_in nil
+    #     create(:service, user_id: create(:user))
+    #   }
+    #
+    #   it 'down in a service' do
+    #     expect{put :downvote, id: service.id}.to change {service.get_downvotes.size}.by(1)
+    #   end
+    #
+    #   it 'up in a service' do
+    #     expect{put :upvote, id: service.id}.to change {service.get_upvotes.size}.by(1)
+    #   end
+    # end
+  end
+
   describe 'DELETE #destroy' do
     before :each do
       user = create(:user)
