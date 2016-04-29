@@ -61,7 +61,7 @@
                   <% end %>
                 </div>
               </div>
-              <div>
+              <div style="visibility: hidden">
                 <%= link_to like_service_path(service.id), method: :put do %>
                     Gostei
                     <%= service.get_upvotes.size %>
