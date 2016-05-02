@@ -164,21 +164,28 @@ RSpec.describe ServicesController, type: :controller do
       end
     end
 
-    # context 'when guest user vote up' do
-    #   let(:service) {
-    #     @request.env['HTTP_REFERER'] = '/services'
-    #     sign_in nil
-    #     create(:service, user_id: create(:user))
-    #   }
-    #
-    #   it 'down in a service' do
-    #     expect{put :downvote, id: service.id}.to change {service.get_downvotes.size}.by(1)
-    #   end
-    #
-    #   it 'up in a service' do
-    #     expect{put :upvote, id: service.id}.to change {service.get_upvotes.size}.by(1)
-    #   end
-    # end
+    context 'when guest user voted' do
+      let(:service) do
+        @request.env['HTTP_REFERER'] = '/services'
+        sign_in nil
+        create(:service, user_id: create(:user))
+      end
+
+      it 'down in a service' do
+        expect { put :downvote, id: service.id }.to change { service.get_downvotes.size }.by(1)
+      end
+
+      it 'up in a service' do
+        expect { put :upvote, id: service.id }.to change { service.get_upvotes.size }.by(1)
+      end
+
+      it 'up in a service he already voted down' do
+        # one user must be always equal 1 vote
+        expect { put :upvote, id: service.id }.to change {
+          [service.get_downvotes.size, service.get_upvotes.size]
+        }.to([0, 1])
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
