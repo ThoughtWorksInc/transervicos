@@ -28,10 +28,12 @@ module ServicesHelper
   end
 
   def user_voted_for?(service)
-    current_user && current_user.voted_for?(service)
+    voter = current_user || VotingSession.find_by(ip: request.remote_ip)
+    voter && voter.voted_for?(service)
   end
 
   def user_voted_up_service?(service)
-    current_user && current_user.voted_for?(service) && current_user.voted_up_on?(service)
+    voter = current_user || VotingSession.find_by(ip: request.remote_ip)
+    voter && voter.voted_for?(service) && voter.voted_up_on?(service)
   end
 end
