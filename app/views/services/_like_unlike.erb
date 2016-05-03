@@ -1,0 +1,30 @@
+<% if user_voted_for?(service) %>
+    <% if user_voted_up_service?(service) %>
+        <%= link_to like_service_path(service.id), method: :put do %>
+            <i class="fa fa-thumbs-up"></i>
+            (<%= service.get_upvotes.size %>)
+        <% end %>
+        <%= link_to dislike_service_path(service.id), method: :put do %>
+            <i class="fa fa-thumbs-o-down"></i>
+            (<%= service.get_downvotes.size %>)
+        <% end %>
+    <% else %>
+        <%= link_to like_service_path(service.id), method: :put do %>
+            <i class="fa fa-thumbs-o-up"></i>
+            (<%= service.get_upvotes.size %>)
+        <% end %>
+        <%= link_to dislike_service_path(service.id), method: :put do %>
+            <i class="fa fa-thumbs-down"></i>
+            (<%= service.get_downvotes.size %>)
+        <% end %>
+    <% end %>
+<% else %>
+    <%= link_to like_service_path(service.id), method: :put do %>
+        <i class="fa fa-thumbs-o-up"></i>
+        (<%= service.get_upvotes.size %>)
+    <% end %>
+    <%= link_to dislike_service_path(service.id), method: :put do %>
+        <i class="fa fa-thumbs-o-down"></i>
+        (<%= service.get_downvotes.size %>)
+    <% end %>
+<% end %>

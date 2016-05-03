@@ -61,15 +61,8 @@
                   <% end %>
                 </div>
               </div>
-              <div style="visibility: hidden">
-                <%= link_to like_service_path(service.id), method: :put do %>
-                    Gostei
-                    <%= service.get_upvotes.size %>
-                <% end %>
-                <%= link_to dislike_service_path(service.id), method: :put do %>
-                    Não Gostei
-                    <%= service.get_downvotes.size %>
-                <% end %>
+              <div style="margin-top: 10px;">
+                <%= render 'like_unlike', service: service %>
               </div>
             </div>
             <div class="col-sm-8">

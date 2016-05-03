@@ -2,6 +2,9 @@
   <div class="panel-heading">
     <h4 class="panel-title">
       <%= service.name %>
+      <div class="pull-right">
+        <%= render 'like_unlike', service: service %>
+      </div>
     </h4>
   </div>
   <div class="row">

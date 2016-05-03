@@ -26,4 +26,12 @@ module ServicesHelper
   def read_selected_city_from_url
     params[:city][:city_id] if params[:city] && params[:city][:city_id].present?
   end
+
+  def user_voted_for?(service)
+    current_user && current_user.voted_for?(service)
+  end
+
+  def user_voted_up_service?(service)
+    current_user && current_user.voted_for?(service) && current_user.voted_up_on?(service)
+  end
 end
