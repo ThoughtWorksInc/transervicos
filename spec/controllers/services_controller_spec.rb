@@ -2,6 +2,17 @@ require 'rails_helper'
 
 RSpec.describe ServicesController, type: :controller do
   describe 'GET #index' do
+    it 'renders the index view' do
+      get :index
+      expect(response).to render_template :index
+    end
+    it 'should paginate by five records per page' do
+      service = create(:service)
+      services = [service]
+      Service.stub(:paginate).and_return(services)
+      Service.should_receive(:paginate).with(:page => nil, :per_page => 5).and_return(services)
+      get :index
+    end
   end
 
   describe 'GET #show' do

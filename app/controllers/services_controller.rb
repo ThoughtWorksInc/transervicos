@@ -6,7 +6,8 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    prepare_search
+    @services = prepare_search
+    @services = paginate_records
   end
 
   # GET /services/1
@@ -111,5 +112,11 @@ class ServicesController < ApplicationController
       @services = @services.state_search(params[:state][:state_id])
     end
     @services = @services.city_search(params[:city][:city_id]) if params[:city] && params[:city][:city_id].present?
+    @total_records = @services.length
+  end
+
+  def paginate_records
+    @records_per_page = 5
+    Service.paginate(:page => params[:page], :per_page => @records_per_page)
   end
 end

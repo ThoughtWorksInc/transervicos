@@ -47,6 +47,12 @@
         <%= link_to 'Cadastre o primeiro!', new_service_path, class:"btn btn-contorno" %>
       </div>
     <% else %>
+    Total de registros: <%= numero = @total_records %><br/><br/>
+        <!--&lt;!&ndash; total pages &ndash;&gt;-->
+        <% pages = @total_records / @records_per_page %>
+        <!--&lt;!&ndash; the last page &ndash;&gt;-->
+        <% if pages % @records_per_page > 0 %><% pages = pages + 1 %><% end %>
+      <%= will_paginate @services %>
       <% @services.each do |service| %>
         <div class="panel panel-default panel-lista">
           <div class="row row-eq-height">

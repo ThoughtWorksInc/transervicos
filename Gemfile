@@ -28,12 +28,16 @@ gem 'health-monitor-rails'
 
 gem 'rubocop'
 
+gem 'will_paginate'
+
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :development do
