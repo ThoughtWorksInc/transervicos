@@ -25,7 +25,7 @@ class Service < ActiveRecord::Base
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :subarea
 
-  default_scope { order('created_at desc') }
+  default_scope { order('name ASC') }
 
   before_save { |service| service.website = url_with_protocol(service.website) unless service.website.blank? }
 

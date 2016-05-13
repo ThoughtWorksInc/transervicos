@@ -112,7 +112,6 @@ class ServicesController < ApplicationController
       @services = @services.state_search(params[:state][:state_id])
     end
     @services = @services.city_search(params[:city][:city_id]) if params[:city] && params[:city][:city_id].present?
-    @total_records = @services.length
   end
 
   def paginate_records
