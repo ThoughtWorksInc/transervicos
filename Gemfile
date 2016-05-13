@@ -29,6 +29,7 @@ gem 'health-monitor-rails'
 gem 'rubocop'
 
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'byebug'

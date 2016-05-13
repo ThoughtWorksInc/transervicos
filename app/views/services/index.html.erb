@@ -47,7 +47,7 @@
         <%= link_to 'Cadastre o primeiro!', new_service_path, class:"btn btn-contorno" %>
       </div>
     <% else %>
-      <%= will_paginate @services %>
+      <%= will_paginate @services, renderer: BootstrapPagination::Rails, next_label: 'Seguinte', previous_label: 'Anterior' %>
       <% @services.each do |service| %>
           <div class="panel panel-default panel-lista">
           <div class="row row-eq-height">
