@@ -27,4 +27,4 @@ provisioning/playbook.retry
 # Ignore node_modules
 /node_modules
 
-Gemfile.lock
+:Gemfile.lock
