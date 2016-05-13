@@ -30,7 +30,6 @@ gem 'rubocop'
 
 gem 'will_paginate'
 
-
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
