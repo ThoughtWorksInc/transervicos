@@ -116,6 +116,6 @@ class ServicesController < ApplicationController
 
   def paginate_records
     @records_per_page = 5
-    Service.paginate(:page => params[:page], :per_page => @records_per_page)
+    Service.paginate(page: params[:page], per_page: @records_per_page)
   end
 end

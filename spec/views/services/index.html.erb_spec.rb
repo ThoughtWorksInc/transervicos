@@ -8,8 +8,7 @@ RSpec.describe 'services/index', type: :view do
   end
 
   it 'renders a list of services' do
-    services = paginate
-
+    paginate
     render
 
     expect(rendered).to match(/Service 1/)
@@ -25,16 +24,17 @@ RSpec.describe 'services/index', type: :view do
     create(:service, name: 'Service 4', description: 'Desc 4', phone: 'Phone 4')
     create(:service, name: 'Service 5', description: 'Desc 5', phone: 'Phone 5')
     create(:service, name: 'Service 6', description: 'Desc 6', phone: 'Phone 6')
-    services = paginate
+    paginate
 
     render
-    rendered.should match(/href=\"\/servicos\?page=2\"/)
+    rendered.should match %r{href=\"\/servicos\?page=2\"}
   end
 
 private
+
   def paginate
     services = Service.all
-    services = services.paginate(:page => 1, :per_page => @records_per_page)
+    services = services.paginate(page: 1, per_page: @records_per_page)
     assign(:services, services)
   end
 end
