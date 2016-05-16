@@ -7,7 +7,7 @@
       </div>
     </h4>
   </div>
-  <div class="row">
+  <div class="row info">
     <div class="col-sm-5">
       <div class="panel-body description">
         <i class="fa fa-lg fa-info pull-left icon visible-xs"></i>
@@ -20,7 +20,7 @@
       <% unless service.website.blank? %>
           <div class="attr">
             <i class="fa fa-lg fa-external-link text-dark-blue pull-left"></i>
-            <div><%= link_to service.website, service.website, target: :_blank %></div>
+            <div class="service-link"><%= link_to service.website, service.website, target: :_blank %></div>
           </div>
       <% end %>
       <% if !service.phone.blank? %>

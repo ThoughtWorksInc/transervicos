@@ -353,6 +353,8 @@ section.content {
 			.description {
 				font-size: 1.2em;
 				line-height: 1.5em;
+				word-wrap: break-word;
+
 				.icon {
 					width: 20px;
 					margin: 3px 0 0 0;
@@ -363,6 +365,9 @@ section.content {
 						margin-left: 30px;
 					}
 				}
+			}
+			.service-link{
+				word-wrap: break-word;
 			}
 			.attr {
 				padding: 10px 0;
@@ -377,6 +382,7 @@ section.content {
 				}
 				&>div {
 					margin-left: 45px;
+					margin-right: 10px;
 					.referer {
 						margin-top: 5px;
 						font-size: 0.8em;
