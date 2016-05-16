@@ -87,42 +87,42 @@ RSpec.describe Service, type: :model do
   end
 
   describe '#website' do
-      it 'is valid when the website has a valid format' do
-          service = build(:service, website: 'www.meusite.com.br')
-          expect(service).to be_valid
-      end
+    it 'is valid when the website has a valid format' do
+      service = build(:service, website: 'www.meusite.com.br')
+      expect(service).to be_valid
+    end
 
-      it 'is invalid when the website has an invalid format' do
-          service = build(:service, website: 'invalid_format')
-          expect(service).to be_invalid
-      end
+    it 'is invalid when the website has an invalid format' do
+      service = build(:service, website: 'invalid_format')
+      expect(service).to be_invalid
+    end
 
-      it 'should add url protocol before saving' do
-          url = 'website.com'
-          service = create(:service, website: url)
-          expect(service.website).to eq("http://#{url}")
-      end
+    it 'should add url protocol before saving' do
+      url = 'website.com'
+      service = create(:service, website: url)
+      expect(service.website).to eq("http://#{url}")
+    end
 
-      it 'should return same website with https protocol' do
-          url = 'https://website.com'
-          service = create(:service, website: url)
-          expect(service.website).to eq(url)
-      end
+    it 'should return same website with https protocol' do
+      url = 'https://website.com'
+      service = create(:service, website: url)
+      expect(service.website).to eq(url)
+    end
   end
 
   describe 'default scope' do
-      it 'orders by ascending name' do
-          service1 = 'Service 1'
-          service2 = 'Service 2'
-          service3 = 'Service 3'
-          create(:service, name: service3)
-          create(:service, name: service1)
-          create(:service, name: service2)
+    it 'orders by ascending name' do
+      service1 = 'Service 1'
+      service2 = 'Service 2'
+      service3 = 'Service 3'
+      create(:service, name: service3)
+      create(:service, name: service1)
+      create(:service, name: service2)
 
-          services = Service.all
-          obtained_services_names = services.to_a.map { |service| service.name  }
+      services = Service.all
+      obtained_services_names = services.to_a.map(&:name)
 
-          expect(obtained_services_names).to eq([service1, service2, service3])
-      end
+      expect(obtained_services_names).to eq([service1, service2, service3])
+    end
   end
 end
