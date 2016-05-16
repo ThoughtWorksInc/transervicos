@@ -74,13 +74,12 @@
                 <div class="desc font1-2x">
                   <%= service.description %>
                 </div>
-                  <% unless service.website.blank? %>
+                <% unless service.website.blank? %>
                     <div class="attr">
                       <i class="fa fa-lg fa-external-link text-dark-blue pull-left"></i>
-                      <div class="hidden-xs"><%= link_to service.website.html_safe, service.website, target: :_blank %></div>
-                      <div class="hidden-sm hidden-md hidden-lg"><%= link_to truncate(service.website.html_safe, length:30), service.website, target: :_blank %></div>
+                      <div class="service-link"><%= link_to service.website.html_safe, service.website, target: :_blank %></div>
                     </div>
-                  <% end %>
+                <% end %>
                 <% if !service.phone.blank? %>
                   <div class="attr">
                     <i class="fa fa-lg fa-phone text-dark-blue pull-left"></i>
