@@ -78,7 +78,7 @@
                     <div class="attr">
                       <i class="fa fa-lg fa-external-link text-dark-blue pull-left"></i>
                       <div class="hidden-xs"><%= link_to service.website.html_safe, service.website, target: :_blank %></div>
-                      <div class="hidden-sm hidden-md hidden-lg"><%= link_to truncate(service.website.html_safe, length:35), service.website, target: :_blank %></div>
+                      <div class="hidden-sm hidden-md hidden-lg"><%= link_to truncate(service.website.html_safe, length:30), service.website, target: :_blank %></div>
                     </div>
                   <% end %>
                 <% if !service.phone.blank? %>
