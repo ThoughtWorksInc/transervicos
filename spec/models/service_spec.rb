@@ -97,4 +97,20 @@ RSpec.describe Service, type: :model do
           expect(service).to be_invalid
       end
   end
+
+  describe 'default scope' do
+      it 'orders by ascending name' do
+          service1 = 'Service 1'
+          service2 = 'Service 2'
+          service3 = 'Service 3'
+          create(:service, name: service3)
+          create(:service, name: service1)
+          create(:service, name: service2)
+
+          services = Service.all
+          obtained_services_names = services.to_a.map { |service| service.name  }
+
+          expect(obtained_services_names).to eq([service1, service2, service3])
+      end
+  end
 end
