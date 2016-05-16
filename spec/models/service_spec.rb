@@ -96,6 +96,18 @@ RSpec.describe Service, type: :model do
           service = build(:service, website: 'invalid_format')
           expect(service).to be_invalid
       end
+
+      it 'should add url protocol before saving' do
+          url = 'website.com'
+          service = create(:service, website: url)
+          expect(service.website).to eq("http://#{url}")
+      end
+
+      it 'should return same website with https protocol' do
+          url = 'https://website.com'
+          service = create(:service, website: url)
+          expect(service.website).to eq(url)
+      end
   end
 
   describe 'default scope' do
