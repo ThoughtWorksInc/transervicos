@@ -110,7 +110,7 @@ RSpec.describe Service, type: :model do
     end
   end
 
-  describe 'default scope' do
+  describe '#default scope' do
     it 'orders by ascending name' do
       service1 = 'Service 1'
       service2 = 'Service 2'
@@ -123,6 +123,18 @@ RSpec.describe Service, type: :model do
       obtained_services_names = services.to_a.map(&:name)
 
       expect(obtained_services_names).to eq([service1, service2, service3])
+    end
+  end
+
+  describe '#text_search' do
+    it 'returns a service when the text exactly matches with the name' do
+      service1 = create(:service, name: 'service 1')
+      Service.text_search('service 1').should == [service1]
+    end
+
+    it 'returns a service when the text partially matches with the description' do
+      service1 = create(:service, description: 'description 1')
+      Service.text_search('DESCRIPTION').should == [service1]
     end
   end
 end
