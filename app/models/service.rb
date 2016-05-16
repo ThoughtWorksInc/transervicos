@@ -9,12 +9,10 @@ class Service < ActiveRecord::Base
   validates :address, presence: true
   validates :name, presence: true
   validates :description, presence: true
-
   validates :website, format: {
     with: %r{\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z}i,
     message: 'Site deve estar no formato: www.meusite.com.br'
   }, if: proc { |a| a.website.present? }
-
   validate :description_cannot_contain_forbidden_word
   validate :name_cannot_contain_forbidden_word
 
@@ -23,7 +21,6 @@ class Service < ActiveRecord::Base
   belongs_to :user
 
   accepts_nested_attributes_for :address
-  accepts_nested_attributes_for :subarea
 
   default_scope { order('name ASC') }
 

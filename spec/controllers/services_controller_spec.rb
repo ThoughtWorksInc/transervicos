@@ -81,7 +81,7 @@ RSpec.describe ServicesController, type: :controller do
         expect do
           post :create,
                service: attributes_for(:service_without_subarea)
-        end.to change { Address.count }.by(0)
+        end.to change { Subarea.count }.by(0)
       end
       it 'does not create a service without address' do
         expect do

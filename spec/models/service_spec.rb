@@ -85,4 +85,16 @@ RSpec.describe Service, type: :model do
       service.owner
     end
   end
+
+  describe '#website' do
+      it 'is valid when the website has a valid format' do
+          service = build(:service, website: 'www.meusite.com.br')
+          expect(service).to be_valid
+      end
+
+      it 'is invalid when the website has an invalid format' do
+          service = build(:service, website: 'invalid_format')
+          expect(service).to be_invalid
+      end
+  end
 end
