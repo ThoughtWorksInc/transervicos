@@ -127,14 +127,32 @@ RSpec.describe Service, type: :model do
   end
 
   describe '#text_search' do
-    it 'returns a service when the text exactly matches with the name' do
+    it 'returns a service when the text matches with the name' do
       service1 = create(:service, name: 'service 1')
       Service.text_search('service 1').should == [service1]
     end
 
-    it 'returns a service when the text partially matches with the description' do
+    it 'returns a service when the text matches with the description' do
       service1 = create(:service, description: 'description 1')
       Service.text_search('DESCRIPTION').should == [service1]
+    end
+  end
+
+  describe '#state_search' do
+    it 'returns a service when the text matches with the state' do
+      state = create(:state)
+      address = create(:address, state: state)
+      service = create(:service, address: address)
+      Service.state_search(state.id).should == [service]
+    end
+  end
+
+  describe '#city_search' do
+    it 'returns a service when the text matches with the state' do
+      city = create(:city)
+      address = create(:address, city: city)
+      service = create(:service, address: address)
+      Service.city_search(city.id).should == [service]
     end
   end
 end
