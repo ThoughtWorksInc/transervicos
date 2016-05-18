@@ -7,11 +7,12 @@ RSpec.describe ServicesController, type: :controller do
       expect(response).to render_template :index
     end
     it 'should paginate by five records per page' do
-      service = create(:service)
-      services = [service]
-      Service.stub(:paginate).and_return(services)
-      Service.should_receive(:paginate).with(page: nil, per_page: 5).and_return(services)
+      number_records_per_page = 5
+      (0..5).each do |i|
+        create(:service, name: "Service #{i}")
+      end
       get :index
+      expect(assigns(:services).to_a.length).to eq(number_records_per_page)
     end
   end
 
