@@ -603,6 +603,19 @@ footer.footer {
 	}
 }
 
+.like-dislike{
+	color: #cc2c71;
+	padding-bottom: 10px;
+
+
+	div{
+		float: left;
+		margin-right: 12px;
+		cursor: pointer;
+	}
+
+}
+
 
 #error_explanation {
 	/* mensagens de erro do Devise*/

@@ -138,6 +138,27 @@ RSpec.describe ServicesController, type: :controller do
     end
   end
 
+  describe 'PUT #downvote' do
+      context 'when a user downvotes' do
+          let(:service) {create(:service)}
+
+          before :each do
+              @request.env['HTTP_REFERER'] = '/services'
+          end
+
+          it 'should return updated service' do
+              put :downvote, id: service.id
+              expected = {:service_id => service.id,
+                          :upvotes => 0,
+                          :downvotes => 1,
+                          :action => 'downvoted'
+                      }
+              expect(response.body).to eq(expected.to_json)
+          end
+
+      end
+  end
+
   describe 'PUT #upvote' do
     context 'when logged user votes' do
       let(:service1) { create(:service, user_id: @user1.id) }
@@ -173,6 +194,16 @@ RSpec.describe ServicesController, type: :controller do
         expect { put :upvote, id: service3.id, user: @user1 }.to change {
           [service3.get_downvotes.size, service3.get_upvotes.size]
         }.to([0, 1])
+      end
+
+      it 'should return updated service' do
+          put :upvote, id: service3.id, user: @user2
+          expected = {:service_id => service3.id,
+                      :upvotes => 1,
+                      :downvotes => 0,
+                      :action => 'upvoted'
+                  }
+          expect(response.body).to eq(expected.to_json)
       end
     end
 

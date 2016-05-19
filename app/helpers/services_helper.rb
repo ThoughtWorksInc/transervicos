@@ -36,4 +36,9 @@ module ServicesHelper
     voter = current_user || VotingSession.find_by(ip: request.remote_ip)
     voter && voter.voted_for?(service) && voter.voted_up_on?(service)
   end
+
+  def user_voted_down_service?(service)
+    voter = current_user || VotingSession.find_by(ip: request.remote_ip)
+    voter && voter.voted_for?(service) && voter.voted_down_on?(service)
+  end
 end

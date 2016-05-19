@@ -69,10 +69,10 @@ class ServicesController < ApplicationController
   def upvote
     @service = Service.find(params[:id])
     @voter = current_user || VotingSession.find_or_create_voting_session(request.remote_ip)
-    @service.undisliked_by @voter if @voter.voted_down_on? @service
+    @service.undisliked_by(@voter) if @voter.voted_down_on?(@service)
     @service.liked_by @voter
 
-    redirect_to :back
+    render json: build_json_votes(@service, 'upvoted')
   end
 
   def downvote
@@ -81,7 +81,7 @@ class ServicesController < ApplicationController
     @service.unliked_by @voter if @voter.voted_up_on? @service
     @service.downvote_by @voter
 
-    redirect_to :back
+    render json: build_json_votes(@service, 'downvoted')
   end
 
   private
@@ -117,5 +117,14 @@ class ServicesController < ApplicationController
   def paginate_records(services)
     @records_per_page = 5
     services.paginate(page: params[:page], per_page: @records_per_page)
+  end
+
+  def build_json_votes(service, action)
+      {
+          :service_id => service.id,
+          :upvotes => service.get_upvotes.size,
+          :downvotes => service.get_downvotes.size,
+          :action => action
+      }
   end
 end
