@@ -120,11 +120,11 @@ class ServicesController < ApplicationController
   end
 
   def build_json_votes(service, action)
-      {
-          :service_id => service.id,
-          :upvotes => service.get_upvotes.size,
-          :downvotes => service.get_downvotes.size,
-          :action => action
-      }
+    {
+      service_id: service.id,
+      upvotes: service.get_upvotes.size,
+      downvotes: service.get_downvotes.size,
+      action: action
+    }
   end
 end
