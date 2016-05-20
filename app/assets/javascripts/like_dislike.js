@@ -22,8 +22,9 @@
         });
 
         var downvote = $('.downvote').closest('div');
-        downvote.click(function(){
+        downvote.click(function(event){
             var target = $(event.currentTarget).closest('div.likes-container');
+            console.log(target);
             var serviceId = $(target).data('service');
             $.ajax('/servicos/'+serviceId+'/dislike', {
                 method: 'PUT',
