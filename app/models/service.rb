@@ -36,6 +36,10 @@ class Service < ActiveRecord::Base
     user.preferred_name
   end
 
+  def self.searchable_language
+    'portuguese'
+  end
+
   private
 
   FORBIDDEN_WORD_ERROR_MESSAGE = 'do serviço contém palavras não permitidas. As palavras são: '

@@ -27,5 +27,7 @@ module Transervicos
     config.autoload_paths += %W("#{config.root}/app/validators/")
 
     config.exceptions_app = routes
+
+    config.active_record.schema_format = :sql
   end
 end
