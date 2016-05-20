@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
   def index
     prepare_search
     @services = paginate_records(@services)
+    render partial: '/partials/service_list' if request.xhr?
   end
 
   # GET /services/1

@@ -14,6 +14,13 @@ RSpec.describe ServicesController, type: :controller do
       get :index
       expect(assigns(:services).to_a.length).to eq(number_records_per_page)
     end
+
+    context 'when xhr request' do
+      it 'should render partial post list' do
+        xhr :get, :index
+        expect(response).to render_template(partial: '_service_list')
+      end
+    end
   end
 
   describe 'GET #show' do
