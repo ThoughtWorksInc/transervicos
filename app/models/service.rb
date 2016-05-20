@@ -26,9 +26,7 @@ class Service < ActiveRecord::Base
 
   before_save { |service| service.website = url_with_protocol(service.website) unless service.website.blank? }
 
-  scope :text_search, lambda { |text|
-    where('lower(services.name) LIKE :text OR lower(services.description) LIKE :text', text: "%#{text.downcase}%")
-  }
+  scope :text_search, -> (text) { fuzzy_search({ name: text, description: text }, false) }
   scope :state_search, -> (state_id) { joins(address: :state).where(states: { id: state_id }) }
   scope :city_search, -> (city_id) { joins(address: :city).where(cities: { id: city_id }) }
 

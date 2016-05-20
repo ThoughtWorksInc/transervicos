@@ -671,6 +671,13 @@ CREATE INDEX services_to_tsvector_idx ON services USING gin (to_tsvector('portug
 
 
 --
+-- Name: services_to_tsvector_idx1; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX services_to_tsvector_idx1 ON services USING gin (to_tsvector('portuguese'::regconfig, description));
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -730,4 +737,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160424224442');
 INSERT INTO schema_migrations (version) VALUES ('20160520165008');
 
 INSERT INTO schema_migrations (version) VALUES ('20160520203043');
+
+INSERT INTO schema_migrations (version) VALUES ('20160520211129');
 

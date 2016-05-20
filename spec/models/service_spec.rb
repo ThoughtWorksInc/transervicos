@@ -155,4 +155,10 @@ RSpec.describe Service, type: :model do
       Service.city_search(city.id).should == [service]
     end
   end
+
+  describe '#searchable_language' do
+    it 'returns portuguese' do
+      Service.searchable_language.should == 'portuguese'
+    end
+  end
 end

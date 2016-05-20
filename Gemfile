@@ -31,7 +31,7 @@ gem 'rubocop'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
-gem 'textacular', "~> 3.0", require: 'textacular/rails'
+gem 'textacular', '~> 3.0', require: 'textacular/rails'
 
 group :development, :test do
   gem 'byebug'
