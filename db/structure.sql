@@ -24,17 +24,17 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: pg_trgm; Type: EXTENSION; Schema: -; Owner: -
+-- Name: unaccent; Type: EXTENSION; Schema: -; Owner: -
 --
 
-CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
+CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION pg_trgm; Type: COMMENT; Schema: -; Owner: -
+-- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: -
 --
 
-COMMENT ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
+COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
 
 
 SET search_path = public, pg_catalog;
@@ -664,20 +664,6 @@ CREATE INDEX index_votes_on_voter_id_and_voter_type_and_vote_scope ON votes USIN
 
 
 --
--- Name: services_to_tsvector_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX services_to_tsvector_idx ON services USING gin (to_tsvector('portuguese'::regconfig, (name)::text));
-
-
---
--- Name: services_to_tsvector_idx1; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX services_to_tsvector_idx1 ON services USING gin (to_tsvector('portuguese'::regconfig, description));
-
-
---
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -739,4 +725,10 @@ INSERT INTO schema_migrations (version) VALUES ('20160520165008');
 INSERT INTO schema_migrations (version) VALUES ('20160520203043');
 
 INSERT INTO schema_migrations (version) VALUES ('20160520211129');
+
+INSERT INTO schema_migrations (version) VALUES ('20160523194021');
+
+INSERT INTO schema_migrations (version) VALUES ('20160523201023');
+
+INSERT INTO schema_migrations (version) VALUES ('20160523201311');
 

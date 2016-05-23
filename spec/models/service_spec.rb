@@ -136,6 +136,12 @@ RSpec.describe Service, type: :model do
       service1 = create(:service, description: 'description 1')
       Service.text_search('DESCRIPTION').should == [service1]
     end
+
+    it 'returns a service when the text matches with the description with special characters' do
+      service1 = create(:service, description: 'Orientação')
+      Service.text_search('Orientacao').should == [service1]
+    end
+
   end
 
   describe '#state_search' do
@@ -153,12 +159,6 @@ RSpec.describe Service, type: :model do
       address = create(:address, city: city)
       service = create(:service, address: address)
       Service.city_search(city.id).should == [service]
-    end
-  end
-
-  describe '#searchable_language' do
-    it 'returns portuguese' do
-      Service.searchable_language.should == 'portuguese'
     end
   end
 end
