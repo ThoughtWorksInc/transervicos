@@ -141,7 +141,6 @@ RSpec.describe Service, type: :model do
       service1 = create(:service, description: 'Orientação')
       Service.text_search('Orientacao').should == [service1]
     end
-
   end
 
   describe '#state_search' do

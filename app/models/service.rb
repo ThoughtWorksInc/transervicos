@@ -26,6 +26,7 @@ class Service < ActiveRecord::Base
 
   before_save { |service| service.website = url_with_protocol(service.website) unless service.website.blank? }
   scope :text_search, lambda { |text|
+    # rubocop:disable Metrics/LineLength
     where('unaccent(lower(services.name)) LIKE unaccent(:text) OR unaccent(lower(services.description)) LIKE unaccent(:text)', text: "%#{text.downcase}%")
   }
   scope :state_search, -> (state_id) { joins(address: :state).where(states: { id: state_id }) }
