@@ -116,7 +116,7 @@ class ServicesController < ApplicationController
   end
 
   def paginate_records(services)
-    @records_per_page = 5
+    @records_per_page = 10
     services.paginate(page: params[:page], per_page: @records_per_page)
   end
 

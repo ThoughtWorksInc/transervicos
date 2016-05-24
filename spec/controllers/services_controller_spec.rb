@@ -7,8 +7,8 @@ RSpec.describe ServicesController, type: :controller do
       expect(response).to render_template :index
     end
     it 'should paginate by five records per page' do
-      number_records_per_page = 5
-      (0..5).each do |i|
+      number_records_per_page = 10
+      (0..10).each do |i|
         create(:service, name: "Service #{i}")
       end
       get :index
