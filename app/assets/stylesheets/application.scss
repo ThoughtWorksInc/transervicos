@@ -632,3 +632,16 @@ footer.footer {
 	@extend .alert;
 	@extend .alert-info;
 }
+
+.lead {
+	.cadastre-busque{
+		font-size: 0.9em;
+	}
+}
+
+div{
+	.mobile-separator{
+		display: block;
+		height: 30px;
+	}
+}

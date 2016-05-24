@@ -25,14 +25,22 @@
 					<%= image_tag 'transervicos-logo.svg' %>
 				</h1>
 				<div class="lead text-center">
-					<p>
-						Você gostaria de cadastrar algum serviço que não discrimine as pessoas
-						trans e travestis? Você está em busca de serviços oferecidos por essas
-						pessoas ou que não as discrimine?
-					</p>
-					<div class="cadastre-busque">
-						<% if !user_signed_in? %><%= link_to 'cadastre-se', new_user_registration_path, { :class=>"btn-contorno" } %><br class="visible-xs"/>ou<br class="visible-xs"/><% end %><%= link_to 'busque serviços', services_path, { :class=>"btn-contorno" } %>
+                    <div class="col-sm-6 text-center cadastre-busque">
+    					<p>Você gostaria de cadastrar algum serviço que não discrimine as pessoas
+    						trans e travestis?</p>
+                        <% if !user_signed_in? %><%= link_to 'cadastre-se', new_user_registration_path, { :class=>"btn-contorno" } %>
+                        <% else %>
+                        <%= link_to 'Cadastre serviço', new_service_path, { :class=>"btn-contorno" } %>
+                        <% end %>
+                    </div>
+                    <div class="hidden-sm hidden-md hidden-lg mobile-separator"></div>
+                    <div class="col-sm-6 text-center cadastre-busque">
+                        <p>Você está em busca de serviços oferecidos por essas pessoas ou que não as discrimine?</p>
+    					<div class="cadastre-busque">
+    						<%= link_to 'busque serviços', services_path, { :class=>"btn-contorno" } %>
+    					</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
