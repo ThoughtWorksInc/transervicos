@@ -2,11 +2,13 @@
 
 module.exports = function(config) {
   config.set({
-    basePath: '../..',
+    basePath: '../../',
     frameworks: ['jasmine'],
 
-    files: ['javascripts/*.js'],
-
+    files: [
+      '../app/assets/javascripts/registrations.js',
+      'javascripts/*.js'
+    ],
     exclude: [
     ],
 

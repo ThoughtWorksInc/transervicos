@@ -1,5 +1,5 @@
 src_files:
-  - assets/javascripts/**/*[sS]pec.js
+  - 'assets/javascripts/**/*.js'
 
 stylesheets:
 
