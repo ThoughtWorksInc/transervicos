@@ -34,7 +34,7 @@ var changeClass = function(element, clazz) {
 }
 
 var isValidValue = function(elementId) {
-   return true;
+  return ($(elementId).val())? true: false;
 }
 
 

@@ -1,5 +1,4 @@
-//require registrations
-//require jasmine-jquery
+//= require jquery
 
 describe('Registrations', function() {
 
@@ -11,7 +10,7 @@ describe('Registrations', function() {
     expect(target_element.html).toHaveBeenCalledWith(message);
   });
 
-  it('should change css class of a element', function() {
+  it('should change css class of an element', function() {
     var target_element = { 
       removeClass: function() {},
       addClass: function() {},
@@ -27,14 +26,24 @@ describe('Registrations', function() {
     expect(target_element.addClass).toHaveBeenCalledWith(newClass);
   });
 
-  it('should return true if an element has a not empty value', function() {
-    var elementId = '#targetElement';
-    var targetElement = {
-      val: function() { return 'someValue' }
-    }
-    //spyOn($.fn, elementId).andReturn(targetElement);
-    var response = isValidValue(elementId);
-    expect(response).toBeTruthy();
+  describe('#isValidValue', function() {
+    var elementId = "targetElement";
+
+    afterEach(function(){
+      expect($.fn.val).toHaveBeenCalled();
+    });
+
+    it('should return true if an element has a not empty value', function() {
+      spyOn($.fn, "val").and.returnValue('someValue');
+      var response = isValidValue(elementId);
+      expect(response).toBeTruthy();
+    });
+
+    it('should return false if an element has a null value', function() {
+      spyOn($.fn, "val").and.returnValue('');
+      var response = isValidValue(elementId);
+      expect(response).toBeFalsy();
+    });
   });
 
 });

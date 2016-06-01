@@ -7,7 +7,8 @@ module.exports = function(config) {
 
     files: [
       '../app/assets/javascripts/registrations.js',
-      'javascripts/*.js'
+      'javascripts/*.js',
+      '../vendor/assets/javascripts/jquery-2.2.4.min.js'
     ],
     exclude: [
     ],
