@@ -1,40 +1,26 @@
-var registrations = {
+$(document).ready(function() {
+  $('#new_user input').on(function() {
+    validateField(this);
+    console.log('xxxxx');
+  });
+});
 
-  hello: function () {
-   //$(document).ready(function(){
-     //$('#new_user input').focusout(function(){
-       //showErrorMessage(this, 'O campo é requerido');
-     //});
-
-     //var showErrorMessage = function(element, message){
-       //var input = $(element);
-       //var element_value = input.val();
-       //var error_element=$("span", input.parent());
-       //if(!element_value){
-         //error_element.removeClass("error").addClass("error_required");
-         //error_element.html(message);
-       //}else{
-         //error_element.removeClass("error_required").addClass("error");
-         //error_element.html('');
-       //}
-     //};
-   //});
-    return true;
+var validateField = function(input){
+  var span = $('span', input.parent());
+  if(isValidValue(input)){
+    setMessageAndClass(span, '', 'error');
+  }else{
+    setMessageAndClass(span, 'O campo é requerido', 'error-required');
   }
 }
 
-var showErrorMessage = function(element, message) {
-  element.html(message);
+var isValidValue = function(element) {
+  return !!element.val();
 }
 
-var changeClass = function(element, clazz) {
+var setMessageAndClass = function(element, message, clazz) {
+  element.html(message);
   var actualClazz = element.attr("class");
   element.removeClass(actualClazz);
   element.addClass(clazz);
 }
-
-var isValidValue = function(elementId) {
-  return ($(elementId).val())? true: false;
-}
-
-
