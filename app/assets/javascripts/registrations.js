@@ -1,9 +1,9 @@
-//$(document).ready(function() {
-  //$('#new_user input').focusout(function() {
-    //validateField($(this));
-    //console.log('xxxxx');
-  //});
-//});
+$(document).ready(function() {
+  $('#new_user input').focusout(function() {
+    validateField($(this));
+    console.log('xxxxx');
+  });
+});
 
 var validateField = function(input){
   var span = $('span', input.parent());
