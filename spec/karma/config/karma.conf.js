@@ -6,10 +6,10 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
+      '../vendor/assets/javascripts/jquery-2.2.4.min.js',
+      '../vendor/assets/javascripts/jasmine-jquery.js',
       '../app/assets/javascripts/registrations.js',
       'javascripts/*.js',
-      '../vendor/assets/javascripts/jquery-2.2.4.min.js',
-      '../vendor/assets/javascripts/jasmine-jquery.js'
     ],
     exclude: [
     ],

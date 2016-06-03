@@ -1,7 +1,6 @@
 $(document).ready(function() {
   $('#new_user input').focusout(function() {
     validateField($(this));
-    console.log('xxxxx');
   });
 });
 
