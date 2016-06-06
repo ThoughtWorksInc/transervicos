@@ -1,11 +1,12 @@
 $(document).ready(function() {
   $('#new_user input').focusout(function() {
-    validateField($(this));
+    validateField($(this).parent());
   });
 });
 
-var validateField = function(input){
-  var span = $('span', input.parent());
+var validateField = function(parent){
+  var span = parent.find('span');
+  var input = parent.find('input');
   if(isValidValue(input)){
     setMessageAndClass(span, '', 'error');
   }else{

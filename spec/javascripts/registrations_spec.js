@@ -25,4 +25,22 @@ describe('Registrations', function() {
     });
   });
 
+  describe('#validateField', function() {
+    it('should set message and class error when the input has a empty value', function() {
+      var parent = $('<div><input /><span class="error"/></div>')
+      validateField(parent);
+      var span = parent.find('span');
+      expect(span).toHaveClass('error_required');
+      expect(span).toContainText('O campo é requerido');
+    });
+
+    it('should not change class and message when the input has a valid value', function () {
+      var parent = $('<div><input value="Some value"/><span class="error_required">Error message</span></div>');
+      validateField(parent);
+      var span = parent.find('span');
+      expect(span).toHaveClass('error');
+      expect(span).toContainText('');
+    });
+  });
+
 });
