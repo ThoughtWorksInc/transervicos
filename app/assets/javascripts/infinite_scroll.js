@@ -6,7 +6,7 @@
           var more_posts_url = $('.pagination a[rel=next]').attr('href');
           if (more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 350){
               $('.pagination').html("");
-              var elem = $('<div class="text-center">Cargando...</div>');
+              var elem = $('<div class="text-center">Carregando...</div>');
               $("#posts").append(elem);
               $.ajax(more_posts_url, {
                   method: 'GET',
