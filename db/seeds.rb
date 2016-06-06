@@ -51,7 +51,7 @@ module BRPopulate
 
       state['cities'].each do |city|
         c = City.new
-        c.name = city
+        c.name = city['name']
         c.state = state_obj
         c.save
       end
