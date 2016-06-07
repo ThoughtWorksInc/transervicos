@@ -663,18 +663,5 @@ div{
 
 .denuncia button {
   float: right;
-  padding: 7px 12px;
-  background-color: $fuchsia;
-  border-radius: 6px;
-  border: 2px white solid;
-  font-family: $font1;
-  text-transform: uppercase;
-  color: white;
   font-size: 0.8em;
-  &:hover,
-  &:focus {
-    background: white;
-    color: $fuchsia;
-    text-decoration: none;
-  }
 }
