@@ -82,10 +82,6 @@
       return false;
     });
 
-    $('#user_birth_date').inputmask({
-      mask: '99/99/9999'
-    });
-
     $('#user_phone_number, #service_phone, #service_other_phone').inputmask({
       mask: '(99) 9999?99999'
     });

@@ -1,4 +1,4 @@
-describe('Registrations', function() {
+describe('Required Validator', function() {
 
   describe('#isValidValue', function() {
     it('should return true if an element does not have an empty value', function() {
