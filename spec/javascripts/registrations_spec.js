@@ -14,17 +14,6 @@ describe('Registrations', function() {
     });
   });
 
-  describe('#setMessageAndClass', function(){
-    it('should set message and class of an element', function() {
-      var element = $('<span class="error"/>');
-      var message = 'Some message';
-      var clazz = 'error-required';
-      setMessageAndClass(element, message, clazz);
-      expect(element).toHaveClass(clazz);
-      expect(element).toContainText(message);
-    });
-  });
-
   describe('#validateField', function() {
     it('should set message and class error when the input has a empty value', function() {
       var parent = $('<div><input /><span class="error"/></div>')
@@ -42,5 +31,4 @@ describe('Registrations', function() {
       expect(span).toContainText('');
     });
   });
-
 });

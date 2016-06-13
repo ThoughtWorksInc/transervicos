@@ -9,6 +9,8 @@ module.exports = function(config) {
       '../vendor/assets/javascripts/jquery-2.2.4.min.js',
       '../vendor/assets/javascripts/jasmine-jquery.js',
       '../app/assets/javascripts/registrations.js',
+      '../app/assets/javascripts/email_validator.js',
+      '../app/assets/javascripts/error_formatter.js',
       'javascripts/*.js',
     ],
     exclude: [
