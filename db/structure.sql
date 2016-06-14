@@ -216,7 +216,8 @@ CREATE TABLE reports (
     detail character varying,
     service_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    email character varying
 );
 
 
@@ -795,4 +796,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160523201023');
 INSERT INTO schema_migrations (version) VALUES ('20160523201311');
 
 INSERT INTO schema_migrations (version) VALUES ('20160609170644');
+
+INSERT INTO schema_migrations (version) VALUES ('20160613213641');
 

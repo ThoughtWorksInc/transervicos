@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reports/new'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount HealthMonitor::Engine, at: '/'
 
