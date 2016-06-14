@@ -15,7 +15,7 @@
         </div>
         <div style="margin-top: 10px;">
           <%= render '/partials/like_unlike', service: service %>
-          <div class="denuncia"><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#denunciaModal">
+          <div class="report"><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#reportModal">
               Denunciar
             </button></div>
         </div>
@@ -65,4 +65,4 @@
   <%= will_paginate @services, renderer: BootstrapPagination::Rails, next_label: 'Seguinte', previous_label: 'Anterior' %>
 </div>
 </div>
-<%= render '/partials/service_denuncia' %>
+<%= render '/partials/service_report' %>

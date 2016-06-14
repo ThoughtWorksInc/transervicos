@@ -11,6 +11,7 @@ module.exports = function(config) {
       '../app/assets/javascripts/registrations.js',
       '../app/assets/javascripts/email_validator.js',
       '../app/assets/javascripts/error_formatter.js',
+      '../app/assets/javascripts/required_validator.js',
       'javascripts/*.js',
     ],
     exclude: [
