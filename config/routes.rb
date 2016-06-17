@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount HealthMonitor::Engine, at: '/'
 
@@ -25,7 +24,7 @@ Rails.application.routes.draw do
   match '/404' => 'errors#not_found', :via => :all
   match '/422' => 'errors#unacceptable', :via => :all
   match '/500' => 'errors#internal_error', :via => :all
-  
-  get 'reports/new'
-  match 'reports' => 'reports#create', :via => :post
+
+  get 'services/:service_id/reports/new' => 'reports#new'
+  match 'reports' => 'reports#create', :via => :post, :as => :report
 end

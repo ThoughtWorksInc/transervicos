@@ -11,6 +11,7 @@ RSpec.describe 'services/new', type: :view do
       assert_select 'input#service_name[name=?]', 'service[name]'
       assert_select 'textarea#service_description[name=?]', 'service[description]'
       assert_select 'input#service_phone[name=?]', 'service[phone]'
+      assert_select 'input[type=submit]'
     end
   end
 end
