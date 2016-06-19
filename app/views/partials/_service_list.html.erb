@@ -59,10 +59,9 @@
       </div>
     </div>
   </div>
-
+  <%= render '/partials/service_report', :service_id => service.id %>
 <% end %>
 <div id='infinite-scrolling' style="visibility:hidden; height: 0px;">
   <%= will_paginate @services, renderer: BootstrapPagination::Rails, next_label: 'Seguinte', previous_label: 'Anterior' %>
 </div>
 </div>
-<%= render '/partials/service_report' %>

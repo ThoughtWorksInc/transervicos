@@ -129,17 +129,17 @@ RSpec.describe Service, type: :model do
   describe '#text_search' do
     it 'returns a service when the text matches with the name' do
       service1 = create(:service, name: 'service 1')
-      Service.text_search('service 1').should == [service1]
+      expect(Service.text_search('service 1')).to eq([service1])
     end
 
     it 'returns a service when the text matches with the description' do
       service1 = create(:service, description: 'description 1')
-      Service.text_search('DESCRIPTION').should == [service1]
+      expect(Service.text_search('DESCRIPTION')).to eq([service1])
     end
 
     it 'returns a service when the text matches with the description with special characters' do
       service1 = create(:service, description: 'Orientação')
-      Service.text_search('Orientacao').should == [service1]
+      expect(Service.text_search('Orientacao')).to eq([service1])
     end
   end
 
@@ -148,7 +148,7 @@ RSpec.describe Service, type: :model do
       state = create(:state)
       address = create(:address, state: state)
       service = create(:service, address: address)
-      Service.state_search(state.id).should == [service]
+      expect(Service.state_search(state.id)).to eq([service])
     end
   end
 
@@ -157,7 +157,7 @@ RSpec.describe Service, type: :model do
       city = create(:city)
       address = create(:address, city: city)
       service = create(:service, address: address)
-      Service.city_search(city.id).should == [service]
+      expect(Service.city_search(city.id)).to eq([service])
     end
   end
 end

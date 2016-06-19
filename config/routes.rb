@@ -25,6 +25,5 @@ Rails.application.routes.draw do
   match '/422' => 'errors#unacceptable', :via => :all
   match '/500' => 'errors#internal_error', :via => :all
 
-  get 'services/:service_id/reports/new' => 'reports#new'
-  match 'reports' => 'reports#create', :via => :post, :as => :report
+  post 'reports' => 'reports#create', as: 'report'
 end
