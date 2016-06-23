@@ -7,18 +7,18 @@
         <h4 class="modal-title" id="reportModalLabel">Denunciar este serviço</h4>
       </div>
       <div class="modal-body">
-          <%= f.hidden_field :service_id, :value => service_id %>
+          <%= f.hidden_field :service_id, required: true, :value => service_id %>
           <div class="form-group">
-            <label for="email" class="control-label">
+            <label for="email" class="control-label label-required">
               Insira sua email:
             </label>
-            <%= f.text_field(:email, class: 'form-control') %>
+            <%= f.text_field(:email, required: true, class: 'form-control') %>
           </div>
           <div class="form-group">
-            <label for="report" class="control-label">
+            <label for="report" class="control-label label-required">
               Insira a descrição de sua denuncia para este serviço:
             </label>
-            <%= f.text_area(:detail, rows: 10, class: 'form-control') %>
+            <%= f.text_area(:detail, required: true, rows: 10, class: 'form-control') %>
           </div>
       </div>
       <div class="modal-footer">
