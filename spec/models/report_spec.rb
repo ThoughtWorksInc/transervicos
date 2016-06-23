@@ -23,4 +23,10 @@ RSpec.describe Report, type: :model do
     report = build(:report_without_service)
     expect(report).to be_invalid
   end
+  it 'should return report list given an id service' do
+    service = create(:service)
+    report = create(:report, service: service)
+    report_list = Report.get_by_service(service.id)
+    expect(report_list).to eq([report])
+  end
 end
