@@ -1,13 +1,15 @@
 class ServicesController < ApplicationController
+  include PaginationHelper
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
   load_and_authorize_resource
 
+  RECORDS_PER_PAGE = 10
   # GET /services
   # GET /services.json
   def index
     prepare_search
-    @services = paginate_records(@services)
+    @services = paginate_services(@services, RECORDS_PER_PAGE, params[:page])
     render partial: '/partials/service_list' if request.xhr?
   end
 
@@ -115,11 +117,6 @@ class ServicesController < ApplicationController
     @services = @services.city_search(params[:city][:city_id]) if params[:city] && params[:city][:city_id].present?
   end
 
-  def paginate_records(services)
-    @records_per_page = 10
-    services.paginate(page: params[:page], per_page: @records_per_page)
-  end
-
   def build_json_votes(service, action)
     {
       service_id: service.id,
@@ -128,4 +125,5 @@ class ServicesController < ApplicationController
       action: action
     }
   end
+
 end
