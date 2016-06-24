@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe 'dashboard/index.html.erb', type: :view do
+RSpec.describe 'dashboard/index', type: :view do
 end

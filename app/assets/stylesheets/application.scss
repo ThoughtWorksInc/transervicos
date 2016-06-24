@@ -413,6 +413,39 @@ section.content {
 					display: flex;
 				}
 				&>div {
+					&.denuncia {
+						border-radius: 0 4px 4px 0;
+						padding: 15px;
+						margin-left: 15px;
+						@media (max-width: $screen-xs-max) {
+							border-radius: 0 0 4px 4px;
+							border-bottom: 1px $purple solid;
+							margin-right: 15px;
+						}
+						.title {
+							font-family: $font1;
+							font-size: 1.5em;
+							font-weight: 150;
+							display: block;
+							text-align: center;
+							@media (max-width: $screen-xs-max) {
+								display: inline;
+							}
+						}
+						.reports {
+							font-family: $font1;
+							font-size: 3em;
+							font-weight: 300;
+							display: block;
+							text-align: center;
+							margin-top: 40px;
+							@media (max-width: $screen-xs-max) {
+								font-size: 1.5em;
+								font-weight: 150;
+								display: inline;
+							}
+						}
+					}
 					&.nome {
 						border-radius: 4px 0 0 4px;
 						padding: 15px;

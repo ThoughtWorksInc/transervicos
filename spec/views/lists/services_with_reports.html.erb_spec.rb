@@ -27,6 +27,18 @@ RSpec.describe 'lists/services_with_reports', type: :view do
     rendered.should match %r{href=\"\/list\/services_with_reports\?page=2\"}
   end
 
+  it 'renders the number of reports by service' do
+    service_with_report = create(:service, name:'service with report')
+    report_1 = create(:report, email:'example@gmail.com', service: service_with_report)
+    report_2 = create(:report, email:'example2@gmail.com', service: service_with_report)
+
+    paginate
+    render
+    assert_select 'div.denuncia' do
+      assert_select 'span.reports', {:text=>'2'}
+    end
+  end
+
 private
 
   def paginate

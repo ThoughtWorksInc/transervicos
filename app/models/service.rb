@@ -33,9 +33,12 @@ class Service < ActiveRecord::Base
   scope :city_search, -> (city_id) { joins(address: :city).where(cities: { id: city_id }) }
   scope :list_services_with_reports, -> () { joins('join reports on reports.service_id = services.id').distinct}
 
-
   def owner
     user.preferred_name
+  end
+
+  def reports_count
+    Service.joins("join reports on reports.service_id = services.id and services.id = #{id}").count
   end
 
   private
@@ -67,5 +70,4 @@ class Service < ActiveRecord::Base
   def url_with_protocol(url)
     /^https?/i.match(url) ? url : "http://#{url}"
   end
-
 end

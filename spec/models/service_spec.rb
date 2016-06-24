@@ -176,4 +176,13 @@ RSpec.describe Service, type: :model do
       expect(Service.list_services_with_reports().length).to eq(expected_number_services)
     end
   end
+  describe '#calculate reports count' do
+    it 'should return the number of reports by service' do
+      expected_number_reports = 2
+      service_with_report = create(:service, name:'service with report')
+      report_1 = create(:report, email:'example@gmail.com', service: service_with_report)
+      report_2 = create(:report, email:'example2@gmail.com', service: service_with_report)
+      expect(service_with_report.reports_count).to eq(expected_number_reports)
+    end
+  end
 end

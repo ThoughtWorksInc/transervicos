@@ -1,16 +1,7 @@
 <section class="content">
   <div class="container">
     <h1 class="clearfix">
-      <% if user_signed_in? %>
-        <span class="font0-8x pull-right">
-          <% if !@services.empty? %>
-            <%= link_to new_service_path, class:"btn btn-sm btn-contorno" do %>
-              Cadastrar<span class="hidden-xs"> serviço</span>
-            <% end %>
-          <% end %>
-        </span>
-      <% end %>
-      Lista de Serviços com Queixas 
+      Lista de Serviços com Denúncias
     </h1>
         <% if @services.empty? %>
       <div class="sem-servicos text-center">
@@ -18,7 +9,7 @@
       </div>
     <% else %>
       <div id='posts'>
-        <%= render '/partials/service_list', services: @services %>
+        <%= render '/partials/service_with_reports_list', services: @services %>
       </div>
     <% end %>
   </div>
