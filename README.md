@@ -40,12 +40,14 @@ Para utilizar o Vagrant, execute os seguintes comandos:
 
 #### Criando um usuário admin
 
-Execute o comando `rails c` e coloque o comando 
+Execute o comando `rails c` e coloque o comando
 `us = User.create(password: 'password',password_confirmation: 'password',email: <email>,social_name: <nome>,civil_name: <nome>,birth_date: 20.years.ago,username: <usuario>,phone_number: "12346789",name_preference: User::SOCIAL_NAME_PREFERENCE)`
 
 Depois `us.admin = true` e então `us.save`.
 
 Logue no site com o novo usuário criado e vá para a url `http://localhost:8000/admin`.
+
+Em caso de erro `us.errors.full_messages`.
 
 ### Rodando os testes
 
