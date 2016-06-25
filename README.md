@@ -60,3 +60,7 @@ Estando logado na máquina com `vagrant ssh`, vá até o diretório do projeto c
 #### Para rodar os testes unitários de Javascript
 
 1. `grunt karma`
+
+#### Analisar o código de ruby
+
+1. `rubocop`

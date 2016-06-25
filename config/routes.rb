@@ -26,6 +26,5 @@ Rails.application.routes.draw do
   match '/500' => 'errors#internal_error', :via => :all
 
   post 'reports' => 'reports#create', as: 'report'
-  match 'list/services_with_reports' => 'lists#services_with_reports', :via=> :all
-
+  match 'list/services_with_reports' => 'lists#services_with_reports', :via => :all
 end

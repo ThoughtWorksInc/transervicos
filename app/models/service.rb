@@ -31,7 +31,7 @@ class Service < ActiveRecord::Base
   }
   scope :state_search, -> (state_id) { joins(address: :state).where(states: { id: state_id }) }
   scope :city_search, -> (city_id) { joins(address: :city).where(cities: { id: city_id }) }
-  scope :list_services_with_reports, -> () { joins('join reports on reports.service_id = services.id').distinct}
+  scope :list_services_with_reports, -> () { joins('join reports on reports.service_id = services.id').distinct }
 
   def owner
     user.preferred_name
