@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe ListsController, type: :controller do
+  before :each do
+    sign_in FactoryGirl.create(:user)
+  end
   describe 'GET #services_with_reports' do
     it 'renders the list of services with reports view' do
       get :services_with_reports
