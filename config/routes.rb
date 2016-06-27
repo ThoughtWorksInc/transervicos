@@ -27,4 +27,5 @@ Rails.application.routes.draw do
 
   post 'reports' => 'reports#create', as: 'report'
   match 'list/services_with_reports' => 'lists#services_with_reports', :via => :all
+  get 'reports/:service_id' => 'reports#find_reports_by_service', as: 'reports_by_service'
 end
