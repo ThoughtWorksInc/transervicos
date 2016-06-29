@@ -1,13 +1,13 @@
 <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <%= form_for :report, url: report_path do |f| %>
+      <%= form_for :report, url: report_path, :html => {:id => 'report_service_form'}  do |f| %>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="reportModalLabel">Denunciar este serviço</h4>
       </div>
       <div class="modal-body">
-          <%= f.hidden_field :service_id, required: true, :value => service_id %>
+          <%= f.hidden_field :service_id, required: true %>
           <div class="form-group">
             <label for="email" class="control-label label-required">
               Insira sua email:
