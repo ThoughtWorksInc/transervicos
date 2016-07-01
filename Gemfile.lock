@@ -132,6 +132,7 @@ GEM
     minitest (5.8.3)
     multi_json (1.11.2)
     nested_form (0.3.2)
+    newrelic_rpm (3.16.0.318)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -296,6 +297,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  newrelic_rpm
   pg
   rails (= 4.2.4)
   rails_12factor

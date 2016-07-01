@@ -30,6 +30,7 @@ gem 'rubocop'
 
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug'
