@@ -40,13 +40,13 @@
           </div>
           <fieldset class="form-fieldset">
             <div class="form-group terms-of-service">
-              <textarea disabled="disabled" id="user_policy" name="description" class="form-control" rows="3">
-Você é um dentista, médico, advogado, professor, manicure, pedicure, cabeleireiro, boleiro, doceiro ou tem qualquer outro serviço a oferecer que não discrimine trans e travestis? Você pode cadastrar seu serviço no Transerviços.
+              <p>
+              Você é um dentista, médico, advogado, professor, manicure, pedicure, cabeleireiro, boleiro, doceiro ou tem qualquer outro serviço a oferecer que não discrimine trans e travestis? Você pode cadastrar seu serviço no Transerviços.
 
-Você é uma pessoa trans ou travesti que faz algum trabalho autônomo e quer oferecê-lo para outras pessoas trans ou travestis? Pode cadastrar seu serviço no Transerviços.
+              Você é uma pessoa trans ou travesti que faz algum trabalho autônomo e quer oferecê-lo para outras pessoas trans ou travestis? Pode cadastrar seu serviço no Transerviços.
 
-Você conhece profissionais que não discriminam pessoas trans e travestis? Pode cadastrar o serviço que eles oferecem no transerviços.
-              </textarea>
+              Você conhece profissionais que não discriminam pessoas trans e travestis? Pode cadastrar o serviço que eles oferecem no transerviços.
+              </p>
             </div>
           </fieldset>
 
@@ -57,12 +57,10 @@ Você conhece profissionais que não discriminam pessoas trans e travestis? Pode
               </label>
             </div>
           </div>
-
           <div class="actions">
             <%= f.submit "Cadastrar", class: 'btn btn-block btn-form' %>
           </div>
         <% end %>
-
         <p class="not-user-text">Já tem cadastro?</p>
 
         <%= link_to "Acessar", new_session_path(resource_name), class: 'btn btn-block btn-form' %>
