@@ -1,3 +1,7 @@
+- name: install setfacl support
+  become: yes
+  apt: pkg=acl
+
 - name: Add postgresql apt repository
   apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' state=present
 
@@ -14,7 +18,7 @@
 
 - name: Create user vagrant
   postgresql_user: name=vagrant
-                   role_attr_flags=CREATEDB
+                   role_attr_flags=SUPERUSER,CREATEDB
                    state=present
   become_user: postgres
 
