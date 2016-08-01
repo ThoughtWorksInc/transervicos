@@ -645,9 +645,13 @@ footer.footer {
 }
 
 .like-dislike{
-	color: #cc2c71;
-	padding-bottom: 10px;
-        float: left;
+  color: #cc2c71;
+  padding-bottom: 2%;
+  float: left;
+  position: absolute;
+  left: 0;
+  margin-left: 4%;
+  bottom: 0;
 	div{
 		float: left;
 		margin-right: 12px;
@@ -698,7 +702,12 @@ div{
 
 .report {
   float: left;
-  width: 50%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 3%;
+  width: 65%;
+  padding-bottom: 2%;
 }
 
 .report button {
