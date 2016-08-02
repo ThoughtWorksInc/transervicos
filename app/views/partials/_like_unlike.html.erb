@@ -7,4 +7,9 @@
         <i class="fa <% if user_voted_down_service?(service) %>fa-thumbs-down<%else%>fa-thumbs-o-down<%end%>  downvote"></i>
         <span class="number-thumbs-down">(<%= service.get_downvotes.size %>)</span>
     </div>
+    <div class=".col-xs-1 report">
+      <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#reportModal" onclick="setServiceId(<%= service.id %>);"> 
+        Denunciar 
+      </button>
+    </div>
 </div>

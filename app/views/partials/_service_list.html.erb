@@ -3,21 +3,26 @@
     <div class="panel panel-default panel-lista">
       <div class="row row-eq-height">
         <div class="col-sm-4 bg-light-blue nome text-dark-blue">
-          <h2><%= service.name %></h2>
-          <div class="area">
-            <i class="fa fa-heart pull-left"></i>
-            <div>
-              <% if service.subarea %>
-                <%= service.subarea.area.area %><br/>
-                <%= service.subarea.subarea %>
-              <% end %>
-            </div>
+          <div class="row service-name">
+            <h2><%= service.name %></h2>
           </div>
+          <% if service.subarea %>
+            <div class="row service-name">
+                <div class=".col-xs-6">
+                  <i class="fa fa-heart pull-left"></i>
+                </div>
+                <div class=".col-xs-6">
+                  <%= service.subarea.area.area %>
+                </div>
+            </div>
+            <div class="row service-name">
+                <div class=".col-xs-12">
+                  <%= service.subarea.subarea %>
+                </div>
+            </div>
+          <% end %>
           <div style="margin-top: 10px;">
             <%= render '/partials/like_unlike', service: service %>
-            <div class="report"><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#reportModal" onclick="setServiceId(<%= service.id %>);">
-                Denunciar
-              </button></div>
           </div>
         </div>
         <div class="col-sm-8">
