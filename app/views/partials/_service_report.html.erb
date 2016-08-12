@@ -10,15 +10,15 @@
           <%= f.hidden_field :service_id, required: true %>
           <div class="form-group">
             <label for="email" class="control-label label-required">
-              Insira sua email:
+              Insira seu email:
             </label>
-            <%= f.text_field(:email, required: true, class: 'form-control') %>
+            <%= f.text_field(:email, oninvalid: 'this.setCustomValidity("Preencha o email.")', oninput:'setCustomValidity("")', required: true, class: 'form-control') %>
           </div>
           <div class="form-group">
             <label for="report" class="control-label label-required">
-              Insira a descrição de sua denuncia para este serviço:
+              Insira a descrição da sua denúncia para este serviço:
             </label>
-            <%= f.text_area(:detail, required: true, rows: 10, class: 'form-control') %>
+            <%= f.text_area(:detail, oninput:'setCustomValidity("")', oninvalid: 'this.setCustomValidity("Preencha a descrição.")', required: true, rows: 10, class: 'form-control') %>
           </div>
       </div>
       <div class="modal-footer">
