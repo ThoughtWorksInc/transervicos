@@ -72,8 +72,13 @@ class ServicesController < ApplicationController
   def upvote
     @service = Service.find(params[:id])
     @voter = current_user || VotingSession.find_or_create_voting_session(request.remote_ip)
-    @service.undisliked_by(@voter) if @voter.voted_down_on?(@service)
-    @service.liked_by @voter
+
+    if @voter.voted_up_on? @service
+      @service.unliked_by @voter
+    else
+      @service.undisliked_by(@voter) if @voter.voted_down_on?(@service)
+      @service.liked_by @voter
+    end
 
     render json: build_json_votes(@service, 'upvoted')
   end
@@ -81,8 +86,13 @@ class ServicesController < ApplicationController
   def downvote
     @service = Service.find(params[:id])
     @voter = current_user || VotingSession.find_or_create_voting_session(request.remote_ip)
-    @service.unliked_by @voter if @voter.voted_up_on? @service
-    @service.downvote_by @voter
+
+    if @voter.voted_down_on? @service
+      @service.undisliked_by @voter
+    else
+      @service.unliked_by @voter if @voter.voted_up_on? @service
+      @service.downvote_by @voter
+    end
 
     render json: build_json_votes(@service, 'downvoted')
   end

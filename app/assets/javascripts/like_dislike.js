@@ -3,29 +3,48 @@ var configureLikeDislike = function(parent){
   upvote.click(function(event){
       var target = $(event.currentTarget).closest('div.likes-container');
       var serviceId = $(target).data('service');
+      var currentClass = 'fa-thumbs-o-up';
+      var newClass = 'fa-thumbs-up';
+     
+      if($(target).find('i').hasClass('fa-thumbs-up')){
+          currentClass = 'fa-thumbs-up';
+          newClass = 'fa-thumbs-o-up';
+      }
+
       $.ajax('/servicos/'+serviceId+'/like', {
           method: 'PUT',
           success: function(data) {
-              switchClasses(target,'i','fa-thumbs-o-up', 'fa-thumbs-up');
+              console.log(data);
+              switchClasses(target,'i',currentClass, newClass);
               switchClasses(target,'i','fa-thumbs-down', 'fa-thumbs-o-down');
+
               updateNumbers(target, data.upvotes, data.downvotes);
-            },
-            error: function() {
-               console.log('Oops');
-            }
+          },
+          error: function() {
+              console.log('Oops');
+          }
       });
   });
 
   var downvote = $(parent).find('.downvote').closest('div');
   downvote.click(function(event){
       var target = $(event.currentTarget).closest('div.likes-container');
-      console.log(target);
       var serviceId = $(target).data('service');
+
+      var currentClass = 'fa-thumbs-o-down';
+      var newClass = 'fa-thumbs-down';
+
+      if($(target).find('i').hasClass('fa-thumbs-down')){
+          currentClass = 'fa-thumbs-down';
+          newClass = 'fa-thumbs-o-down';
+      }
+
       $.ajax('/servicos/'+serviceId+'/dislike', {
           method: 'PUT',
           success: function(data) {
+              console.log(data);
+              switchClasses(target,'i',currentClass, newClass);
               switchClasses(target,'i','fa-thumbs-up', 'fa-thumbs-o-up');
-              switchClasses(target,'i','fa-thumbs-o-down', 'fa-thumbs-down');
               updateNumbers(target, data.upvotes, data.downvotes);
             },
             error: function() {
