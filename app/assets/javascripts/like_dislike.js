@@ -45,7 +45,7 @@ var configureLikeDislike = function(parent){
               console.log(data);
               switchClasses(target,'i',currentClass, newClass);
               switchClasses(target,'i','fa-thumbs-up', 'fa-thumbs-o-up');
-              updateNumbers(target, 0, data.downvotes);
+              updateNumbers(target, data.upvotes, data.downvotes);
             },
             error: function() {
                console.log('Oops');
