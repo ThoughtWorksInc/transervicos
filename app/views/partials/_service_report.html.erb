@@ -9,15 +9,12 @@
       <div class="modal-body">
           <%= f.hidden_field :service_id, required: true %>
           <div class="form-group">
-            <label for="email" class="control-label label-required">
-              Insira seu email:
-            </label>
-            <%= f.text_field(:email, oninvalid: 'this.setCustomValidity("Preencha o email.")', oninput:'setCustomValidity("")', required: true, class: 'form-control') %>
+            <%= f.label :email, "Insira seu email:", class: "control-label label-required" %>
+            <%= f.text_field(:email, id:'report_email', type: 'email', oninput:'setCustomValidity("")', oninvalid: 'this.setCustomValidity("Preencha o email")', required: true, class: 'form-control') %>
+            <span class="error" />
           </div>
           <div class="form-group">
-            <label for="report" class="control-label label-required">
-              Insira a descrição da sua denúncia para este serviço:
-            </label>
+            <%= f.label :detail, "Insira a descrição da sua denúncia para este serviço:", class:"control-label label-required" %>
             <%= f.text_area(:detail, oninput:'setCustomValidity("")', oninvalid: 'this.setCustomValidity("Preencha a descrição.")', required: true, rows: 10, class: 'form-control') %>
           </div>
       </div>
