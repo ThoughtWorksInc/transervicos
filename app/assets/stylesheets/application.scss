@@ -276,6 +276,18 @@ form {
 		font-size: 1.7em;
 	}
 }
+.modal-body{
+  .label-required{
+    padding-left: 0;
+    &:before {
+      content: "\0002A\02009";
+      width: 10px;
+      text-align: right;
+      color: $fuchsia;
+    }
+  }
+}
+
 .btn-search {
   @extend .btn-form;
   padding-right: 20px;
