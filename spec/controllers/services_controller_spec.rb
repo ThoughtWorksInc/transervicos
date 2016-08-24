@@ -151,6 +151,8 @@ RSpec.describe ServicesController, type: :controller do
 
       before :each do
         @request.env['HTTP_REFERER'] = '/services'
+        @user2 = create(:user)
+        sign_in @user2
       end
 
       it 'should return updated service' do
@@ -161,6 +163,13 @@ RSpec.describe ServicesController, type: :controller do
                      action: 'downvoted'
         }
         expect(response.body).to eq(expected.to_json)
+      end
+
+      it 'undislike a service' do
+        put :downvote, id: service.id, user: @user2
+        expect { put :downvote, id: service.id, user: @user2 }.to change {
+          [service.get_downvotes.size, service.get_upvotes.size]
+        }.to([0, 0])
       end
     end
   end
@@ -200,6 +209,13 @@ RSpec.describe ServicesController, type: :controller do
         expect { put :upvote, id: service3.id, user: @user1 }.to change {
           [service3.get_downvotes.size, service3.get_upvotes.size]
         }.to([0, 1])
+      end
+
+      it 'unlike a service' do
+        put :upvote, id: service1.id, user: @user1
+        expect { put :upvote, id: service1.id, user: @user1 }.to change {
+          [service1.get_downvotes.size, service1.get_upvotes.size]
+        }.to([0, 0])
       end
 
       it 'should return updated service' do
