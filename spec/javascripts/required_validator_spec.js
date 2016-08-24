@@ -31,4 +31,14 @@ describe('Required Validator', function() {
       expect(span).toContainText('');
     });
   });
+
+    describe('#validateTextArea', function () {
+        it('should set message and class error when the textarea has a empty value', function () {
+            var parent = $('<div><textarea /><span class="error"/></div>')
+            validateTextArea(parent);
+            var span = parent.find('span');
+            expect(span).toHaveClass('error_required');
+            expect(span).toContainText('O campo é requerido');
+        });
+    });
 });
