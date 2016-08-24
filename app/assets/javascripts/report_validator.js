@@ -8,87 +8,64 @@ $(document).ready(function() {
         validateField($(this).parent());
     });
 
+    authorizeBox.focusout(function() {
+        validateReportAuthorization($(this).parent());
+    });
+
     descriptionField.focusout(function() {
-        validateField($(this).parent());
+        validateTextArea($(this).parent());
     });
 
     emailField.focusout(function() {
-        validateEmailField(this);
+        validateEmailFormat(this);
     });
 
-    $('#report_service_form :submit').click(function(event) {
-        var $inputs = [emailField, descriptionField, authorizeBox];
-        var fails = 0;
-
-        $inputs.each(function() {
-            if(!validateField($(this).parent())){
-                fails++;
-            }
-        });
-
-        if(!!fails || (validateEmailField(emailField) == false)){
-            event.preventDefault();
-        }else{
-            $('#report_service_form').submit();
-        }
-    });
+    submitReport();
 });
 
-var validateEmailField = function (email) {
+var validateEmailFormat = function (email) {
     if(isValidValue($(email))){
         return executeValidation($(email).parent());
     }
 }
 
+var validateReportAuthorization = function(parent){
+    var span = parent.find('span');
 
-// $(document).ready(function() {
-//
-//     $('#btn-submit').click(function(event){
-//         console.log("clicou");
-//         if(validateEmailField() && validateReportAuthorization()){
-//             console.log("ta tudo certo");
-//             $('#report_service_form').submit();
-//         } else{
-//             console.log("ooops");
-//
-//         }
-//
-//
-//     });
-//
-//     // validateEmailField();
-//     // validateReportAuthorization();
-// });
-//
-// var validateEmailField = function () {
-//     var span = $('.error');
-//
-//     $('#report_email').on('input', function() {
-//         if(isValidValue($('#report_email'))){
-//             if(validateEmail($('#report_email').val())){
-//                 setMessageAndClass(span, '', 'error');
-//                 return true;
-//             }
-//             else {
-//                 setMessageAndClass(span, "E-mail incorreto", 'error_required');
-//                 return false;
-//             }
-//         }
-//     });
-// }
-//
-// var validateReportAuthorization = function(){
-//
-//     var authorizeSpan = $('.authorize-error');
-//     $('#authorize-report').on('input', function() {
-//         if ($('#authorize-report:checked').length > 0) {
-//             console.log("is checked");
-//             setMessageAndClass(authorizeSpan, '', 'authorize-error');
-//             return true;
-//         } else {
-//             console.log("unchecked");
-//             setMessageAndClass(authorizeSpan, 'Por favor, autorize o envio da denúncia', 'error_required');
-//             return false;
-//         }
-//     });
-// }
+    if ($('#authorize-report:checked').length > 0) {
+        setMessageAndClass(span, '', 'error');
+        return true;
+    } else {
+        setMessageAndClass(span, 'Por favor, autorize o envio da denúncia', 'error_required');
+        return false;
+    }
+}
+
+var submitReport = function(){
+    $('#report_service_form :submit').click(function(event) {
+        var $inputs = $('#report_service_form .form-control');
+        var fails = 0;
+
+        $inputs.each(function() {
+            if($(this).is("textarea")){
+                if(!validateTextArea($(this).parent())){
+                    fails++;
+                }
+            } else{
+                if(!validateField($(this).parent())){
+                    fails++;
+                }
+            }
+        });
+
+        if(!validateEmailFormat($('#report_email')) || !validateReportAuthorization($('#authorize-report').parent())){
+            fails++;
+        }
+
+        if(!!fails){
+            event.preventDefault();
+        }else{
+            $('#report_service_form').submit();
+        }
+    });
+}

@@ -14,12 +14,12 @@
             <span class="error"> </span>
           </div>
           <div class="form-group">
-            <%= f.label :detail, "Insira a descrição da sua denúncia para este serviço:", class:"control-label label-required" %>
-            <%= f.text_area(:detail, id:'description', rows: 10, class: 'form-control') %>
+            <%= f.label :detail, "Insira a descrição da sua denúncia para este serviço (máximo 255 caracteres):", class:"control-label label-required" %>
+            <%= f.text_area(:detail, id:'description', rows: 10, class: 'form-control', maxlength: "255") %>
             <span class="error"> </span>
           </div>
-          <div class="form-group">se
-            <%= f.check_box :privacy, :id =>"authorize-report"%>
+          <div class="form-group">
+            <%= f.check_box :authorize, :id =>"authorize-report" %>
             <%= f.label "Autorizo o envio da denúncia",:for => "authorize-report" %>
             <span class="error"> </span>
           </div>
