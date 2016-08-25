@@ -10,7 +10,7 @@ var executeValidation = function(parent) {
         setMessageAndClass(span, '', 'error');
         return true;
     }else{
-        setMessageAndClass(span, 'O correo é inválido', 'error_required');
+        setMessageAndClass(span, 'O e-mail informado é inválido', 'error_required');
         return false;
   }
 }

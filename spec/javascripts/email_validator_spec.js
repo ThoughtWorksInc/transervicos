@@ -13,7 +13,7 @@ describe('EmailValidator', function() {
       executeValidation(parent);
       var span = parent.find('span');
       expect(span).toHaveClass('error_required');
-      expect(span).toContainText('O correo é inválido');
+      expect(span).toContainText('O e-mail informado é inválido');
     });
   });
 });
