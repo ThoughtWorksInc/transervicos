@@ -8,7 +8,7 @@ class ReportsController < ApplicationController
   end
 
   def send_mail_report(report)
-    TransMailer.send_mail_report(report).deliver
+    TransMailer.send_mail_report(report).deliver_now
   end
 
   def find_reports_by_service
