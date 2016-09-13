@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe ReportsController, type: :controller do
+  before :each do
+    ENV.stub(:[]).with('MAILER_USERNAME').and_return('no-reply@transervicos.com')
+  end
+
   describe 'POST #create' do
     it 'creates a new report' do
       service = create(:service)
