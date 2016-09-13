@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'amenegot@thoughtworks.com'
-  layout 'mailer'
+  default from: ENV['MAILER_USERNAME']
+  layout 'send_mail_report'
 end
