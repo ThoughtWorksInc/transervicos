@@ -26,8 +26,8 @@
           </div>
         </div>
         <div class="col-sm-8">
-          <%= link_to service do %>
-            <i class="fa fa-arrow-right btn-go pull-right"></i>
+          <%= link_to service, class: "btn-go pull-right", "aria-label": "Ver detalhes", title: "Ver detalhes" do %>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
           <% end %>
           <div class="panel-body info">
             <div class="desc font1-2x">
