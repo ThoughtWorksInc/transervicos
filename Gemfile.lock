@@ -98,7 +98,8 @@ GEM
       tilt
     health-monitor-rails (4.1.0)
       rails (>= 3.2)
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jasmine (2.4.0)
       jasmine-core (~> 2.4)
       phantomjs
