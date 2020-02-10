@@ -13,7 +13,7 @@ gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.10'
 gem 'jasny-bootstrap-rails'
 
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'simple_form'
