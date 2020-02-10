@@ -35,7 +35,7 @@ gem 'tunemygc'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.9'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'capybara'
