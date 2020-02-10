@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.2.2'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
-gem 'jbuilder', '~> 2.9'
+gem 'jbuilder', '~> 2.10'
 gem 'jasny-bootstrap-rails'
 
 gem 'sass-rails', '~> 5.0'
