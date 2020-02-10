@@ -18,7 +18,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'simple_form'
 gem 'devise'
-gem 'cancancan', '~> 1.10'
+gem 'cancancan', '~> 3.0'
 gem 'rails_admin'
 gem 'acts_as_votable', '~> 0.12.1'
 
