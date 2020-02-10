@@ -277,7 +277,7 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tunemygc (1.0.68)
+    tunemygc (1.0.71)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.6)
