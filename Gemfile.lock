@@ -48,7 +48,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     builder (3.2.4)
-    byebug (8.2.1)
+    byebug (10.0.2)
     cancancan (1.13.1)
     capybara (2.6.0)
       addressable
