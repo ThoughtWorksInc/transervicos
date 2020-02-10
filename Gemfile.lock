@@ -144,7 +144,7 @@ GEM
     minitest (5.14.0)
     multi_json (1.11.2)
     nested_form (0.3.2)
-    newrelic_rpm (3.16.0.318)
+    newrelic_rpm (6.8.0.360)
     nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
