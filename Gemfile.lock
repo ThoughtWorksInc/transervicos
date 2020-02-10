@@ -281,9 +281,8 @@ GEM
       coffee-rails
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.5.0)
     warden (1.2.7)
       rack (>= 1.0)
