@@ -6,7 +6,7 @@ gem 'pg'
 gem 'rake', '~> 13.0.1'
 
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2.2'
+gem 'coffee-rails', '~> 5.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
