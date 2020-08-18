@@ -2,59 +2,59 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails', '5.2.4.1'
-gem 'pg'
-gem 'rake', '~> 13.0.1'
+gem 'pg', '1.2.2'
+gem 'rake', '13.0.1'
 
 gem 'uglifier', '1.3.0'
 gem 'coffee-rails', '5.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+gem 'jquery-rails', '4.3.5'
+gem 'turbolinks', '5.2.1'
+gem 'jquery-turbolinks', '2.1.0'
 gem 'jbuilder', '2.10'
-gem 'jasny-bootstrap-rails'
+gem 'jasny-bootstrap-rails', '3.1.3'
 
 gem 'sass-rails', '6.0'
 gem 'bootstrap-sass', '3.4.1'
 
-gem 'simple_form'
-gem 'devise'
+gem 'simple_form', '5.0.0'
+gem 'devise', '4.7.1'
 gem 'cancancan', '3.0'
-gem 'rails_admin'
+gem 'rails_admin', '2.0.1'
 gem 'acts_as_votable', '0.12.1'
 
 gem 'friendly_id', '5.3.0'
 
-gem 'health-monitor-rails'
+gem 'health-monitor-rails', '8.8.0'
 
-gem 'rubocop'
+gem 'rubocop', '0.68.1'
 
-gem 'will_paginate'
-gem 'will_paginate-bootstrap'
-gem 'newrelic_rpm'
-gem 'tunemygc'
+gem 'will_paginate', '3.2.1'
+gem 'will_paginate-bootstrap', '1.0.2'
+gem 'newrelic_rpm', '6.8.0.360'
+gem 'tunemygc', '1.0.71'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'byebug', '10.0.2'
   gem 'rspec-rails', '3.9'
-  gem 'shoulda'
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'rspec-activemodel-mocks'
+  gem 'shoulda', '3.6.0'
+  gem 'factory_girl_rails', '4.9.0'
+  gem 'capybara', '3.1.1'
+  gem 'rspec-activemodel-mocks', '1.1.0'
 end
 
 group :development do
   gem 'web-console', '3.7'
-  gem 'spring'
+  gem 'spring', '2.0.2'
 end
 
 group :test do
-  gem 'faker'
-  gem 'database_cleaner'
-  gem 'jasmine'
+  gem 'faker', '1.9.1'
+  gem 'database_cleaner', '1.8.2'
+  gem 'jasmine', '2.99.0'
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor', '0.0.3'
 end
 
 group :doc do
