@@ -7,7 +7,7 @@ gem 'rake', '13.0.1'
 
 gem 'uglifier', '1.3.0'
 gem 'coffee-rails', '5.0.0'
-gem 'jquery-rails', '4.3.5'
+gem 'jquery-rails', '4.4.0'
 gem 'turbolinks', '5.2.1'
 gem 'jquery-turbolinks', '2.1.0'
 gem 'jbuilder', '2.10'
