@@ -5,7 +5,7 @@ gem 'rails', '5.2.4.3'
 gem 'pg', '1.2.3'
 gem 'rake', '13.0.1'
 
-gem 'uglifier', '1.3.0'
+gem 'uglifier', '2.7.2'
 gem 'coffee-rails', '5.0.0'
 gem 'jquery-rails', '4.4.0'
 gem 'turbolinks', '5.2.1'
