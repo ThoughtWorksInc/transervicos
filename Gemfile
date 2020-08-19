@@ -19,7 +19,7 @@ gem 'bootstrap-sass', '3.4.1'
 gem 'simple_form', '5.0.0'
 gem 'devise', '4.7.2'
 gem 'cancancan', '3.0'
-gem 'rails_admin', '2.0.1'
+gem 'rails_admin', '2.0.2'
 gem 'acts_as_votable', '0.12.1'
 
 gem 'friendly_id', '5.3.0'
