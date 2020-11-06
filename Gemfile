@@ -22,7 +22,7 @@ gem 'cancancan', '3.1.0'
 gem 'rails_admin', '2.0.2'
 gem 'acts_as_votable', '0.12.1'
 
-gem 'friendly_id', '5.4.0'
+gem 'friendly_id', '5.4.1'
 
 gem 'health-monitor-rails', '8.8.0'
 
