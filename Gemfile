@@ -49,7 +49,7 @@ end
 
 group :test do
   gem 'faker', '1.9.1'
-  gem 'database_cleaner', '1.8.5'
+  gem 'database_cleaner', '2.0.0'
   gem 'jasmine', '2.99.0'
 end
 
