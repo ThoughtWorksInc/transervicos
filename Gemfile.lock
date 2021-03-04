@@ -255,7 +255,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sdoc (2.0.2)
+    sdoc (2.0.4)
       rdoc (>= 5.0)
     shoulda (4.0.0)
       shoulda-context (~> 2.0)
@@ -335,7 +335,7 @@ DEPENDENCIES
   rspec-rails (= 4.0.1)
   rubocop (= 0.68.1)
   sass-rails (= 6.0)
-  sdoc (= 2.0.2)
+  sdoc (= 2.0.4)
   shoulda (= 4.0.0)
   simple_form (= 5.0.0)
   spring (= 2.0.2)
