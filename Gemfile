@@ -58,5 +58,5 @@ group :production do
 end
 
 group :doc do
-  gem 'sdoc', '2.0.2'
+  gem 'sdoc', '2.1.0'
 end
