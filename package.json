@@ -4,7 +4,7 @@
   "description": "Pacotes Node requeridos pelo projeto Transervicos",
   "devDependencies": {
     "grunt": "1.3.0",
-    "grunt-cli": "1.3.2",
+    "grunt-cli": "1.4.3",
     "grunt-karma": "4.0.0",
     "jasmine-core": "3.6.0",
     "karma": "5.2.3",
