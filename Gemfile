@@ -30,7 +30,7 @@ gem 'rubocop', '0.68.1'
 
 gem 'will_paginate', '3.3.0'
 gem 'will_paginate-bootstrap', '1.0.2'
-gem 'newrelic_rpm', '6.13.1'
+gem 'newrelic_rpm', '7.2.0'
 gem 'tunemygc', '1.0.71'
 
 group :development, :test do
