@@ -3,7 +3,7 @@ ruby '2.2.3'
 
 gem 'rails', '5.2.4.4'
 gem 'pg', '1.2.3'
-gem 'rake', '13.0.1'
+gem 'rake', '13.0.6'
 
 gem 'uglifier', '4.2.0'
 gem 'coffee-rails', '5.0.0'
